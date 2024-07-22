@@ -1,0 +1,56 @@
+es:
+  views:
+      admin:
+        user_management: User management
+        username: Username
+        admin_role: Administrator
+      body:
+        index:
+          items: Items
+        add_items:
+          previous_inflow: Entrada Previa
+          previous_total: Total Previo
+          new_items: Nuevos Ítems
+        pages:
+          statistics:
+            balance: Balance
+            exp_per_supplier: Costos por proveedor/a
+            gross_income: Ingreso en bruto
+            percentage: Porcentaje
+            quantity: Cantidad
+            sales_per_product: Ventas por producto
+            supplier_name: Proveedor/a
+            supplier_op_ex: Costos
+            supply_name: Insumo
+            total: Total
+            total_expenses: Costos totales
+            total_cogs: Costo total de bienes para la venta
+            total_operative_expenses: Costos operativos totales
+          take:
+            balance: Balance
+            cash_inflows: Entradas en efectivo
+            cash_outflows: Salidas en efectivo
+            cash_inflows_total: Total de entradas en efectivo
+            cash_outflows_total: Total de salidas en efectivo
+            cash_total: Total en efectivo
+        show:
+          history: Historial de transacciones
+          date: Creado el
+        payment_method:
+          cash: Efectivo
+          debit: Débito
+          credit: Crédito
+          pay_pal: Mercado Pago
+        unit:
+          kg: kg
+          u: u
+          ars: $
+      headers:
+        edit: Editar %{model}
+        add_items: Agregar ítems a %{model}
+        pages:
+          statistics: Estadísticas
+          take: Caja
+        products:
+          mass_stock: Actualizar stock
+        notifications: Alertas del sistema

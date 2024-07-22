@@ -28,4 +28,298 @@
 #       enabled: "ON"
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      inflows:
+        total: Total
+        payment_method: Payment method
+        created_at: Created at
+        last_updated: Last updated at
+      inflow_items:
+        inflow_id: Inflow ID
+        product_id: Product
+        quantity: Quantity
+      notifications:
+        title: Title
+        text: Content
+      outflows:
+        payment_method: Payment method
+        items: Items
+        notes: Notes
+        paid: Paid
+        supplier_id: Supplier
+        total: Total
+        created_at: Created at
+        last_updated: Last updated at
+      outflow_items:
+        outflow_id: Outflow
+        quantity: Quantity
+        supply_id: Supply
+      products:
+        name: Name
+        notification_threshold: Notification Threshold
+        price: Price
+        stock: Stock
+        unit: Unit
+      reminders:
+        done: Done
+        text: Text
+        title: Title
+        due_date: Due Date
+      supplies:
+        name: Name
+        price: Price
+        stock: Stock
+        unit: Unit
+      suppliers:
+        account_balance: Account balance
+        name: Name
+        notification_threshold: Notification Threshold
+        phone_number: Phone number
+      supply_product_links:
+        product_id: Product
+        supply_id: Supply
+    controllers:
+       actions:
+        created: " %{model_name} was successfully created."
+        destroyed: " %{model_name} was successfully deleted."
+        stock_updated: Stock was successfully updated.
+        updated: " %{model_name} was successfully updated."
+        failed: " %{model_name} failed to be created."
+        expanded: "Items were added successfully to %{model_name}."
+    errors:
+      messages:
+        record_invalid: 'Validation failed: %{errors}'
+        restrict_dependent_destroy:
+          has_many: Cannot delete record because dependent %{record} exist
+          has_one: Cannot delete record because a dependent %{record} exists
+        due_date: Due date cannot be in the past
+    models:
+      inflow:
+        one: Inflow
+        other: Inflows
+      inflow_item:
+        one: Inflow item
+        other: Inflow items
+      notification:
+        one: Notification
+        other: Notifications
+      outflow:
+        one: Outflow
+        other: Outflows
+      outflow_item:
+        one: Outflow item
+        other: Outflow items
+      product:
+        one: Product
+        other: Products
+      reminder:
+        one: Reminder
+        other: Reminders
+      supplier:
+        one: Supplier
+        other: Suppliers
+      supply:
+        one: Supply
+        other: Supplies
+      supply_product_link:
+        one: Supply-to-Product Link
+        other: Supply-to-Product Links
+  date:
+    abbr_day_names:
+    - Sun
+    - Mon
+    - Tue
+    - Wed
+    - Thu
+    - Fri
+    - Sat
+    abbr_month_names:
+    - Jan
+    - Feb
+    - Mar
+    - Apr
+    - May
+    - Jun
+    - Jul
+    - Aug
+    - Sep
+    - Oct
+    - Nov
+    - Dec
+    day_names:
+    - Sunday
+    - Monday
+    - Tuesday
+    - Wednesday
+    - Thursday
+    - Friday
+    - Saturday
+    formats:
+      default: "%d/%m/%Y"
+      long: "%A %d of %m, %Y"
+      short: "%d/%m"
+    month_names:
+    - January
+    - February
+    - March
+    - April
+    - May
+    - June
+    - July
+    - August
+    - September
+    - October
+    - November
+    - December
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: about 1 hour
+        other: about %{count} hours
+      about_x_months:
+        one: about 1 month
+        other: about %{count} months
+      about_x_years:
+        one: about 1 year
+        other: about %{count} years
+      almost_x_years:
+        one: almost 1 year
+        other: almost %{count} years
+      half_a_minute: half a minute
+      less_than_x_seconds:
+        one: less than 1 second
+        other: less than %{count} seconds
+      less_than_x_minutes:
+        one: less than a minute
+        other: less than %{count} minutes
+      over_x_years:
+        one: over 1 year
+        other: over %{count} years
+      x_seconds:
+        one: 1 second
+        other: "%{count} seconds"
+      x_minutes:
+        one: 1 minute
+        other: "%{count} minutes"
+      x_days:
+        one: 1 day
+        other: "%{count} days"
+      x_months:
+        one: 1 month
+        other: "%{count} months"
+      x_years:
+        one: 1 year
+        other: "%{count} years"
+    prompts:
+      second: Second
+      minute: Minute
+      hour: Hour
+      day: Day
+      month: Month
+      year: Year
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: must be accepted
+      blank: can't be blank
+      confirmation: doesn't match %{attribute}
+      empty: can't be empty
+      equal_to: must be equal to %{count}
+      even: must be even
+      exclusion: is reserved
+      greater_than: must be greater than %{count}
+      greater_than_or_equal_to: must be greater than or equal to %{count}
+      inclusion: is not included in the list
+      invalid: is invalid
+      less_than: must be less than %{count}
+      less_than_or_equal_to: must be less than or equal to %{count}
+      model_invalid: 'Validation failed: %{errors}'
+      not_a_number: is not a number
+      not_an_integer: must be an integer
+      odd: must be odd
+      other_than: must be other than %{count}
+      present: must be blank
+      required: must exist
+      taken: has already been taken
+      too_long:
+        one: is too long (maximum is 1 character)
+        other: is too long (maximum is %{count} characters)
+      too_short:
+        one: is too short (minimum is 1 character)
+        other: is too short (minimum is %{count} characters)
+      wrong_length:
+        one: is the wrong length (should be 1 character)
+        other: is the wrong length (should be %{count} characters)
+    template:
+      body: 'There were problems with the following fields:'
+      header:
+        one: 1 error prohibited this %{model} from being saved
+        other: "%{count} errors prohibited this %{model} from being saved"
+  number:
+    currency:
+      format:
+        delimiter: ","
+        format: "%u%n"
+        precision: 2
+        separator: "."
+        significant: false
+        strip_insignificant_zeros: false
+        unit: "$"
+    format:
+      delimiter: ","
+      precision: 3
+      separator: "."
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion: Billion
+          million: Million
+          quadrillion: Quadrillion
+          thousand: Thousand
+          trillion: Trillion
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          eb: EB
+          gb: GB
+          kb: KB
+          mb: MB
+          pb: PB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n%"
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: ", and "
+      two_words_connector: " and "
+      words_connector: ", "
+  time:
+    am: am
+    formats:
+      default: "%a, %d/%m/%Y %H:%M:%S"
+      long: "%d/%m/%Y, %H:%M:%S"
+      short: "%d/%m/%y %H:%M"
+    pm: pm
+
