@@ -1,2 +1,16 @@
+// Set or import your override variables
+
+// Import Bootswatch theme variables (which should be in a partial in /stylesheets)
+@import "variables";
+
+// Then bootstrap itself
 @import 'bootstrap/scss/bootstrap';
+
+// Bootstrap body padding for fixed navbar
+// body { padding-top: 60px; }
+
+// And finally bootswatch style itself (which should be in a partial in /stylesheets)
+@import "bootswatch";
+
+// Then the icons
 @import 'bootstrap-icons/font/bootstrap-icons';
