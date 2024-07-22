@@ -50,9 +50,25 @@ gem "bootsnap", require: false
 # Bootstrap themes for a customised frontend
 gem "bootswatch", github: "thomaspark/bootswatch"
 
+# Pagination
+gem 'kaminari'
+
+# Internationalization
+gem 'rails-i18n', '>= 7.0.1'
+
+#Form helpers
+gem 'simple_form'
+
+# User management and security
+gem 'devise', '4.9.1' 
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
+
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  # gem 'factory_bot_rails' deprecated!
 end
 
 group :development do
