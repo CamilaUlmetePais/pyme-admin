@@ -23,8 +23,10 @@ en:
       user:
         new:
           email: E-mail to sign in.
+          username: Username to sign in.
         edit:
           email: E-mail.
+          username: Username.
     prompts:
       defaults:
         product: Select a product
