@@ -10,7 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_24_182035) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_24_183233) do
+  create_table "outflow_items", force: :cascade do |t|
+    t.float "quantity"
+    t.integer "outflow_id", null: false
+    t.integer "supply_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["outflow_id"], name: "index_outflow_items_on_outflow_id"
+    t.index ["supply_id"], name: "index_outflow_items_on_supply_id"
+  end
+
+  create_table "outflows", force: :cascade do |t|
+    t.float "total"
+    t.integer "payment_method"
+    t.text "notes"
+    t.float "paid"
+    t.integer "supplier_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["supplier_id"], name: "index_outflows_on_supplier_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.float "price"
@@ -54,4 +75,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_24_182035) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "outflow_items", "outflows"
+  add_foreign_key "outflow_items", "supplies"
+  add_foreign_key "outflows", "suppliers"
 end

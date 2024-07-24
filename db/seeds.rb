@@ -54,11 +54,11 @@ Product.create!({name: "Miel", price: 75, unit: 1, stock: 100, notification_thre
 # Inflow.create!({total: 900, payment_method: 0, inflow_items_attributes: [inflow_item6] })
 # Inflow.create!({total: 4010, payment_method: 2, inflow_items_attributes: [
 #   inflow_item7, inflow_item8, inflow_item9, inflow_item10, inflow_item11, inflow_item12, inflow_item13, inflow_item14]})
-# outflow_item1 = {quantity: 500, supply_id: 4, outflow_id: 1 } # subtotal = 500*1=500
-# outflow_item2 = {quantity: 20, supply_id: 7, outflow_id: 2 }  # subtotal = 20*100=2000
-# outflow_item3 = {quantity: 2, supply_id: 8, outflow_id: 2 }   # subtotal = 2*300=600
-# Outflow.create!({total: 500, paid: 500, payment_method: 1, supplier_id: 4, outflow_items_attributes: [outflow_item1]})
-# Outflow.create!({total: 2600, paid: 2600, payment_method: 0 , supplier_id: 1, outflow_items_attributes: 
-#   [outflow_item2, outflow_item3]})
+outflow_item1 = {quantity: 500, supply_id: 4, outflow_id: 1 } # subtotal = 500*1=500
+outflow_item2 = {quantity: 20, supply_id: 7, outflow_id: 2 }  # subtotal = 20*100=2000
+outflow_item3 = {quantity: 2, supply_id: 8, outflow_id: 2 }   # subtotal = 2*300=600
+Outflow.create!({total: 500, paid: 500, payment_method: 1, supplier_id: 4, outflow_items_attributes: [outflow_item1]})
+Outflow.create!({total: 2600, paid: 2600, payment_method: 0 , supplier_id: 1, outflow_items_attributes: 
+  [outflow_item2, outflow_item3]})
 # Reminder.create!(title:"1kg milanesas", text: "Juan pidió un kilo de milanesas de pollo", done: false, due_date: DateTime.now + 10.days)
 # Reminder.create!(title:"3kg alitas", text: "María pidió tres kilos de alitas", done: false, due_date: DateTime.now + 15.days)

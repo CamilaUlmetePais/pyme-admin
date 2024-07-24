@@ -1,0 +1,60 @@
+<%= simple_form_for(@outflow, html: { }) do |f| %>
+  <div>
+    <div>
+      <%= render 'shared/errors', klass: outflow %>
+    </div>
+
+    <div>
+      <div>
+        <%= f.input :total %>
+      </div>
+      <div>
+        <%= f.input :paid %>
+      </div>
+    </div>
+    <div>
+      <div>
+        <%= f.input :supplier_id, collection: @suppliers %>
+      </div>
+      <div>
+        <%= f.input :payment_method, collection: [
+            [ I18n.t('views.body.payment_method.cash'), :cash], 
+            [ I18n.t('views.body.payment_method.debit'), :debit], 
+            [ I18n.t('views.body.payment_method.credit'), :credit], 
+            [ I18n.t('views.body.payment_method.pay_pal'), :pay_pal]], 
+          selected: 0 %>
+      </div>
+    </div>
+    <div>
+      <div>
+        <%= f.input :notes %>
+      </div>
+    </div>
+
+    <div>
+      <div>
+        <h4><%= I18n.t('activerecord.models.outflow_item.other') %></h4>
+      </div>
+    </div>
+
+    <div>
+      <div class="outflow_items">
+        <%= f.simple_fields_for :outflow_items do |builder| %>
+          <%= render "outflow_item_fields", f: builder %>
+          <div class="links">
+            <!--button type="button">
+              <%# link_to_add_association I18n.t('helpers.links.new_item'), f, :outflow_items %>
+            </button-->
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div>
+      <button type="button">
+        <%= link_to I18n.t('helpers.buttons.back'), outflows_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')} %>
+      </button>
+      <%= f.button :submit %>
+    </div>
+  </div>
+<% end %>
