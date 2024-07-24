@@ -1,46 +1,49 @@
-<nav>
-  <div>
-    <%= image_tag("logo.png", size:"50x50") %>
-  </div>
+<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+  <div class="container-fluid">
+    <div>
+      <%= image_tag("logo.png", size:"50x50") %>
+    </div>
 
-  <div>
-    <ul>
-      <%# if user_signed_in? %>
-        <li><%#link_to I18n.t('activerecord.models.inflow.other'), inflows_path %></li>
-        <%#if current_user.role >= 2 #manager %>
-          <li><%# link_to	I18n.t('activerecord.models.outflow.other'), outflows_path %></li>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto">
+        <%# if user_signed_in? %>
+          <li class="nav-item"><%#link_to I18n.t('activerecord.models.inflow.other'), inflows_path %></li>
+          <%#if current_user.role >= 2 #manager %>
+            <li class="nav-item"><%# link_to	I18n.t('activerecord.models.outflow.other'), outflows_path %></li>
+          <%# end %>
+          <li class="nav-item"><%#link_to I18n.t('activerecord.models.reminder.other'), reminders_path %>
+          <li class="nav-item"><%= link_to I18n.t('activerecord.models.supply.other'), supplies_path %></li>
+          <li class="nav-item"><%#link_to	I18n.t('activerecord.models.product.other'), products_path %></li>
+          <%#if current_user.role >= 3 #supervisor %>
+            <li class="nav-item"><%# link_to I18n.t('activerecord.models.supply_product_link.other'), supply_product_links_path %></li>
+          <%# end %>
+          <%# if current_user.role >= 4 #owner %>
+            <li class="nav-item"><%# link_to I18n.t('activerecord.models.supplier.other'), suppliers_path %></li>
+            <li class="nav-item"><%# link_to I18n.t('views.headers.pages.statistics'), statistics_path %></li>
+          <%# end %>
+          <%# if current_user.role >= 1 #cashier %>
+            <li class="nav-item"><%# link_to I18n.t('views.headers.pages.take'), take_path %></li>
+          <%# end %>
         <%# end %>
-        <li><%#link_to I18n.t('activerecord.models.reminder.other'), reminders_path %>
-        <li><%link_to I18n.t('activerecord.models.supply.other'), supplies_path %></li>
-        <li><%#link_to	I18n.t('activerecord.models.product.other'), products_path %></li>
-        <%#if current_user.role >= 3 #supervisor %>
-          <li><%# link_to I18n.t('activerecord.models.supply_product_link.other'), supply_product_links_path %></li>
-        <%# end %>
-        <%# if current_user.role >= 4 #owner %>
-          <li><%# link_to I18n.t('activerecord.models.supplier.other'), suppliers_path %></li>
-          <li><%# link_to I18n.t('views.headers.pages.statistics'), statistics_path %></li>
-        <%# end %>
-        <%# if current_user.role >= 1 #cashier %>
-          <li><%# link_to I18n.t('views.headers.pages.take'), take_path %></li>
-        <%# end %>
-      <%# end %>
-      <div>
-        <% if user_signed_in? %>
-          <%= I18n.t('devise.views.logged_in_as')%>  <%= current_user.name %>
-        <% else %>
-          <%= I18n.t('devise.failure.unauthenticated') %>
-        <% end %>
-      </div>
-      <div>
-        <% if user_signed_in? %>
-          <%= link_to I18n.t('devise.views.edit'), edit_user_registration_path %>
-          <%= button_to I18n.t('devise.views.logout'), destroy_user_session_path, method: :delete %>
-        <% else %>
-          <%= link_to I18n.t('devise.views.login'), new_user_session_path %>
-          <%# link_to I18n.t('devise.views.sign_up'), new_user_registration_path %>
-        <% end %>
-      </div>
-    </ul>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            <% if user_signed_in? %>
+              <%= I18n.t('devise.views.logged_in_as')%>  <%= current_user.username %>
+            <% else %>
+              <%= I18n.t('devise.failure.unauthenticated') %>
+            <% end %>
+          </a>
+          <div class="dropdown-menu">
+            <% if user_signed_in? %>
+              <%= link_to I18n.t('devise.views.edit'), edit_user_registration_path, class: 'dropdown-item' %>
+              <%= button_to I18n.t('devise.views.logout'), destroy_user_session_path, method: :delete, class: 'dropdown-item'  %>
+            <% else %>
+              <%= link_to I18n.t('devise.views.login'), new_user_session_path, class: 'dropdown-item'  %>
+              <%= link_to I18n.t('devise.views.sign_up'), new_user_registration_path , class: 'dropdown-item' %>
+            <% end %>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
-
 </nav>
