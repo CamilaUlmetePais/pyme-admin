@@ -1,0 +1,22 @@
+<div>
+	<h1><%= I18n.t('views.headers.products.mass_stock') %></h1>
+
+	<div>
+		<%= simple_form_for :product, url: 'mass_stock_update', authenticity_token: true  do |f| %>
+			<% 8.times do |n| %>
+				<%= f.simple_fields_for :mass_stock do |builder| %>
+					<%= render 'mass_stock_fields', number: n, f: builder %>
+				<% end %>
+			<% end %>
+	</div>
+
+	<div>
+		<button type="button" class="btn btn-outline-primary">
+			<%= link_to I18n.t('helpers.buttons.back'), products_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')} %>
+		</button>
+	
+		<%= f.button :submit, class: "btn-primary" %>
+		<% end %>
+	</div>
+	<br>
+</div>

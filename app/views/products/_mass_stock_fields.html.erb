@@ -1,0 +1,11 @@
+<div>
+  <%# render 'shared/mass_submit_error', notice: notice %>
+  <fieldset>
+      <div class="field">
+        <%= f.input :stock, input_html:{ name: "product[mass_stock][#{number}][stock]", id: "product_mass_stock_#{number}_stock" }  %>
+      </div>
+      <div class="field">
+        <%= f.input :product_id, input_html:{ name: "product[mass_stock][#{number}][product_id]", id: "product_mass_stock_#{number}_product_id" }, collection: @products %>
+      </div>
+  </fieldset>
+</div>

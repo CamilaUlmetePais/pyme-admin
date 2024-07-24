@@ -1,7 +1,7 @@
 class Supply < ApplicationRecord
-	# has_many        :outflow_items
-	# has_many        :outflows, through: :outflow_items
-	# has_many        :suppliers, through: :outflows
+	has_many        :outflow_items
+	has_many        :outflows, through: :outflow_items
+	has_many        :suppliers, through: :outflows
 	alias_attribute :items, :outflow_items
 	validates       :name, :price, :unit, :stock, presence: true
 	validates 			:stock, numericality: true
