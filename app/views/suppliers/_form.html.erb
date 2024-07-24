@@ -1,0 +1,16 @@
+<%= simple_form_for(@supplier, html: {}) do |f| %>
+  <div>
+    <%= f.error_notification %>
+    <%= f.input :name  %>
+    <%= f.input :phone_number %>
+    <%= f.input :account_balance %>
+    <%= f.input :notification_threshold %>
+  </div>
+
+  <div>
+    <button type="button">
+      <%= link_to I18n.t('helpers.buttons.back') , suppliers_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')} %>
+    </button>
+    <%= f.button :submit %>
+  </div>
+<% end %>

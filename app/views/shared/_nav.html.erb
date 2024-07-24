@@ -18,7 +18,7 @@
             <li class="nav-item"><%# link_to I18n.t('activerecord.models.supply_product_link.other'), supply_product_links_path %></li>
           <%# end %>
           <%# if current_user.role >= 4 #owner %>
-            <li class="nav-item"><%# link_to I18n.t('activerecord.models.supplier.other'), suppliers_path %></li>
+            <li class="nav-item"><%= link_to I18n.t('activerecord.models.supplier.other'), suppliers_path %></li>
             <li class="nav-item"><%# link_to I18n.t('views.headers.pages.statistics'), statistics_path %></li>
           <%# end %>
           <%# if current_user.role >= 1 #cashier %>

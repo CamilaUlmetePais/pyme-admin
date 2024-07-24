@@ -1,0 +1,66 @@
+<div class="container-fluid">
+	<h1><%= @supplier.name %></h1>
+
+	<h5><%= I18n.t('activerecord.attributes.suppliers.phone_number') %></h5>
+	<%= @supplier.phone_number %>
+
+	<h5><%= I18n.t('activerecord.attributes.suppliers.account_balance') %></h5>
+	<%= @supplier.account_balance %>
+	<br>
+
+  <button type="button">
+    <%= link_to I18n.t('helpers.buttons.edit'), edit_supplier_path(@supplier) %>
+  </button>
+  <button type="button">
+    <%= link_to I18n.t('helpers.buttons.back'), suppliers_path %>
+  </button>
+
+	<h4><%= I18n.t('views.body.show.history') %></h4>
+
+  <div>
+    <%= simple_form_for(:supplier, html: {}, url: supplier_path(@supplier), method: :get) do |f| %>
+      <%= f.error_notification %>
+      
+      <h5><%= I18n.t('helpers.search.by_date') %></h5>
+        <%= f.input :created_at_from, id: 'created_at_from', placeholder: I18n.t('helpers.search.from'), input_html: {value: ''} %>
+        <%= f.input :created_at_to, id: 'created_at_to', placeholder: I18n.t('helpers.search.to'), input_html: {value: ''} %>
+        <%= f.button :submit, I18n.t('helpers.buttons.search') %>
+    <% end %>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th><%= I18n.t('activerecord.attributes.outflows.total') %></th>
+        <th><%= I18n.t('activerecord.attributes.outflows.paid') %></th>
+        <th><%= I18n.t('activerecord.attributes.outflows.items') %></th>
+        <th><%= I18n.t('views.body.show.date') %></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @transactions.each do |outflow| %>
+        <tr>
+          <td>$<%= outflow.total %></td>
+          <td>$<%= outflow.paid %></td>
+          <td><% outflow.items.each do |item| %>
+                <span><%= item.list %></span>
+              <% end %>
+          </td>
+          <td><%= I18n.l(outflow.created_at, format: :short) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= paginate @transactions %>
+  <br>
+</div>
+
+<!--script>
+  $( function() {
+    $( "#supplier_created_at_from" ).datepicker();
+    $( "#supplier_created_at_to" ).datepicker();
+  } );
+</script-->
