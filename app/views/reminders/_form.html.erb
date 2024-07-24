@@ -1,0 +1,21 @@
+<%= simple_form_for(@reminder, as: :reminder, html: { class: 'form-vertical' },
+    method: :post, url: reminders_path ) do |f| %>
+	<div>
+		<%= f.error_notification %>
+		<%= f.input :title  %>
+		<%= f.input :text %>
+		<%= f.input :due_date, as: :datetime %>
+		<%= f.input :done %>
+	</div>
+
+	<div>
+		<div>
+			<button type="button">
+        <%= link_to I18n.t('helpers.buttons.back'), reminders_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')} %>
+      </button>
+		</div>
+		<div>
+      <%= f.button :submit %>
+		</div>
+	</div>
+<% end %>

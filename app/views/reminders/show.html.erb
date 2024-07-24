@@ -1,0 +1,33 @@
+<div>
+	<div>
+		<%= render 'shared/notice', notice: notice %>
+	</div>
+
+	<div>
+		<div>
+			<div>
+			  <div><h4><%= @reminder.title %></h4></div>
+			  <div>
+			    <p><%= @reminder.text %></p>
+			    <p><%= I18n.t('activerecord.attributes.reminders.due_date') %>:
+			    	<%= I18n.l(@reminder.due_date, format: :short) %></p>
+			    <p><%= I18n.t('activerecord.attributes.reminders.done')%> <%=checkbox(@reminder.done) %></p>
+			  </div>
+			</div>
+		</div>
+	</div>
+
+	<div>
+		<div>
+			<button type="button">
+				<%= link_to I18n.t('helpers.buttons.edit'), edit_reminder_path(@reminder) %>
+			</button>
+		</div>
+		<div>
+			<button type="button">
+				<%= link_to I18n.t('helpers.buttons.back'), reminders_path %>
+			</button>
+		</div>
+	</div>
+
+</div>

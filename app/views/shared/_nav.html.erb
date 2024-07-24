@@ -11,7 +11,7 @@
           <% if current_user.role >= 2 #manager %>
             <li class="nav-item"><%= link_to	I18n.t('activerecord.models.outflow.other'), outflows_path %></li>
           <% end %>
-          <li class="nav-item"><%#link_to I18n.t('activerecord.models.reminder.other'), reminders_path %>
+          <li class="nav-item"><%= link_to I18n.t('activerecord.models.reminder.other'), reminders_path %>
           <li class="nav-item"><%= link_to I18n.t('activerecord.models.supply.other'), supplies_path %></li>
           <li class="nav-item"><%= link_to	I18n.t('activerecord.models.product.other'), products_path %></li>
           <% if current_user.role >= 3 #supervisor %>

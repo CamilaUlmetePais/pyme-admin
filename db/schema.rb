@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_24_184455) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_24_185121) do
   create_table "inflow_items", force: :cascade do |t|
     t.float "quantity"
     t.integer "inflow_id", null: false
@@ -24,6 +24,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_24_184455) do
   create_table "inflows", force: :cascade do |t|
     t.float "total"
     t.integer "payment_method"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.string "title"
+    t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -55,6 +62,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_24_184455) do
     t.integer "unit"
     t.float "stock"
     t.integer "notification_threshold"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reminders", force: :cascade do |t|
+    t.string "title"
+    t.text "text"
+    t.boolean "done"
+    t.datetime "due_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

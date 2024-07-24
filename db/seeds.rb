@@ -60,5 +60,5 @@ outflow_item3 = {quantity: 2, supply_id: 8, outflow_id: 2 }   # subtotal = 2*300
 Outflow.create!({total: 500, paid: 500, payment_method: 1, supplier_id: 4, outflow_items_attributes: [outflow_item1]})
 Outflow.create!({total: 2600, paid: 2600, payment_method: 0 , supplier_id: 1, outflow_items_attributes: 
   [outflow_item2, outflow_item3]})
-# Reminder.create!(title:"1kg milanesas", text: "Juan pidió un kilo de milanesas de pollo", done: false, due_date: DateTime.now + 10.days)
-# Reminder.create!(title:"3kg alitas", text: "María pidió tres kilos de alitas", done: false, due_date: DateTime.now + 15.days)
+Reminder.create!(title:"1kg milanesas", text: "Juan pidió un kilo de milanesas de pollo", done: false, due_date: DateTime.now + 10.days)
+Reminder.create!(title:"3kg alitas", text: "María pidió tres kilos de alitas", done: false, due_date: DateTime.now + 15.days)
