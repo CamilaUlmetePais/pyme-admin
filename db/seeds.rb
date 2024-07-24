@@ -31,9 +31,9 @@ Product.create!({name: "Alitas", price: 80, unit: 0, stock: 100, notification_th
 Product.create!({name: "Pechuga", price: 180, unit: 0, stock: 100, notification_threshold: 5})
 Product.create!({name: "Pata y muslo", price: 150, unit: 0, stock: 100, notification_threshold: 5})
 Product.create!({name: "Miel", price: 75, unit: 1, stock: 100, notification_threshold: 5})
-# SupplyProductLink.create!({product_id: 1 , supply_id: 1})
-# SupplyProductLink.create!({product_id: 2, supply_id: 2})
-# SupplyProductLink.create!({product_id: 3, supply_id: 3})
+SupplyProductLink.create!({product_id: 1 , supply_id: 1})
+SupplyProductLink.create!({product_id: 2, supply_id: 2})
+SupplyProductLink.create!({product_id: 3, supply_id: 3})
 # inflow_item1 = {quantity: 10, product_id: 7, inflow_id: 1 }   # subtotal = 10*150=1500
 # inflow_item2 = {quantity: 5, product_id: 4, inflow_id: 1 }    # subtotal = 5*150=750
 # inflow_item3 = {quantity: 2.35, product_id: 5, inflow_id: 2 } # subtotal = 2.35*80=188

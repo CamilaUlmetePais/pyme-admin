@@ -1,0 +1,32 @@
+<div>
+  <%= render 'shared/notice', notice: notice %>
+  <%= render 'shared/alert', alert: alert %>
+
+  <h2><%= I18n.t('activerecord.models.supply_product_link.other') %></h2>
+   
+  <button type='button'>
+    <%= link_to I18n.t('helpers.links.new_supply_product_link'), new_supply_product_link_path %>
+  </button>
+  
+  <table>
+    <thead>
+      <tr>
+        <th><%= I18n.t('activerecord.attributes.supply_product_links.product_id') %></th>
+        <th><%= I18n.t('activerecord.attributes.supply_product_links.supply_id') %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @supply_product_links.each do |supply_product_link| %>
+        <tr>
+          <td><%= Product.find(supply_product_link.product_id).name %></td>
+          <td><%= Product.find(supply_product_link.supply_id).name %></td>
+          <td>
+            <%= button_to I18n.t('helpers.buttons.destroy'), supply_product_link, method: :delete, data: { turbo_method: :delete, turbo_confirm: I18n.t('helpers.buttons.are_you_sure') }%>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+
+</div>
