@@ -1,0 +1,85 @@
+<div>
+  <h1><%= I18n.t('views.headers.pages.take') %></h1>
+
+  <div>
+    <%= simple_form_for(:pages, html: {}, url: take_path , method: :get) do |f| %>
+      <%= f.error_notification %>
+      <div>
+        <%= f.input :date, id: 'date', placeholder: I18n.t('helpers.search.date')%>
+      </div>
+      <%= f.button :submit, I18n.t('helpers.buttons.search') %>
+    <% end %>
+  </div>
+
+  <div class='row'>
+      <h4><%= I18n.t('activerecord.models.inflow.other') %>: $<%= @variables[:inflow_total] %></h4>
+
+      <h4 class="card-title"><%= I18n.t('views.body.pages.take.cash_inflows') %>: $<%= @variables[:cash_inflows].sum('total') %></h4>
+
+      <table>
+        <thead>
+          <tr>
+            <th><%= I18n.t('activerecord.attributes.inflows.total') %></th>
+            <th><%= I18n.t('views.body.index.items') %></th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @variables[:cash_inflows].each do |inflow| %>
+            <tr>
+              <td>$ <%= inflow.total %></td>
+              <td>
+                <% inflow.items.each do |item| %>
+                  <span><%= item.list %></span>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+    <div>
+      <h4><%= I18n.t('activerecord.models.outflow.other') %>: $<%= @variables[:outflow_total] %></h4>
+
+      <h4><%= I18n.t('views.body.pages.take.cash_outflows') %>: $<%= @variables[:cash_outflows].sum('total') %></h4>
+
+      <table>
+        <thead>
+          <tr>
+            <th><%= I18n.t('activerecord.attributes.outflows.total') %></th>
+            <th><%= I18n.t('activerecord.attributes.outflows.supplier_id') %></th>
+            <th><%= I18n.t('views.body.index.items') %></th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @variables[:cash_outflows].each do |outflow| %>
+            <tr>
+              <td>$<%= outflow.total %></td>
+              <td><%= outflow.supplier.name %></td>
+              <td>
+                <% outflow.items.each do |item| %>
+                  <span><%= item.list %></span>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <div>
+      <h4 class="card-title"><%= I18n.t('views.body.pages.take.balance') %>: $<%= @variables[:inflow_total] - @variables[:outflow_total] %></h4>
+            
+      <h4 class="card-title"><%= I18n.t('views.body.pages.take.cash_total') %>: $<%= @variables[:cash_inflows].sum('total') - @variables[:cash_outflows].sum('total') %></h4>
+    </div>
+  </div>
+</div>
+
+<!--script>
+  $( function() {
+    $( "#pages_date" ).datepicker();
+  } );
+</script-->
