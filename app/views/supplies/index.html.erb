@@ -1,0 +1,47 @@
+<div>
+	<%= render 'shared/notice', notice: notice %>
+	<%= render 'shared/alert', alert: alert %>
+
+	<div>
+			<h1><%= I18n.t('activerecord.models.supply.other') %></h1>
+		
+			<button type="button"><%= link_to I18n.t('helpers.links.new_supply'), new_supply_path %></button>
+	</div>
+
+
+			<table>
+				<thead>
+					<tr>
+						<th><%= I18n.t('activerecord.attributes.supplies.name') %></th>
+						<th><%= I18n.t('activerecord.attributes.supplies.price') %></th>
+						<th><%= I18n.t('activerecord.attributes.supplies.stock') %></th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<% @supplies.order(name: :asc).each do |supply| %>
+						<tr>
+							<td><%= supply.name %></td>
+							<td>$<%= supply.price %></td>
+							<td><%= supply.stock %> <%= supply.unit.upcase %></td>
+							<td>
+                <button type="button">
+                  <%= link_to I18n.t('helpers.buttons.show'), supply_path(supply) %>
+                </button>
+              </td>
+							<td>
+			        	<button type="button">
+			        		<%= link_to I18n.t('helpers.buttons.edit'), edit_supply_path(supply) %>
+			        	</button>
+			        </td>
+			        <td>
+			        	<%= button_to I18n.t('helpers.buttons.destroy'), supply, method: :delete, data: { turbo_method: :delete, turbo_confirm: I18n.t('helpers.buttons.are_you_sure') }%>
+			        </td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+
+	<%= paginate @supplies %>
+	<br>
+</div>
