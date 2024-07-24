@@ -1,0 +1,210 @@
+<div>
+  <div>
+    <h1><%=I18n.t('views.headers.add_items', model: I18n.t('activerecord.models.inflow.one') )%> </h1>
+  </div>
+
+  <div>
+    <h4><%= I18n.t('views.body.add_items.previous_inflow') %></h4>
+    <% @inflow.items.each do |item| %>
+      <p><%= item.receipt_list %></p>
+    <% end %>
+    <h5><%= I18n.t('activerecord.attributes.inflows.cash') %>  <%= @inflow.payment_method.capitalize %></h5>
+    <h5><%= I18n.t('views.body.add_items.previous_total') %>:  $<%= @inflow.total %></h5>
+  </div>
+
+  <div>
+    <div>
+      <%= form_for 'add_items', url: add_items_inflows_path, method: :post do |f| %>
+        <div>
+          <%= render 'shared/errors', klass: @inflow %>
+        </div>
+
+        <div>
+          <h4><%= I18n.t('views.body.add_items.new_items') %></h4>
+        </div>
+
+        <div>
+          <div class="fields">
+            <fieldset>
+              <div id="item-0">
+                <div class="field quantity-0">
+                  <%= f.label :quantity,
+                    I18n.t('activerecord.attributes.inflow_items.quantity')%>
+                  <%= f.number_field :quantity, min: 0.1, step: 0.1,
+                    id: 'inflow_inflow_items_attributes_0_quantity',
+                    name: 'inflow[inflow_items_attributes][0][quantity]' %>
+                </div>
+                <div>
+                  <div class="field product-id-0">
+                    <%= f.label :product_id,
+                      I18n.t('activerecord.attributes.inflow_items.product_id') %>
+                    <%= f.collection_select :product_id, Product.order(:name), :id, :name,
+                      prompt: I18n.t('helpers.select.prompt') %>
+                  </div>
+                </div>
+                <div id="subtotal-0">
+                  subtotal 0
+                </div>
+              </div>
+
+              <div id="item-1">
+                <div class="field quantity-1">
+                  <%= f.label :quantity,
+                    I18n.t('activerecord.attributes.inflow_items.quantity') %>
+                  <%= f.number_field :quantity, min: 0.1, step: 0.1,
+                    id: 'inflow_inflow_items_attributes_1_quantity',
+                    name: 'inflow[inflow_items_attributes][1][quantity]'  %>
+                </div>
+                <div>
+                  <div class="field product-id-1">
+                    <%= f.label :product_id,
+                      I18n.t('activerecord.attributes.inflow_items.product_id') %>
+                    <%= f.collection_select :product_id, Product.order(:name), :id, :name,
+                      prompt: I18n.t('helpers.select.prompt') %>
+                  </div>
+                </div>
+                <div id="subtotal-1">
+                  subtotal 1
+                </div>
+              </div>
+
+              <div id="item-2">
+                <div class="field quantity-2">
+                  <%= f.label :quantity,
+                    I18n.t('activerecord.attributes.inflow_items.quantity') %>
+                  <%= f.number_field :quantity, min: 0.1, step: 0.1,
+                    id: 'inflow_inflow_items_attributes_2_quantity',
+                    name: 'inflow[inflow_items_attributes][2][quantity]'  %>
+                </div>
+                <div class="field product-id-2">
+                  <%= f.label :product_id,
+                    I18n.t('activerecord.attributes.inflow_items.product_id') %>
+                  <%= f.collection_select :product_id, Product.order(:name), :id, :name,
+                    prompt: I18n.t('helpers.select.prompt') %>
+                </div>
+                <div id="subtotal-2">
+                  subtotal 2
+                </div>
+              </div>
+
+              <div id="item-3">
+                <div>
+                  <div class="field quantity-3">
+                    <%= f.label :quantity,
+                      I18n.t('activerecord.attributes.inflow_items.quantity') %>
+                    <%= f.number_field :quantity, min: 0.1, step: 0.1,
+                      id: 'inflow_inflow_items_attributes_3_quantity',
+                      name: 'inflow[inflow_items_attributes][3][quantity]'  %>
+                  </div>
+                </div>
+                <div>
+                  <div class="field product-id-3">
+                    <%= f.label :product_id,
+                      I18n.t('activerecord.attributes.inflow_items.product_id') %>
+                    <%= f.collection_select :product_id, Product.order(:name), :id, :name,
+                      prompt: I18n.t('helpers.select.prompt') %>
+                  </div>
+                </div>
+                <div id="subtotal-3">
+                  subtotal 3
+                </div>
+              </div>
+
+              <div id="item-4">
+                <div class="field quantity-4">
+                  <%= f.label :quantity,
+                    I18n.t('activerecord.attributes.inflow_items.quantity') %>
+                  <%= f.number_field :quantity, min: 0.1, step: 0.1,
+                    id: 'inflow_inflow_items_attributes_4_quantity',
+                    name: 'inflow[inflow_items_attributes][4][quantity]'  %>
+                </div>
+                <div class="field product-id-4">
+                  <%= f.label :product_id,
+                    I18n.t('activerecord.attributes.inflow_items.product_id') %>
+                  <%= f.collection_select :product_id, Product.order(:name), :id, :name,
+                    prompt: I18n.t('helpers.select.prompt') %>
+                </div>
+                <div id="subtotal-4">
+                  subtotal 4
+                </div>
+              </div>
+
+              <div id="item-5">
+                <div class="field quantity-5">
+                  <%= f.label :quantity,
+                    I18n.t('activerecord.attributes.inflow_items.quantity') %>
+                  <%= f.number_field :quantity, min: 0.1, step: 0.1,
+                    id: 'inflow_inflow_items_attributes_5_quantity',
+                    name: 'inflow[inflow_items_attributes][5][quantity]'  %>
+                </div>
+                <div class="field product-id-5">
+                  <%= f.label :product_id,
+                    I18n.t('activerecord.attributes.inflow_items.product_id') %>
+                  <%= f.collection_select :product_id, Product.order(:name), :id, :name,
+                    prompt: I18n.t('helpers.select.prompt') %>
+                </div>
+                <div id="subtotal-5">
+                  subtotal 5
+                </div>
+              </div>
+
+              <div id="item-6">
+                <div class="field quantity-6">
+                  <%= f.label :quantity,
+                    I18n.t('activerecord.attributes.inflow_items.quantity') %>
+                  <%= f.number_field :quantity, min: 0.1, step: 0.1,
+                    id: 'inflow_inflow_items_attributes_6_quantity',
+                    name: 'inflow[inflow_items_attributes][6][quantity]'  %>
+                </div>
+                <div class="field product-id-6">
+                  <%= f.label :product_id,
+                    I18n.t('activerecord.attributes.inflow_items.product_id') %>
+                  <%= f.collection_select :product_id, Product.order(:name), :id, :name,
+                    prompt: I18n.t('helpers.select.prompt') %>
+                </div>
+                <div id="subtotal-6">
+                  subtotal 6
+                </div>
+              </div>
+
+              <div id="item-7">
+                <div class="field quantity-7">
+                  <%= f.label :quantity,
+                    I18n.t('activerecord.attributes.inflow_items.quantity') %>
+                  <%= f.number_field :quantity, min: 0.1, step: 0.1,
+                    id: 'inflow_inflow_items_attributes_7_quantity',
+                    name: 'inflow[inflow_items_attributes][7][quantity]'  %>
+                </div>
+                <div class="field product-id-7">
+                  <%= f.label :product_id,
+                    I18n.t('activerecord.attributes.inflow_items.product_id') %>
+                  <%= f.collection_select :product_id, Product.order(:name), :id, :name,
+                    prompt: I18n.t('helpers.select.prompt') %>
+                </div>
+                <div id="subtotal-7">
+                  subtotal 7
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+
+        <div id="total">
+          Total:
+        </div>
+
+        <div>
+          <div>
+            <button type="button">
+              <%= link_to I18n.t('helpers.buttons.back'), inflows_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')} %>
+            </button>
+          </div>
+          <div>
+            <%= f.submit I18n.t('helpers.submit.add_items',
+              model: I18n.t('activerecord.models.inflow.one') )%>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

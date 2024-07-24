@@ -1,0 +1,82 @@
+<div>
+  <%= render 'shared/notice', notice: notice %>
+  <%= render 'shared/alert', alert: alert %>
+
+  <div>
+    <h1><%= I18n.t('activerecord.models.inflow.other') %></h1>
+    <div>
+      <button type="button">
+        <%= link_to I18n.t('helpers.links.new_inflow'), new_inflow_path %>
+      </button>
+    </div>
+  </div>
+
+  <div>
+    <%= simple_form_for(:inflow, html: {},
+      url: inflows_path, method: :get) do |f| %>
+      <%= f.error_notification %>
+        <h5><%= I18n.t('helpers.search.by_date') %></h5>
+        <%= f.input :created_at_from, id: 'created_at_from', placeholder: I18n.t('helpers.search.from')%>
+        <%= f.input :created_at_to, id: 'created_at_to', placeholder: I18n.t('helpers.search.to') %>
+        <%= f.input :payment_method, collection: [
+            [ I18n.t('views.body.payment_method.cash'), :cash], 
+            [ I18n.t('views.body.payment_method.debit'), :debit], 
+            [ I18n.t('views.body.payment_method.credit'), :credit], 
+            [ I18n.t('views.body.payment_method.pay_pal'), :pay_pal]], 
+          selected: 0 %>
+        <%= f.button :submit, I18n.t('helpers.buttons.search') %>
+    <% end %>
+  </div>
+
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th><%= I18n.t('activerecord.attributes.inflows.total') %></th>
+          <th><%= I18n.t('activerecord.attributes.inflows.payment_method') %></th>
+          <th><%= I18n.t('views.body.index.items') %></th>
+          <th><%= I18n.t('activerecord.attributes.inflows.created_at') %></th>
+          <th><%= I18n.t('activerecord.attributes.inflows.last_updated') %></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @inflows.each do |inflow| %>
+          <tr>
+            <td>$ <%= inflow.total %></td>
+            <td><%= inflow.payment_method.capitalize %></td>
+            <td>
+              <% inflow.items.each do |item| %>
+                <span><%= item.list %></span>
+              <% end %>
+            </td>
+            <td><%= I18n.l(inflow.created_at, format: :short) %></td>
+            <td><%= I18n.l(inflow.updated_at, format: :short) %></td>
+            <td>
+              <button type='button'>
+                <%= link_to I18n.t('helpers.buttons.show'), inflow_path(inflow) %>
+              </button>
+            </td>
+            <td>
+              <button type='button'>
+                <%= link_to I18n.t('helpers.buttons.edit'), edit_inflow_path(inflow) %>
+              </button>
+            </td>
+            <!--td>
+              <button type='button'>
+                <%= link_to I18n.t('helpers.buttons.expand'), expand_inflows_path(inflow) %>
+              </button>
+            </td-->
+            <td>
+              <%= button_to I18n.t('helpers.buttons.destroy'), inflow, method: :delete, data: { turbo_method: :delete, turbo_confirm: I18n.t('helpers.buttons.are_you_sure') }%>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <br>
+  <%= paginate @inflows %>
+  <br>
+</div>

@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_24_183550) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_24_184455) do
+  create_table "inflow_items", force: :cascade do |t|
+    t.float "quantity"
+    t.integer "inflow_id", null: false
+    t.integer "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["inflow_id"], name: "index_inflow_items_on_inflow_id"
+    t.index ["product_id"], name: "index_inflow_items_on_product_id"
+  end
+
+  create_table "inflows", force: :cascade do |t|
+    t.float "total"
+    t.integer "payment_method"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "outflow_items", force: :cascade do |t|
     t.float "quantity"
     t.integer "outflow_id", null: false
@@ -84,6 +101,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_24_183550) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "inflow_items", "inflows"
+  add_foreign_key "inflow_items", "products"
   add_foreign_key "outflow_items", "outflows"
   add_foreign_key "outflow_items", "supplies"
   add_foreign_key "outflows", "suppliers"

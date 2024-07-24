@@ -1,0 +1,43 @@
+<%= simple_form_for(@inflow, html: {}) do |f| %>
+  <div>
+    <div>
+      <%= render 'shared/errors', klass: inflow %>
+    </div>
+    
+    <div>
+      <h4><%= I18n.t('activerecord.models.inflow_item.other') %></h4>
+    </div>
+
+    <div>
+      <%= f.simple_fields_for :inflow_items do |builder| %>
+        <% if action_name == 'edit' %>
+          <%= render "edit_inflow_item_fields", builder: builder, inflow: @inflow %>
+        <% else %>
+          <%= render "inflow_item_fields", builder: builder, inflow: @inflow %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div>
+      <%= f.input :payment_method, collection: [
+        [ I18n.t('views.body.payment_method.cash'), :cash], 
+        [ I18n.t('views.body.payment_method.debit'), :debit], 
+        [ I18n.t('views.body.payment_method.credit'), :credit], 
+        [ I18n.t('views.body.payment_method.pay_pal'), :pay_pal]], 
+      selected: 0 %>
+    </div>
+    
+    <div id="total">
+      <%= I18n.t('activerecord.attributes.inflows.total') %>
+    </div>
+
+    <div>
+      <button type="button">
+        <%= link_to I18n.t('helpers.buttons.back'), inflows_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')} %>
+      </button>
+      <div>
+        <%= f.button :submit %>
+      </div>
+    </div>
+  </div>
+<% end %>

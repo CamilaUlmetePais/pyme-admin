@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item"><%#link_to I18n.t('activerecord.models.inflow.other'), inflows_path %></li>
+          <li class="nav-item"><%= link_to I18n.t('activerecord.models.inflow.other'), inflows_path %></li>
           <% if current_user.role >= 2 #manager %>
             <li class="nav-item"><%= link_to	I18n.t('activerecord.models.outflow.other'), outflows_path %></li>
           <% end %>
