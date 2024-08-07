@@ -5,14 +5,17 @@ class InflowItem < ApplicationRecord
 	validates  :quantity, numericality: { greater_than: 0 }
 
 	def list
-		self.product.name + ": " + self.quantity.to_s + " " + self.product.unit.to_s
+	# formats a string for the index table
+		self.product.name + ": " + trim_zeroes(self.quantity).to_s + " " + self.product.unit.to_s
 	end
 
 	def receipt_list
-		self.product.name + ": " + self.quantity.to_s + self.product.unit + " x $" + self.product.price.to_s + " = $" + (self.product.price * self.quantity).to_s
+	# formats a string for the receipt (inflows/show)
+		self.product.name + ": " + trim_zeroes(self.quantity).to_s + " " + self.product.unit + " x $" + trim_zeroes(self.product.price).to_s + " = " 
 	end
 
 	def subtotal
+	# calculates the item's subtotal (quantity * price)
 		self.quantity * self.product.price
 	end
 
