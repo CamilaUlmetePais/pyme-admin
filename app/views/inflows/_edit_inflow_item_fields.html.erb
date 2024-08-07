@@ -1,9 +1,9 @@
 <div>
-  <fieldset>
-    <div class="field">
+  <fieldset class='row m-2'>
+    <div class="field col-12 col-md-6 col-lg-4 col-xl-3">
       <%= builder.input :quantity %>
     </div>
-    <div class="field">
+    <div class="field col-12 col-md-6 col-lg-4 col-xl-3">
       <%= builder.input :product_id, collection: @products %>
     </div>
   </fieldset>

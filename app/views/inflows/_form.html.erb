@@ -4,7 +4,7 @@
       <%= render 'shared/errors', klass: inflow %>
     </div>
     
-    <div>
+    <div class='m-2'>
       <h4><%= I18n.t('activerecord.models.inflow_item.other') %></h4>
     </div>
 
@@ -18,25 +18,29 @@
       <% end %>
     </div>
 
-    <div>
-      <%= f.input :payment_method, collection: [
-        [ I18n.t('views.body.payment_method.cash'), :cash], 
-        [ I18n.t('views.body.payment_method.debit'), :debit], 
-        [ I18n.t('views.body.payment_method.credit'), :credit], 
-        [ I18n.t('views.body.payment_method.pay_pal'), :pay_pal]], 
-      selected: 0 %>
-    </div>
-    
-    <div id="total">
-      <%= I18n.t('activerecord.attributes.inflows.total') %>
+    <div class='row m-2'>
+      <div class='col-12 col-md-6 col-lg-3'>
+        <%= f.input :payment_method, collection: [
+          [ I18n.t('views.body.payment_method.cash'), :cash], 
+          [ I18n.t('views.body.payment_method.debit'), :debit], 
+          [ I18n.t('views.body.payment_method.credit'), :credit], 
+          [ I18n.t('views.body.payment_method.pay_pal'), :pay_pal]], 
+        selected: 0 %>
+      </div>
+      <div class='col-12 col-md-6 col-lg-3 align-content-center'>
+        <%= I18n.t('activerecord.attributes.inflows.total') %>: 
+        <div class='d-inline-block' id="total"> </div>
+      </div>
     </div>
 
-    <div>
-      <button type="button">
-        <%= link_to I18n.t('helpers.buttons.back'), inflows_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')} %>
-      </button>
-      <div>
-        <%= f.button :submit %>
+    <div class='row mb-4 mt-1 mx-2'>
+      <div class='col-6'>
+        <button type="button" class='btn btn-outline-primary'>
+          <%= link_to I18n.t('helpers.buttons.back'), inflows_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')}, class:'text-decoration-none' %>
+        </button>
+      </div>
+      <div class='col-6'>
+        <%= f.button :submit, class:'btn btn-primary' %>
       </div>
     </div>
   </div>

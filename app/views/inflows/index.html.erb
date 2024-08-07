@@ -1,78 +1,133 @@
-<div>
-  <div>
-    <h1><%= I18n.t('activerecord.models.inflow.other') %></h1>
-    <div>
-      <button type="button">
-        <%= link_to I18n.t('helpers.links.new_inflow'), new_inflow_path %>
+<div class="container">
+  <div class="row pt-1">
+    <h1 class="col-5 col-md-8 col-xl-10"><%= I18n.t('activerecord.models.inflow.other') %></h1>
+
+    <div class="col-7 col-md-4 col-xl-2">
+      <button type="button" class="btn btn-primary btn-lg">
+        <%= link_to I18n.t('helpers.links.new_inflow'), new_inflow_path, class: 'text-white text-decoration-none' %>
       </button>
     </div>
   </div>
 
-  <div>
-    <%= simple_form_for(:inflow, html: {},
-      url: inflows_path, method: :get) do |f| %>
+  <div class="row d-flex py-2">
+    <%= simple_form_for(:inflow, url: inflows_path, method: :get) do |f| %>
       <%= f.error_notification %>
-        <h5><%= I18n.t('helpers.search.by_date') %></h5>
-        <%= f.input :created_at_from, id: 'created_at_from', placeholder: I18n.t('helpers.search.from')%>
-        <%= f.input :created_at_to, id: 'created_at_to', placeholder: I18n.t('helpers.search.to') %>
-        <%= f.input :payment_method, collection: [
-            [ I18n.t('views.body.payment_method.cash'), :cash], 
-            [ I18n.t('views.body.payment_method.debit'), :debit], 
-            [ I18n.t('views.body.payment_method.credit'), :credit], 
-            [ I18n.t('views.body.payment_method.pay_pal'), :pay_pal]], 
-          selected: 0 %>
-        <%= f.button :submit, I18n.t('helpers.buttons.search') %>
+          <div class="col-12 col-md-3 d-inline-block px-2 "><h5><%= I18n.t('helpers.search.by_date') %></h5></div>
+          <div class="col-12 col-md-2 d-inline-block px-2">
+            <%= f.input :created_at_from, id: 'created_at_from', placeholder: I18n.t('helpers.search.from'), label: false %>
+          </div>
+          <div class="col-12 col-md-2 d-inline-block px-2">
+            <%= f.input :created_at_to, id: 'created_at_to', placeholder: I18n.t('helpers.search.to'), label: false %>
+          </div>
+          <div class="col-12 col-md-2 d-inline-block px-2">
+            <%= f.input :payment_method, collection: [
+                [ I18n.t('views.body.payment_method.cash'), :cash], 
+                [ I18n.t('views.body.payment_method.debit'), :debit], 
+                [ I18n.t('views.body.payment_method.credit'), :credit], 
+                [ I18n.t('views.body.payment_method.pay_pal'), :pay_pal]], 
+                selected: 0, label: false %>
+          </div>
+          <div class="col-12 col-md-2 d-inline-block px-2">
+            <%= f.button :submit, I18n.t('helpers.buttons.search'), class: 'btn btn-secondary' %>
+          </div>
     <% end %>
   </div>
 
-  <div>
-    <table>
+  <div class="d-none d-md-block row">
+    <table class="table table-hover">
       <thead>
         <tr>
-          <th><%= I18n.t('activerecord.attributes.inflows.total') %></th>
-          <th><%= I18n.t('activerecord.attributes.inflows.payment_method') %></th>
-          <th><%= I18n.t('views.body.index.items') %></th>
-          <th><%= I18n.t('activerecord.attributes.inflows.created_at') %></th>
-          <th><%= I18n.t('activerecord.attributes.inflows.last_updated') %></th>
-          <th></th>
+          <th scope="col"><%= I18n.t('activerecord.attributes.inflows.total') %></th>
+          <th scope="col"><%= I18n.t('activerecord.attributes.inflows.payment_method') %></th>
+          <th scope="col"><%= I18n.t('views.body.index.items') %></th>
+          <th scope="col"><%= I18n.t('activerecord.attributes.inflows.created_at') %></th>
+          <th scope="col"><%= I18n.t('activerecord.attributes.inflows.last_updated') %></th>
+          <th scope="col"></th>
         </tr>
       </thead>
 
       <tbody>
         <% @inflows.each do |inflow| %>
           <tr>
-            <td>$ <%= inflow.total %></td>
+            <td><%= number_to_currency(inflow.total) %></td>
             <td><%= inflow.payment_method.capitalize %></td>
             <td>
               <% inflow.items.each do |item| %>
-                <span><%= item.list %></span>
+                <span class='badge bg-primary'><%= item.list %></span>
               <% end %>
             </td>
             <td><%= I18n.l(inflow.created_at, format: :short) %></td>
             <td><%= I18n.l(inflow.updated_at, format: :short) %></td>
             <td>
-              <button type='button'>
-                <%= link_to I18n.t('helpers.buttons.show'), inflow_path(inflow) %>
-              </button>
+                <%= link_to I18n.t('helpers.buttons.show'), inflow_path(inflow), class: 'btn btn-info' %>
             </td>
             <td>
-              <button type='button'>
-                <%= link_to I18n.t('helpers.buttons.edit'), edit_inflow_path(inflow) %>
-              </button>
+                <%= link_to I18n.t('helpers.buttons.edit'), edit_inflow_path(inflow), class: 'btn btn-success' %>
             </td>
             <!--td>
-              <button type='button'>
                 <%= link_to I18n.t('helpers.buttons.expand'), expand_inflows_path(inflow) %>
-              </button>
             </td-->
             <td>
-              <%= button_to I18n.t('helpers.buttons.destroy'), inflow, method: :delete, data: { turbo_method: :delete, turbo_confirm: I18n.t('helpers.buttons.are_you_sure') }%>
+              <%= button_to I18n.t('helpers.buttons.destroy'), inflow, class: 'btn btn-danger' , method: :delete, data: { turbo_method: :delete, turbo_confirm: I18n.t('helpers.buttons.are_you_sure')}%>
             </td>
           </tr>
         <% end %>
       </tbody>
     </table>
   </div>
+
+  <div class='d-block d-md-none'>
+    <% @inflows.each do |inflow| %>
+      <div class='card bg-secondary my-2 w-100'>
+        <div class='card-body'>
+          <div class='row py-1'>
+            <div class='col-8'>
+              <%= I18n.t('activerecord.attributes.inflows.total') %>: <%= number_to_currency(inflow.total) %> 
+            </div>
+            <div class='col-4'>
+              <%= inflow.payment_method.capitalize %>
+            </div>
+          </div>
+          <div class='row py-1'>
+            <div class='col-12'>
+              <% inflow.items.each do |item| %>
+                <span class='badge bg-primary'><%= item.list %></span>
+              <% end %>
+            </div>
+          </div>
+          <div class='row py-1'>
+            <div class='col-12'>
+              <span class='text-primary-emphasis'><%= I18n.t('activerecord.attributes.inflows.created_at') %>:</span> 
+              <%= I18n.l(inflow.created_at, format: :short) %>
+            </div>
+          </div>
+          <div class='row py-1'>
+            <div class='col-12'>
+              <span class='text-primary-emphasis'><%= I18n.t('activerecord.attributes.inflows.last_updated') %>: </span> 
+              <%= I18n.l(inflow.updated_at, format: :short) %>
+            </div>
+          </div>
+          <div class='row py-1'>
+            <div class='col'>
+              <%= link_to I18n.t('helpers.buttons.edit'), edit_inflow_path(inflow), class: 'btn btn-success' %>
+            </div>
+            <div class='col'>
+              <%= link_to I18n.t('helpers.buttons.expand'), expand_inflows_path(inflow), class: 'btn btn-success' %>
+            </div>
+          </div>
+          <div class='row py-1'>
+            <div class='col'>
+              <%= link_to I18n.t('helpers.buttons.show'), inflow_path(inflow), class: 'btn btn-info' %>
+            </div>
+            <div class='col'>
+              <%= button_to I18n.t('helpers.buttons.destroy'), inflow, class: 'btn btn-danger' , method: :delete, data: { turbo_method: :delete, turbo_confirm: I18n.t('helpers.buttons.are_you_sure')}%>
+            </div>
+          </div>
+        </div>
+      </div>  
+    <% end %>
+  </div>
+
   <br>
   <%= paginate @inflows %>
   <br>

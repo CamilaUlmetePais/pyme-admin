@@ -1,15 +1,30 @@
-<div>
-  <h3><%= ENV['COMPANY_NAME'] %></h3>
-  <p><%= ENV['COMPANY_OWNER'] %></p>
-  <p><%= ENV['COMPANY_OWNER_CUIT'] %></p>
-  <p><%= ENV['COMPANY_ADDRESS'] %></p>
-  <p><%= ENV['COMPANY_PHONE'] %></p>
-  <p><%= I18n.l(@inflow.created_at, format: :default) %></p>
-  <hr>
-  <% @inflow.items.each do |item| %>
-    <p><%= item.receipt_list %></p>
-  <% end %>
-  <hr>
-  <p><%= I18n.t('activerecord.attributes.inflows.total') %>:  $<%= @inflow.total %></p>
-  <p><%= ENV['PURCHASE_MESSAGE'] %></p>
+<div class='row'>
+  <div class='card border-primary m-3 col-md-8 col-11 m-1 bg-light'>
+    <div class='card-header text-secondary-emphasis'>
+      <%= ENV['RECEIPT_MESSAGE'] %>
+    </div>
+    <div class='card-body'>
+      <h2><%= ENV['COMPANY_NAME'] %></h2>
+      <div class='row text-info'>
+        <p class='card-text col-12 col-md-6 col-lg-6 col-xl-3'><%= ENV['COMPANY_ADDRESS'] %></p>
+        <p class='card-text col-12 col-md-6 col-lg-6 col-xl-3'><%= ENV['COMPANY_PHONE'] %></p>
+        <p class='card-text col-12 col-md-6 col-lg-6 col-xl-3'><%= ENV['COMPANY_OWNER'] %></p>
+        <p class='card-text col-12 col-md-6 col-lg-6 col-xl-3'><%= ENV['COMPANY_OWNER_CUIT'] %></p>
+        <p class='card-text text-info '><%= I18n.l(@inflow.created_at, format: :default) %></p>
+      </div>
+
+      <hr>
+
+      <% @inflow.items.each do |item| %>
+        <p class='card-text'><%= item.receipt_list  + number_to_currency(item.subtotal).to_s  %></p>
+      <% end %>
+
+      <hr>
+
+      <p class='card-text'>
+        <%= I18n.t('activerecord.attributes.inflows.total') %>:  <%= number_to_currency(@inflow.total) %>
+      </p>
+      <h4 class='card-text text-primary-emphasis'><%= ENV['PURCHASE_MESSAGE'] %></h4>
+    </div>
+  </div>
 </div>
