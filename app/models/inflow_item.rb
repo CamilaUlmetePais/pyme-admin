@@ -9,9 +9,14 @@ class InflowItem < ApplicationRecord
 		self.product.name + ": " + trim_zeroes(self.quantity).to_s + " " + self.product.unit.to_s
 	end
 
-	def receipt_list
+	#def receipt_list
 	# formats a string for the receipt (inflows/show)
-		self.product.name + ": " + trim_zeroes(self.quantity).to_s + " " + self.product.unit + " x $" + trim_zeroes(self.product.price).to_s + " = " 
+	#	self.product.name + ": " + trim_zeroes(self.quantity).to_s + " " + self.product.unit + " x $" + trim_zeroes(self.product.price).to_s + " = " 
+	#end
+
+	def show_quantity
+	# cleans up trailing zeroes for the receipt (inflows/show)
+		trim_zeroes(self.quantity)
 	end
 
 	def subtotal

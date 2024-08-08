@@ -2,7 +2,7 @@ es:
   views:
       admin:
         user_management: User management
-        username: Username
+        username: Nombre de usuario
         admin_role: Administrator
       body:
         index:
@@ -36,6 +36,7 @@ es:
         show:
           history: Historial de transacciones
           date: Creado el
+          subtotal: Subtotal
         payment_method:
           cash: Efectivo
           debit: Débito

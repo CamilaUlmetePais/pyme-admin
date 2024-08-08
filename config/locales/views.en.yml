@@ -36,6 +36,7 @@ en:
         show:
           history: Transactions history
           date: Created at
+          subtotal: Subtotal
         payment_method:
           cash: Cash
           debit: Debit
