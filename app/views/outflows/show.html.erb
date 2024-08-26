@@ -9,7 +9,7 @@
   <h4><%= ENV['RECEIPT_MESSAGE'] %></h4>
   <h6><%= @outflow.supplier.name %></h6>
   <% @outflow.items.each do |item| %>
-    <p><%= item.receipt_list %></p>
+    <p><%= item.receipt_list  + number_to_currency(item.subtotal).to_s %></p>
   <% end %>
   <hr>
   <p><%= I18n.t('activerecord.attributes.outflows.total') %>:  $<%= @outflow.total %></p>
