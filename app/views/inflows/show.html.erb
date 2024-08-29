@@ -6,12 +6,12 @@
     <div class='card-body'>
       <div class='row'>
         <h2><%= ENV['COMPANY_NAME'] %></h2>
-        <div class='row text-info'>
+        <div class='row'>
           <p class='card-text col-12'><%= ENV['COMPANY_ADDRESS'] %></p>
           <p class='card-text col-12 col-md-6 col-xl-4'><%= ENV['COMPANY_OWNER'] %></p>
           <p class='card-text col-12 col-md-6 col-xl-4'><%= ENV['COMPANY_OWNER_CUIT'] %></p>
           <p class='card-text col-12 col-xl-4'><%= ENV['COMPANY_PHONE'] %></p>
-          <p class='card-text text-info '><%= I18n.l(@inflow.created_at, format: :default) %></p>
+          <p class='card-text'><%= I18n.l(@inflow.created_at, format: :default) %></p>
         </div>
       </div>
 

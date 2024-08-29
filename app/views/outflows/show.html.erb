@@ -1,17 +1,67 @@
-<div>
-  <h3><%= ENV["COMPANY_NAME"] %></h3>
-  <p><%= ENV['COMPANY_OWNER'] %></p>
-  <p><%= ENV['COMPANY_OWNER_CUIT'] %></p>
-  <p><%= ENV['COMPANY_ADDRESS'] %></p>
-  <p><%= ENV['COMPANY_PHONE'] %></p>
-  <p><%= I18n.l(@outflow.created_at, format: :default) %></p>
-  <hr>
-  <h4><%= ENV['RECEIPT_MESSAGE'] %></h4>
-  <h6><%= @outflow.supplier.name %></h6>
-  <% @outflow.items.each do |item| %>
-    <p><%= item.receipt_list  + number_to_currency(item.subtotal).to_s %></p>
-  <% end %>
-  <hr>
-  <p><%= I18n.t('activerecord.attributes.outflows.total') %>:  $<%= @outflow.total %></p>
-  <p><%= I18n.t('activerecord.attributes.outflows.paid') %>:   $<%= @outflow.paid %></p>
+<div class='row'>
+  <div class='card border-primary m-3 col-11 col-md-8 col-lg-6 m-1 bg-light'>
+    <div class='card-header text-secondary-emphasis'>
+      <%= ENV['RECEIPT_MESSAGE'] %>
+    </div>
+    <div class='card-body'>
+      <div class='row'>
+        <h2><%= ENV['COMPANY_NAME'] %></h2>
+        <div class='row'>
+          <p class='card-text col-12'><%= ENV['COMPANY_ADDRESS'] %></p>
+          <p class='card-text col-12 col-md-6 col-xl-4'><%= ENV['COMPANY_OWNER'] %></p>
+          <p class='card-text col-12 col-md-6 col-xl-4'><%= ENV['COMPANY_OWNER_CUIT'] %></p>
+          <p class='card-text col-12 col-xl-4'><%= ENV['COMPANY_PHONE'] %></p>
+          <p class='card-text'><%= I18n.l(@outflow.created_at, format: :default) %></p>
+        </div>
+      </div>
+
+      <hr>
+      <div class='row table-responsive-sm'>
+        <table class='table table-borderless table-sm'>
+          <thead>
+            <th scope='col'><%= I18n.t('activerecord.attributes.outflow_items.supply_id') %></th>
+            <th scope='col'><%= I18n.t('activerecord.attributes.outflow_items.quantity') %></th>
+            <th scope='col'><%= I18n.t('activerecord.attributes.supplies.price') %></th>
+            <th scope='col'><%= I18n.t('views.body.show.subtotal') %></th>
+          </thead>
+          <tbody>
+            <% @outflow.items.each do |item| %>
+              <tr>
+                <td><%= item.supply.name %></td>
+                <td><%= item.show_quantity %> <%= item.supply.unit %></td>
+                <td><%= number_to_currency(item.supply.price) %></td>
+                <td><%= number_to_currency(item.subtotal) %></td>
+              </tr>
+            <% end %>
+            <tr>
+              <td></td>
+              <td></td>
+              <td class='fs-5 text-decoration-underline'><strong><%= I18n.t('activerecord.attributes.outflows.total') %>:</strong></td>
+              <td class='fs-5 text-decoration-underline'><strong><%= number_to_currency(@outflow.total) %></strong></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td class='fs-5 text-decoration-underline'><strong><%= I18n.t('activerecord.attributes.outflows.paid') %>:</strong></td>
+              <td class='fs-5 text-decoration-underline'><strong><%= number_to_currency(@outflow.paid) %></strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class='row'>
+        <div class='col-12 d-sm-flex justify-content-center'>
+          <h4 class='card-text text-primary-emphasis'><%= ENV['PURCHASE_MESSAGE'] %></h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class='row'>
+  <div class='col-12'>
+    <button type="button" class='btn btn-outline-primary'>
+      <%= link_to I18n.t('helpers.buttons.back'), outflows_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')}, class:'text-decoration-none' %>
+    </button>
+  </div>
 </div>

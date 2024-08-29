@@ -4,19 +4,36 @@
       <%= render 'shared/errors', klass: outflow %>
     </div>
 
-    <div>
-      <div>
-        <%= f.input :total %>
-      </div>
-      <div>
-        <%= f.input :paid %>
-      </div>
+    <div class='m-2'>
+      <h4><%= I18n.t('activerecord.models.outflow_item.other') %></h4>
     </div>
+
     <div>
-      <div>
+      <%= f.simple_fields_for :outflow_items do |builder| %>
+        <%= render "outflow_item_fields", f: builder %>
+        <div class="links">
+          <!--button type="button">
+            <%# link_to_add_association I18n.t('helpers.links.new_item'), f, :outflow_items %>
+          </button-->
+        </div>
+      <% end %>
+    </div>
+
+    <div class='row m-2'>
+      <div class="col-12 col-md-6 col-xl-3 align-content-center">
+        <%= f.input :paid, label: false, input_html: {placeholder: I18n.t('activerecord.attributes.outflows.paid')} %>
+      </div>
+      <div class="col-12 col-md-6 col-xl-3 align-content-center">
+        <%= I18n.t('activerecord.attributes.outflows.total') %>:
+      </div>
+      <div class='d-inline-block' id="total"> </div>
+    </div>
+
+    <div class='row m-2'>
+      <div class='col-12 col-md-6 col-xl-3'>
         <%= f.input :supplier_id, collection: @suppliers %>
       </div>
-      <div>
+      <div class='col-12 col-md-6 col-xl-3'>
         <%= f.input :payment_method, collection: [
             [ I18n.t('views.body.payment_method.cash'), :cash], 
             [ I18n.t('views.body.payment_method.debit'), :debit], 
@@ -25,36 +42,22 @@
           selected: 0 %>
       </div>
     </div>
-    <div>
-      <div>
-        <%= f.input :notes %>
+
+    <div class='row m-2'>
+      <div class='col-12 col-xl-6'>
+        <%= f.input :notes, label: false, input_html: {placeholder: I18n.t('activerecord.attributes.outflows.notes')} %>
       </div>
     </div>
 
-    <div>
-      <div>
-        <h4><%= I18n.t('activerecord.models.outflow_item.other') %></h4>
+    <div class='row mb-4 mt-1 mx-2'>
+      <div class='col-6 col-md-9 col-xl-4'>
+        <button type="button" class='btn btn-outline-primary'>
+          <%= link_to I18n.t('helpers.buttons.back'), outflows_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')}, class:'text-decoration-none' %>
+        </button>
       </div>
-    </div>
-
-    <div>
-      <div class="outflow_items">
-        <%= f.simple_fields_for :outflow_items do |builder| %>
-          <%= render "outflow_item_fields", f: builder %>
-          <div class="links">
-            <!--button type="button">
-              <%# link_to_add_association I18n.t('helpers.links.new_item'), f, :outflow_items %>
-            </button-->
-          </div>
-        <% end %>
+      <div class='col-3'>
+        <%= f.button :submit, class:'btn btn-primary' %>
       </div>
-    </div>
-
-    <div>
-      <button type="button">
-        <%= link_to I18n.t('helpers.buttons.back'), outflows_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')} %>
-      </button>
-      <%= f.button :submit %>
     </div>
   </div>
 <% end %>

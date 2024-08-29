@@ -25,7 +25,7 @@
     <% end %>
   </div>
 
-  <div class="d-none d-md-block row table-responsive" >
+  <div class="d-none d-lg-block row table-responsive" >
     <table class="table table-hover">
       <thead>
         <tr>
@@ -56,13 +56,13 @@
             <td><%= I18n.l(outflow.created_at, format: :short) %></td>
             <td><%= I18n.l(outflow.updated_at, format: :short) %></td>
             <td>
-              <%= link_to I18n.t('helpers.buttons.show'), outflow_path(outflow), class: 'btn btn-info' %>
+              <%= link_to(image_tag("icon_show.svg", size:"23x23", data: {title: I18n.t('helpers.buttons.show')}), outflow_path(outflow), class: 'btn btn-info') %>
             </td>
             <td>
-              <%= link_to I18n.t('helpers.buttons.edit'), edit_outflow_path(outflow), class: 'btn btn-success' %>
+              <%= link_to(image_tag("icon_edit.svg", size: "23x23", data: {title: I18n.t('helpers.buttons.edit')} ), edit_outflow_path(outflow), class: 'btn btn-primary') %>
             </td>
             <td>
-              <%= button_to I18n.t('helpers.buttons.destroy'), outflow, class: 'btn btn-danger', method: :delete, data: { turbo_method: :delete, turbo_confirm: I18n.t('helpers.buttons.are_you_sure') }%>
+              <%= button_to(image_tag("icon_delete.svg", size: "23x23", data: {title: I18n.t('helpers.buttons.destroy')}), outflow, class: 'btn btn-danger', method: :delete, data: { turbo_method: :delete, turbo_confirm: I18n.t('helpers.buttons.are_you_sure') })%>
             </td>
           </tr>
         <% end %>
@@ -70,58 +70,58 @@
     </table>
   </div>
 
-  <div class="d-block d-md-none">
+  <div class="d-block d-lg-none">
     <% @outflows.each do |outflow| %>
       <div class='card border-info my-2 w-100'>
         <div class='card-body'>
           <div class='row p-2 m-1 bg-secondary rounded'>
-            <div class="col-6">
-              <span class="text-decoration-underline"><%=  I18n.t('activerecord.attributes.outflows.total')%>:</span>
+            <div class="col-6 text-decoration-underline">
+              <%=  I18n.t('activerecord.attributes.outflows.total')%>:
             </div>
-            <div class="col-6">
-              <span class="fw-bold"><%= number_to_currency(outflow.total) %></span>
-            </div>
-          </div>
-          <div class='row p-2 m-1 bg-secondary rounded'>
-            <div class="col-6">
-              <span class="text-decoration-underline"><%= I18n.t('activerecord.attributes.outflows.paid') %>:</span>
-            </div>
-            <div class="col-6">
-              <span class="fw-bold"><%= number_to_currency(outflow.paid) %></span> 
+            <div class="col-6 fw-bold">
+              <%= number_to_currency(outflow.total) %>
             </div>
           </div>
           <div class='row p-2 m-1 bg-secondary rounded'>
-            <div class="col-6">
-              <span class="text-decoration-underline"><%= I18n.t('activerecord.attributes.outflows.supplier_id') %>:</span>
+            <div class="col-6 text-decoration-underline">
+              <%= I18n.t('activerecord.attributes.outflows.paid') %>:
             </div>
-            <div class="col-6">
-              <span class="fw-bold"><%= outflow.supplier.name %></span>
+            <div class="col-6 fw-bold">
+              <%= number_to_currency(outflow.paid) %> 
             </div>
           </div>
           <div class='row p-2 m-1 bg-secondary rounded'>
-            <div class="col-6">
-              <span class="text-decoration-underline"><%= I18n.t('activerecord.attributes.outflows.payment_method') %>:</span>
+            <div class="col-6 text-decoration-underline">
+              <%= I18n.t('activerecord.attributes.outflows.supplier_id') %>:
             </div>
-            <div class="col-6">
-              <span class="fw-bold"><%= outflow.payment_method.capitalize %></span>
+            <div class="col-6 fw-bold">
+              <%= outflow.supplier.name %>
+            </div>
+          </div>
+          <div class='row p-2 m-1 bg-secondary rounded'>
+            <div class="col-6 text-decoration-underline">
+              <%= I18n.t('activerecord.attributes.outflows.payment_method') %>:
+            </div>
+            <div class="col-6 fw-bold">
+              <%= outflow.payment_method.capitalize %>
             </div>
           </div>
           
           
           <div class='row p-2 m-1 bg-secondary rounded'>
-            <div class="col-6">
-              <span class='text-decoration-underline'><%= I18n.t('activerecord.attributes.outflows.created_at') %>:</span> 
+            <div class="col-6 text-decoration-underline">
+              <%= I18n.t('activerecord.attributes.outflows.created_at') %>: 
             </div>
-            <div class="col-6">
-              <span class="fst-italic"><%= I18n.l(outflow.created_at, format: :short) %></span>
+            <div class="col-6 fst-italic">
+              <%= I18n.l(outflow.created_at, format: :short) %>
             </div>
           </div>
           <div class='row p-2 m-1 bg-secondary rounded'>
-            <div class="col-6">
-              <span class='text-decoration-underline'><%= I18n.t('activerecord.attributes.outflows.last_updated') %>:</span> 
+            <div class="col-6 text-decoration-underline">
+              <%= I18n.t('activerecord.attributes.outflows.last_updated') %>: 
             </div>
-            <div class="col-6">
-              <span class="fst-italic"><%= I18n.l(outflow.updated_at, format: :short) %></span>
+            <div class="col-6 fst-italic">
+              <%= I18n.l(outflow.updated_at, format: :short) %>
             </div>
           </div>
           
@@ -139,6 +139,17 @@
             <div class="col-12">
               <span class='text-decoration-underline'><%= I18n.t('activerecord.attributes.outflows.notes') %>:</span> 
               <span class="fst-italic"><%= outflow.notes %></span>
+            </div>
+          </div>
+          <div class="row"> 
+            <div class="col-4 d-flex justify-content-center">
+              <%= link_to(image_tag("icon_show.svg", size:"23x23", data: {title: I18n.t('helpers.buttons.show')}), outflow_path(outflow), class: 'btn btn-info') %>
+            </div>
+            <div class="col-4 d-flex justify-content-center">
+              <%= link_to(image_tag("icon_edit.svg", size: "23x23", data: {title: I18n.t('helpers.buttons.edit')} ) , edit_outflow_path(outflow), class: 'btn btn-primary') %>
+            </div>
+            <div class="col-4 d-flex justify-content-center">
+              <%= button_to(image_tag("icon_delete.svg", size: "23x23", data: {title: I18n.t('helpers.buttons.destroy')}), outflow, class: 'btn btn-danger', method: :delete, data: { turbo_method: :delete, turbo_confirm: I18n.t('helpers.buttons.are_you_sure') })%>
             </div>
           </div>
         </div>
