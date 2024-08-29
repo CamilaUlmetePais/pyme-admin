@@ -4,8 +4,8 @@ class Outflow < ApplicationRecord
 	belongs_to 										:supplier
 	alias_attribute 							:items, :outflow_items
 	accepts_nested_attributes_for :outflow_items, allow_destroy: true, reject_if: :all_blank
-	validates 										:total, :paid, :supplier_id, presence: true
-	validates 										:total, :paid, numericality: true
+	validates 										:paid, :supplier_id, presence: true
+	validates 										:paid, numericality: true
 
 	before_update 								:generate_total
   #after_save										:notification_builder, :add_stock
