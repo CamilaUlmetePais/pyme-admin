@@ -1,0 +1,91 @@
+# Additional translations at https://github.com/heartcombo/devise/wiki/I18n
+
+en:
+  devise:
+    confirmations:
+      confirmed: "Tu email fue confirmado con éxito."
+      send_instructions: "Recibirás un correo con instrucciones para confirmar tu dirección de email en unos minutos."
+      send_paranoid_instructions: "Si tu email existe en nuestra base de datos, recibirás un correo con instrucciones para confirmar tu dirección de email en unos minutos."
+    failure:
+      already_authenticated: "Ya iniciaste sesión."
+      inactive: "Tu cuenta aún no está activada."
+      invalid: "%{authentication_keys} o contraseña inválidos."
+      locked: "Tu cuenta está bloqueada."
+      last_attempt: "Tenés un intento más antes que tu cuenta se bloquee."
+      not_found_in_database: "%{authentication_keys} o contraseña inválidos."
+      timeout: "Tu sesión expiró. Por favor iniciá sesión de nuevo para continuar."
+      unauthenticated: "Tenés que iniciar sesión para continuar."
+      unconfirmed: "Tenés que confirmar tu email para continuar."
+    mailer:
+      confirmation_instructions:
+        subject: "Instrucciones de confirmación"
+      reset_password_instructions:
+        subject: "Instrucciones para restablecer contraseña"
+      unlock_instructions:
+        subject: "Instrucciones para desbloquear cuenta"
+      email_changed:
+        subject: "Email cambiado"
+      password_change:
+        subject: "Contraseña cambiada"
+    omniauth_callbacks:
+      failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
+      success: "Successfully authenticated from %{kind} account."
+    passwords:
+      no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
+      send_instructions: "Recibirás un email con instrucciones para restablecer tu contraseña en unos minutos."
+      send_paranoid_instructions: "Si tu email existe en nuestra base de datos, recibirás un correo con un link para restablecer tu contraseña en unos minutos."
+      updated: "Tu contraseña se cambió con éxito. Iniciaste sesión."
+      updated_not_active: "Tu contraseña se cambió con éxito."
+    registrations:
+      destroyed: "Adiós! Tu cuenta ha sido eliminada con éxito."
+      signed_up: "Bienvenido/a! La cuenta ha sido registrada con éxito."
+      signed_up_but_inactive: "La cuenta ha sido registrada con éxito, pero no podemos iniciar tu sesión porque tu cuenta no está activada."
+      signed_up_but_locked: "La cuenta ha sido registrada con éxito, pero no podemos iniciar tu sesión porque tu cuenta está bloqueada."
+      signed_up_but_unconfirmed: "Un correo con un link de confirmación fue enviado a tu email. Por favor, clickeá el link para activar tu cuenta."
+      update_needs_confirmation: "Modificaste tu cuenta con éxito, pero tenemos que verificar tu dirección de email. Por favor revisá tu email y seguí las instrucciones para confirmar tu nueva dirección de email."
+      updated: "Tu cuenta ha sido modificada con éxito."
+      updated_but_not_signed_in: "Tu cuenta ha sido modificada con éxito, pero como tu contraseña cambió, tenés que iniciar sesión de nuevo."
+    sessions:
+      signed_in: "Iniciaste sesión."
+      signed_out: "Cerraste sesión."
+      already_signed_out: "Cerraste sesión."
+    unlocks:
+      send_instructions: "Recibirás un email con instrucciones para desbloquear tu cuenta en unos minutos."
+      send_paranoid_instructions: "Si tu email existe en nuestra base de datos, recibirás un email con instrucciones para desbloquear tu cuenta en unos minutos."
+      unlocked: "Tu cuenta fue desbloqueada con éxito. Iniciá sesión para continuar."
+    views: 
+      # devise.views.
+      logged_in_as: Sesión iniciada como
+      update: Actualizar
+      edit: Edit
+      login: Iniciar sesión
+      logout: Cerrar sesión
+      sign_up: Registrarme
+      username: Nombre de usuario
+      resend_confirmation_instructions: Volver a enviar instrucciones de activación
+      change_password: Cambiar contraseña
+      change_my_password: Cambiar mi contraseña
+      new_password: Nueva contraseña
+      confirm_new_password: Confirmar nueva contraseña
+      forgot_password: ¿Olvidaste tu contraseña?
+      send_reset_instructions: Enviarme instrucciones para restablecer contraseña
+      waiting_confirmation: Esperando confirmación para
+      leave_it_blank: dejá este campo en blanco si no querés cambiarlo
+      current_password: necesitamos tu contraseña actual para confirmar los cambios
+      cancel_account: Cancelar mi cuenta
+      didnt_receive_confirmation: ¿No recibiste instrucciones para confirmar tu cuenta?
+      didnt_receive_unlock: ¿No recibiste instrucciones para desbloquear tu cuenta?
+      resend_unlock_instructions: Volver a enviar instrucciones de desbloqueo
+      
+  errors:
+    messages:
+      already_confirmed: "ya fue confirmado, por favor intentá iniciar sesión"
+      confirmation_period_expired: "tiene que ser confirmado antes de %{period}, por favor solicitá uno nuevo"
+      expired: "expiró, por favor solicitá uno nuevo"
+      not_found: "no encontrado"
+      not_locked: "no estaba bloqueado"
+      not_saved:
+        one: "1 error impidió que este %{resource} fuera guardado:"
+        other: "%{count} errores impidieron que este %{resource} fuera guardado:"
+  
+

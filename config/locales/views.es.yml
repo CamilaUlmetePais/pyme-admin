@@ -1,21 +1,21 @@
 es:
   views:
       admin:
-        user_management: User management
+        user_management: Manejo de usuarios
         username: Nombre de usuario
-        admin_role: Administrator
+        admin_role: Administrador
       body:
         index:
-          items: Items
+          items: Ítems
         add_items:
-          previous_inflow: Entrada Previa
+          previous_inflow: Venta Previa
           previous_total: Total Previo
           new_items: Nuevos Ítems
         pages:
           statistics:
             balance: Balance
             exp_per_supplier: Costos por proveedor/a
-            gross_income: Ingreso en bruto
+            gross_income: Ingresos brutos
             percentage: Porcentaje
             quantity: Cantidad
             sales_per_product: Ventas por producto
@@ -24,7 +24,7 @@ es:
             supply_name: Insumo
             total: Total
             total_expenses: Costos totales
-            total_cogs: Costo total de bienes para la venta
+            total_cogs: Costo total de productos para la venta
             total_operative_expenses: Costos operativos totales
           take:
             balance: Balance
@@ -54,4 +54,5 @@ es:
           take: Caja
         products:
           mass_stock: Actualizar stock
-        notifications: Alertas del sistema
+        system_alerts: Alertas del sistema
+        tasks: Tareas

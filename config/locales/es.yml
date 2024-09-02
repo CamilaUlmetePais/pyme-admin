@@ -13,12 +13,12 @@ es:
         created_at: Creado
         last_updated: Modificado por últ. vez
       inflow_items:
-        inflow_id: ID de entrada
+        inflow_id: Venta
         product_id: Producto
         quantity: Cantidad
       notifications:
         title: Título
-        text: Contenido
+        text: Notificación
       outflows:
         payment_method: Forma de pago
         items: Ítems
@@ -29,7 +29,7 @@ es:
         created_at: Creado
         last_updated: Modificado por últ. vez
       outflow_items:
-        outflow_id: Salida
+        outflow_id: Compra
         quantity: Cantidad
         supply_id: Insumo
       products:
@@ -40,7 +40,7 @@ es:
         unit: Unidad
       reminders:
         done: Listo
-        text: Contenido
+        text: Recordatorio
         title: Título
         due_date: Fecha límite
       supplies:
@@ -73,20 +73,20 @@ es:
         due_date: La fecha límite no puede estar en el pasado
     models:
       inflow:
-        one: Entrada
-        other: Entradas
+        one: Venta
+        other: Ventas
       inflow_item:
-        one: Ítem de entrada
-        other: Ítems de entrada
+        one: Ítem de venta
+        other: Ítems de venta
       notification:
         one: Notificación
         other: Notificaciones
       outflow:
-        one: Salida
-        other: Salidas
+        one: Compra
+        other: Compras
       outflow_item:
-        one: Ítem de salida
-        other: Ítems de salida
+        one: Ítem de compra
+        other: Ítems de compra
       product:
         one: Producto
         other: Productos
@@ -100,8 +100,8 @@ es:
         one: Insumo
         other: Insumos
       supply_product_link:
-        one: Vínculo insumo-producto
-        other: Vínculos insumo-producto
+        one: Vínculo Insumo-Producto
+        other: Vínculos Insumo-Producto
   date:
     abbr_day_names:
     - Dom

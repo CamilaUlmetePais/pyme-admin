@@ -9,7 +9,7 @@ es:
       # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'
     error_notification:
-      default_message: "Por favor revisa los siguientes problemas:"
+      default_message: "Por favor revisá los siguientes problemas:"
     hints:
       defaults:
         username: 'Nombre de usuario para iniciar sesión'
@@ -23,11 +23,14 @@ es:
       user:
         new:
           email: E-mail para iniciar sesión.
+          username: Nombre de usuario para iniciar sesión
         edit:
-          email: E-mail.
+          email: E-mail
+          username: Username
     placeholders:
     prompts:
       defaults:
         product: Seleccioná un producto
         supply: Seleccioná un insumo
         unit: Seleccioná una unidad de medida
+        expense_type: Seleccioná un tipo de gasto

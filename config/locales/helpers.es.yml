@@ -16,11 +16,11 @@ es:
           payment_method: Forma de pago
           total: Total
         inflow_item:
-          inflow_id: ID de entrada
+          inflow_id: Venta
           product_id: Producto
           quantity: Cantidad
         notification:
-          text: Contenido
+          text: Notificación
           title: Título
         outflow:
           total: Total
@@ -29,7 +29,7 @@ es:
           paid: Pagado
           supplier_id: Proveedor/a
         outflow_item:
-          outflow_id: ID de salida
+          outflow_id: Compra
           quantity: Cantidad
           supply_id: Insumo
         product:
@@ -40,7 +40,7 @@ es:
           unit: Unidad
         reminder:
           done: Listo
-          text: Contenido
+          text: Recordatorio
           title: Título
         supplier:
           account_balance: Saldo
@@ -53,14 +53,14 @@ es:
           stock: Stock
           unit: Unidad
         supply_product_link:
-          product: ID de producto
-          supply: ID de insumo
+          product: Producto
+          supply: Insumo
       links:
         auto_stock: Configurar stock automático
-        new_inflow: Nueva Entrada
+        new_inflow: Nueva Venta
         new_item: Nuevo Ítem
         new_notification: Nueva Notificación
-        new_outflow: Nueva Salida
+        new_outflow: Nueva Compra
         new_product: Nuevo Producto
         new_supplier: Nuevo/a Proveedor/a
         new_supply: Nuevo Insumo
@@ -78,3 +78,4 @@ es:
         create: Crear %{model}
         submit: Guardar %{model}
         update: Actualizar %{model}
+        add_items: Agregar a %{model}

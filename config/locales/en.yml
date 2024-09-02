@@ -41,7 +41,7 @@ en:
         quantity: Quantity
       notifications:
         title: Title
-        text: Content
+        text: Notification
       outflows:
         payment_method: Payment method
         items: Items
@@ -63,7 +63,7 @@ en:
         unit: Unit
       reminders:
         done: Done
-        text: Text
+        text: Reminder
         title: Title
         due_date: Due Date
       supplies:

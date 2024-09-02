@@ -16,11 +16,11 @@ en:
         payment_method: Forma de pago
         total: Total
       inflow_item:
-        inflow_id: Inflow ID
+        inflow_id: Inflow
         product_id: Product
         quantity: Quantity
       notification:
-        text: Text
+        text: Notificación
         title: Title
       outflow:
         total: Amount
@@ -29,9 +29,9 @@ en:
         paid: Paid
         supplier_id: Supplier
       outflow_item:
-        outflow_id: Outflow ID
+        outflow_id: Outflow
         quantity: Quantity
-        supply_id: Supply ID
+        supply_id: Supply
       product:
         name: Name
         notification_threshold: Notification Threshold
@@ -40,7 +40,7 @@ en:
         unit: Unit
       reminder:
         done: Done
-        text: Text
+        text: Reminder
         title: Title
       supplier:
         account_balance: Account balance
@@ -53,8 +53,8 @@ en:
         stock: Stock
         unit: Unit
       supply_product_link:
-        product: Product ID
-        supply: Supply ID
+        product: Product
+        supply: Supply
     links:
       auto_stock: Automatic stock configuration
       new_inflow: New Inflow
@@ -79,3 +79,4 @@ en:
       submit: Save %{model}
       update: Update %{model}
       add_items: Add to %{model}
+    

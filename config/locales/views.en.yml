@@ -54,4 +54,5 @@ en:
           take: Take
         products:
           mass_stock: Stock update
-        notifications: System alerts
+        system_alerts: System alerts
+        tasks: Tasks
