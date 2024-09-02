@@ -47,7 +47,7 @@
             <td><%= number_to_currency(outflow.total) %></td>
             <td><%= number_to_currency(outflow.paid) %></td>
             <td><%= outflow.payment_method.capitalize %></td>
-            <td><%= outflow.notes %></td>
+            <td><%= outflow.notes.truncate(30, omission: '... (+)') unless outflow.notes.nil? %></td>
             <td><%= outflow.supplier.name %></td>
             <td><% outflow.items.each do |item| %>
                   <span class='badge bg-primary'><%= item.list %></span>
