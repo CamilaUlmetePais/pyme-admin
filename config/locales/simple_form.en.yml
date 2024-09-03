@@ -32,4 +32,5 @@ en:
         product: Select a product
         supply: Select a supply
         unit: Select a unit of measurement
+        payment_method: Select a payment method
         expense_type: Select an expense type

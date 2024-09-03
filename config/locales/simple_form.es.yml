@@ -33,4 +33,5 @@ es:
         product: Seleccioná un producto
         supply: Seleccioná un insumo
         unit: Seleccioná una unidad de medida
+        payment_method: Seleccioná una forma de pago
         expense_type: Seleccioná un tipo de gasto

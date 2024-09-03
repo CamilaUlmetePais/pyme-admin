@@ -1,6 +1,6 @@
 # Additional translations at https://github.com/heartcombo/devise/wiki/I18n
 
-en:
+es:
   devise:
     confirmations:
       confirmed: "Tu email fue confirmado con éxito."
@@ -57,7 +57,7 @@ en:
       # devise.views.
       logged_in_as: Sesión iniciada como
       update: Actualizar
-      edit: Edit
+      edit: Editar
       login: Iniciar sesión
       logout: Cerrar sesión
       sign_up: Registrarme

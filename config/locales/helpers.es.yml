@@ -2,7 +2,7 @@ es:
   helpers:
       buttons:
         add: Agregar ítem
-        are_you_sure: Estás segure?
+        are_you_sure: Estás seguro/a?
         back: Atrás
         destroy: Eliminar
         edit: Editar
@@ -65,6 +65,7 @@ es:
         new_supplier: Nuevo/a Proveedor/a
         new_supply: Nuevo Insumo
         new_supply_product_link: Nuevo Vínculo Insumo-Producto
+        new_reminder: Nuevo recordatorio
       search:
         by_date: 'Buscar por fecha:'
         from: Fecha desde
