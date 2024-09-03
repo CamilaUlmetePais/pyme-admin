@@ -5,7 +5,7 @@ class Notification < ApplicationRecord
 	def self.stock_alert(product)
 		params = {
 			title: I18n.t('notification.stock_alert.title', product: product.name),
-			text: I18n.t('notification.stock_alert.text', product: product.name, stock: product.stock),
+			text: I18n.t('notification.stock_alert.text', product: product.name, stock: trim_zeroes(product.stock)),
 		}
 		self.create(params)
 	end
@@ -13,11 +13,11 @@ class Notification < ApplicationRecord
 	def self.balance_alert(supplier)
 		difference = supplier.notification_threshold - supplier.account_balance
 		params     = {
-			title: I18n.t('notification.balance_alert.title', supplier: supplier.name),
+			title: I18n.t('notification.balance_alert.title', supplier: supplier.name.capitalize),
 			text: I18n.t('notification.balance_alert.text',
 				supplier: supplier.name,
-				balance: supplier.account_balance,
-				difference: difference
+				balance: number_to_currency(supplier.account_balance),
+				difference: number_to_currency(difference)
 				)
 		}
 		self.create(params)
