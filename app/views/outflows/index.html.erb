@@ -62,7 +62,7 @@
               <%= link_to(image_tag("icon_edit.svg", size: "23x23", data: {title: I18n.t('helpers.buttons.edit')} ), edit_outflow_path(outflow), class: 'btn btn-primary') %>
             </td>
             <td>
-              <%= button_to(image_tag("icon_delete.svg", size: "23x23", data: {title: I18n.t('helpers.buttons.destroy')}), outflow, class: 'btn btn-danger', method: :delete, data: { turbo_method: :delete, turbo_confirm: I18n.t('helpers.buttons.are_you_sure') })%>
+              <%= button_to(image_tag("icon_delete.svg", size: "23x23", data: {title: I18n.t('helpers.buttons.destroy')}), outflow, class: 'btn btn-danger', method: :delete, data: { turbo_method: :delete, turbo_confirm: I18n.t('helpers.buttons.are_you_sure') }) %>
             </td>
           </tr>
         <% end %>

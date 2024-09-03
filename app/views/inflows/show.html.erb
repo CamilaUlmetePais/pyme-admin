@@ -28,7 +28,7 @@
             <% @inflow.items.each do |item| %>
               <tr>
                 <td><%= item.product.name %></td>
-                <td><%= item.show_quantity %> <%= item.product.unit %></td>
+                <td><%= trim_zeroes(item.quantity) %> <%= item.product.unit %></td>
                 <td><%= number_to_currency(item.product.price) %></td>
                 <td><%= number_to_currency(item.subtotal) %></td>
               </tr>
