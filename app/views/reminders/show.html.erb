@@ -1,28 +1,29 @@
-<div>
+<div class="container-fluid ">
 
-	<div>
-		<div>
-			<div>
-			  <div><h4><%= @reminder.title %></h4></div>
-			  <div>
-			    <p><%= @reminder.text %></p>
-			    <p><%= I18n.t('activerecord.attributes.reminders.due_date') %>:
-			    	<%= I18n.l(@reminder.due_date, format: :short) %></p>
-			    <p><%= I18n.t('activerecord.attributes.reminders.done')%> <%=checkbox(@reminder.done) %></p>
-			  </div>
+	<div class="card border-primary mb-3 col-12 col-lg-6 col-xl-5">
+		<div class='card-header'>
+			<%= I18n.t('activerecord.models.reminder.one') %>
+		</div>
+		<div class='card-body'>
+			<div class='card-title'>
+				<h4><%= @reminder.title %></h4>
 			</div>
+			<p class='card-text'><%= @reminder.text %></p>
+			<p class='card-text'><%= I18n.t('activerecord.attributes.reminders.due_date') %>:
+				<%= I18n.l(@reminder.due_date, format: :short) %></p>
+			<p class='card-text'><%= I18n.t('activerecord.attributes.reminders.done')%> <%=checkbox(@reminder.done) %></p>
 		</div>
 	</div>
 
-	<div>
-		<div>
-			<button type="button">
-				<%= link_to I18n.t('helpers.buttons.edit'), edit_reminder_path(@reminder) %>
+	<div class='row'>
+		<div class='col-8 col-md-10 col-lg-5 col-xl-4'>
+			<button type="button" class='btn btn-outline-primary'>
+				<%= link_to I18n.t('helpers.buttons.back'), reminders_path, class:'text-decoration-none' %>
 			</button>
 		</div>
-		<div>
-			<button type="button">
-				<%= link_to I18n.t('helpers.buttons.back'), reminders_path %>
+		<div class='col-2'>
+			<button type="button" class='btn btn-primary'>
+				<%= link_to I18n.t('helpers.buttons.edit'), edit_reminder_path(@reminder), class:'text-white text-decoration-none' %>
 			</button>
 		</div>
 	</div>

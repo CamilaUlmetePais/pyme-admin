@@ -1,21 +1,33 @@
-<%= simple_form_for(@reminder, as: :reminder, html: { class: 'form-vertical' },
-    method: :post, url: reminders_path ) do |f| %>
-	<div>
-		<%= f.error_notification %>
-		<%= f.input :title  %>
-		<%= f.input :text %>
-		<%= f.input :due_date, as: :datetime %>
-		<%= f.input :done %>
-	</div>
-
-	<div>
-		<div>
-			<button type="button">
-        <%= link_to I18n.t('helpers.buttons.back'), reminders_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')} %>
-      </button>
-		</div>
-		<div>
-      <%= f.button :submit %>
-		</div>
-	</div>
-<% end %>
+<div>
+	<fieldset class="row m-2">
+		<%= simple_form_for(@reminder, as: :reminder, html: { class: 'form-vertical' }, method: :post, url: reminders_path ) do |f| %>
+			<%= f.error_notification %>
+			
+			<div class="row col-12 col-lg-6">
+				<%= f.input :title, label: I18n.t('activerecord.attributes.reminders.title')  %>
+			</div>
+			<div class="row col-12 col-lg-6">
+				<%= f.input :text, label: I18n.t('activerecord.attributes.reminders.text') %>
+				</div>
+			<div class="row align-items-center">
+				<div class="col-12 col-md-10 col-lg-5">
+					<%= f.input :due_date, as: :datetime, label: I18n.t('activerecord.attributes.reminders.due_date') %>
+				</div>
+				<div class="col-12 col-md-2 fs-5">
+					<%= f.input :done, as: :boolean, label: I18n.t('activerecord.attributes.reminders.done') %>
+				</div>
+			</div>
+			
+			<div class='row mb-4 mt-1'>
+				<div class='col-6 col-md-9 col-xl-4'>
+					<button type="button" class='btn btn-outline-primary'>
+						<%= link_to I18n.t('helpers.buttons.back'), reminders_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')}, class:'text-decoration-none' %>
+					</button>
+				</div>
+				<div class='col-3'>
+					<%= f.button :submit, class:'btn btn-primary' %>
+				</div>
+			</div>
+		<% end %>
+	</fieldset>
+</div>

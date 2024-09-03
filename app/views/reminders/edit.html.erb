@@ -1,31 +1,6 @@
 <div>
-	<div>
+	<div class='m-2'>
 		<h1><%= I18n.t('views.headers.edit', model: I18n.t('activerecord.models.reminder.one') ) %></h1>
 	</div>
-
-	<div>
-		<%= simple_form_for(@reminder, as: :reminder, html: { class: 'form-vertical' },
-	method: :patch, url: reminder_path(@reminder) ) do |f| %>
-			<%= f.error_notification %>
-			<%= f.input :title  %>
-			<%= f.input :text %>
-			<%= f.input :due_date, as: :datetime %>
-			<%= f.input :done %>
-			<%= f.button :submit %>
-		<% end %>
-	</div>
-	<br>
-
-	<div>
-		<div>
-			<button type="button">
-				<%= link_to I18n.t('helpers.buttons.show'), reminder_path(@reminder) %>
-			</button>
-		</div>
-		<div>
-			<button type="button">
-				<%= link_to I18n.t('helpers.buttons.back'), reminders_path %>
-			</button>
-		</div>
-	</div>
+	<%= render 'form', reminder: @reminder %>
 </div>
