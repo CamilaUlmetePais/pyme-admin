@@ -31,15 +31,14 @@
 
     <div class='row m-2'>
       <div class='col-12 col-md-6 col-xl-3'>
-        <%= f.input :supplier_id, collection: @suppliers %>
+        <%= f.input :supplier_id, collection: @suppliers, label: I18n.t('activerecord.attributes.outflows.supplier_id') %>
       </div>
       <div class='col-12 col-md-6 col-xl-3'>
         <%= f.input :payment_method, collection: [
             [ I18n.t('views.body.payment_method.cash'), :cash], 
             [ I18n.t('views.body.payment_method.debit'), :debit], 
             [ I18n.t('views.body.payment_method.credit'), :credit], 
-            [ I18n.t('views.body.payment_method.pay_pal'), :pay_pal]], 
-          selected: 0 %>
+            [ I18n.t('views.body.payment_method.pay_pal'), :pay_pal]], label: I18n.t('activerecord.attributes.outflows.payment_method') %>
       </div>
     </div>
 
