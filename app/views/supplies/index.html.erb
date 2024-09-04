@@ -1,44 +1,83 @@
-<div>
-	<div>
-			<h1><%= I18n.t('activerecord.models.supply.other') %></h1>
-		
-			<button type="button"><%= link_to I18n.t('helpers.links.new_supply'), new_supply_path %></button>
-	</div>
-
-
-			<table>
-				<thead>
-					<tr>
-						<th><%= I18n.t('activerecord.attributes.supplies.name') %></th>
-						<th><%= I18n.t('activerecord.attributes.supplies.price') %></th>
-						<th><%= I18n.t('activerecord.attributes.supplies.stock') %></th>
-					</tr>
-				</thead>
-
-				<tbody>
-					<% @supplies.order(name: :asc).each do |supply| %>
-						<tr>
-							<td><%= supply.name %></td>
-							<td>$<%= supply.price %></td>
-							<td><%= supply.stock %> <%= supply.unit.upcase %></td>
-							<td>
-                <button type="button">
-                  <%= link_to I18n.t('helpers.buttons.show'), supply_path(supply) %>
-                </button>
-              </td>
-							<td>
-			        	<button type="button">
-			        		<%= link_to I18n.t('helpers.buttons.edit'), edit_supply_path(supply) %>
-			        	</button>
-			        </td>
-			        <td>
-			        	<%= button_to I18n.t('helpers.buttons.destroy'), supply, method: :delete, data: { turbo_method: :delete, turbo_confirm: I18n.t('helpers.buttons.are_you_sure') }%>
-			        </td>
-						</tr>
-					<% end %>
-				</tbody>
-			</table>
-
-	<%= paginate @supplies %>
-	<br>
+<div class="row pt-1 mb-3">
+	<h1 class="col-5 col-md-8 col-xl-10"><%= I18n.t('activerecord.models.supply.other') %></h1>
+	
+		<div class="col-7 col-md-4 col-xl-2">
+			<button type="button" class="btn btn-primary btn-lg">
+				<%= link_to I18n.t('helpers.links.new_supply'), new_supply_path, class: 'text-white text-decoration-none' %>
+			</button>
+		</div>
 </div>
+
+<div class="d-none d-lg-block row table-responsive col-12 col-lg-10">
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th scope="col"><%= I18n.t('activerecord.attributes.supplies.name') %></th>
+				<th scope="col"><%= I18n.t('activerecord.attributes.supplies.price') %></th>
+				<th scope="col"><%= I18n.t('activerecord.attributes.supplies.stock') %></th>
+				<th scope="col"></th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<% @supplies.each do |supply| %>
+				<tr>
+					<td><%= supply.name %></td>
+					<td><%= number_to_currency(supply.price) %></td>
+					<td><%= trim_zeroes(supply.stock) %> <%= supply.unit %></td>
+					<td>
+						<%= link_to(image_tag("icon_show.svg", size:"23x23", data: {title: I18n.t('helpers.buttons.show')}), supply_path(supply), class: 'btn btn-info') %>
+					</td>
+					<td>
+						<%= link_to(image_tag("icon_edit.svg", size: "23x23", data: {title: I18n.t('helpers.buttons.edit')} ), edit_supply_path(supply), class: 'btn btn-primary') %>
+					</td>
+					<td>
+						<%= button_to(image_tag("icon_delete.svg", size: "23x23", data: {title: I18n.t('helpers.buttons.destroy')}), supply, class: 'btn btn-danger', method: :delete, data: { turbo_method: :delete, turbo_confirm: I18n.t('helpers.buttons.are_you_sure') }) %>
+					</td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+
+<div class="d-block d-lg-none">
+	<% @supplies.each do |supply| %>
+		<div class='card bg-light border-info my-2 w-100'>
+			<div class='card-body'>
+				<h4><%= supply.name %></h4>
+				<div class='row'>
+					<div class='row col-12 col-md-4 mb-2 align-content-center'>
+						<div class="col-6 col-md-5 text-decoration-underline fw-bold">
+							<%= I18n.t('activerecord.attributes.supplies.price') %>: 
+						</div>
+						<div class="col-6 col-md-7">
+							<%= number_to_currency(supply.price) %>
+						</div>
+					</div>
+					<div class='row col-12 col-md-4 mb-2 align-content-center'>
+						<div class="col-6 col-md-5 text-decoration-underline fw-bold">
+							<%= I18n.t('activerecord.attributes.supplies.stock') %>: 
+						</div>
+						<div class="col-6 col-md-7">
+							<%= trim_zeroes(supply.stock) %> <%= supply.unit %>
+						</div>
+					</div>
+					<div class='row col-12 col-md-4 mb-1 align-content-center'>
+						<div class='col-4 d-flex justify-content-center'>
+							<%= link_to(image_tag("icon_show.svg", size:"23x23", data: {title: I18n.t('helpers.buttons.show')}), supply_path(supply), class: 'btn btn-info') %>
+						</div>
+						<div class='col-4 d-flex justify-content-center'>
+							<%= link_to(image_tag("icon_edit.svg", size: "23x23", data: {title: I18n.t('helpers.buttons.edit')} ), edit_supply_path(supply), class: 'btn btn-primary') %>
+						</div>
+						<div class='col-4 d-flex justify-content-center'>
+							<%= button_to(image_tag("icon_delete.svg", size: "23x23", data: {title: I18n.t('helpers.buttons.destroy')}), supply, class: 'btn btn-danger', method: :delete, data: { turbo_method: :delete, turbo_confirm: I18n.t('helpers.buttons.are_you_sure') }) %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<% end %>
+</div>
+
+<%= paginate @supplies %>
+<br>

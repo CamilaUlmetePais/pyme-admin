@@ -46,7 +46,7 @@ class SuppliesController < ApplicationController
 	end
 
   def show
-    @transactions = @supply.outflow_items.order(:created_at).page(params[:page])
+    @transactions = @supply.outflow_items.order(created_at: :desc).page(params[:page])
   end
 
   def update
