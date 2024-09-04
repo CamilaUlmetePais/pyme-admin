@@ -10,8 +10,8 @@ es:
       inflows:
         total: Total
         payment_method: Forma de pago
-        created_at: Creado
-        last_updated: Modificado por últ. vez
+        created_at: Creado el
+        last_updated: Modificado el
       inflow_items:
         inflow_id: Venta
         product_id: Producto
@@ -26,8 +26,8 @@ es:
         paid: Pagado
         supplier_id: Proveedor/a
         total: Total
-        created_at: Creado
-        last_updated: Modificado por últ. vez
+        created_at: Creado el
+        last_updated: Modificado el
       outflow_items:
         outflow_id: Compra
         quantity: Cantidad
@@ -295,9 +295,9 @@ es:
   time:
     am: am
     formats:
-      default: "%A, %d/%m/%Y %H:%M:%S"
-      long: "%d/%m/%Y, %H:%M:%S"
-      short: "%d/%m/%y %H:%M"
+      long: "%A, %d %b %Y - %H:%M"
+      default: "%d-%m-%Y, %H:%M"
+      short: "%d-%m-%y %H:%M"
     pm: pm
 
 
