@@ -32,7 +32,8 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
             <% if user_signed_in? %>
-              <%= I18n.t('devise.views.logged_in_as')%>  <%= current_user.username %>
+              <span class='d-inline-block d-lg-none d-xl-inline-block'><%= I18n.t('devise.views.logged_in_as')%> <%= current_user.username %></span>
+              <span class='d-none d-lg-inline-block d-xl-none'><%= current_user.username %></span>
             <% else %>
               <%= I18n.t('devise.failure.unauthenticated') %>
             <% end %>
