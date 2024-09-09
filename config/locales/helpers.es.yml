@@ -2,7 +2,7 @@ es:
   helpers:
       buttons:
         add: Agregar ítem
-        are_you_sure: Estás seguro/a?
+        are_you_sure: Cuidado! Esta acción no tiene vuelta atrás.
         back: Atrás
         destroy: Eliminar
         edit: Editar
