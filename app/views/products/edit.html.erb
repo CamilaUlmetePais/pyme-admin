@@ -1,9 +1,6 @@
 <div>
-	<div>
+	<div class='m-2'>
 		<h1><%= I18n.t('views.headers.edit', model: I18n.t('activerecord.models.product.one') ) %></h1>
 	</div>
-
-	<div>
-		<%= render 'form', product: @product %>
-	</div>
+	<%= render 'form', product: @product %>
 </div>

@@ -1,22 +1,38 @@
-<%= simple_form_for(@product, html: {}) do |f| %>
-
-  <div>
-    <%= f.error_notification %>
-    <%= f.input :name  %>
-    <%= f.input :price %>
-    <%= f.input :unit, collection: [
-        [ I18n.t('views.body.unit.kg'), :kg], 
-        [ I18n.t('views.body.unit.u'), :u]
-      ], prompt: I18n.t('simple_form.prompts.defaults.unit') %>
-    <%= f.input :stock %>
-    <%= f.input :notification_threshold %>
-  </div>
-
-  <div>
-    <button type="button">
-      <%= link_to I18n.t('helpers.buttons.back'), products_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')} %>
-    </button>
-    <%= f.button :submit%>
-  </div>
-
-<% end %>
+<div>
+  <fieldset class='row m-2'>
+    <%= simple_form_for(@product, html: {}) do |f| %>
+      <div>
+        <%= f.error_notification %>
+        <div class="row col-12 col-lg-6">
+          <%= f.input :name, label: I18n.t('activerecord.attributes.products.name')  %>
+        </div>
+        <div class="row col-12 col-lg-6">
+          <%= f.input :price, label: I18n.t('activerecord.attributes.products.price') %>
+        </div>
+        <div class="row col-12 col-lg-6">
+          <%= f.input :unit, collection: [
+              [ I18n.t('views.body.unit.kg'), :kg], 
+              [ I18n.t('views.body.unit.u'), :u]
+            ], prompt: I18n.t('simple_form.prompts.defaults.unit'), label: false %>
+        </div>
+        <div class="row col-12 col-lg-6">
+          <%= f.input :stock, label: I18n.t('activerecord.attributes.products.stock') %>
+        </div>
+        <div class="row col-12 col-lg-6">
+          <%= f.input :notification_threshold, label: I18n.t('activerecord.attributes.products.notification_threshold') %>
+        </div>
+      </div>
+    
+      <div class='row mb-4 mt-1'>
+        <div class='col-4 col-md-9 col-lg-4'>
+          <button type="button" class='btn btn-outline-primary'>
+            <%= link_to I18n.t('helpers.buttons.back'), products_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')}, class:'text-decoration-none' %>
+          </button>
+        </div>
+        <div class='col-3'>
+          <%= f.button :submit, class:'btn btn-primary'%>
+        </div>
+      </div>
+    <% end %>
+  </fieldset>
+</div>
