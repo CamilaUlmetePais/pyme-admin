@@ -1,9 +1,12 @@
-<div class="row pt-1 mb-3">
-	<h1 class="col-5 col-md-8 col-xl-10"><%= I18n.t('activerecord.models.supply.other') %></h1>
+<div class="row pt-1 mb-3 justify-content-sm-evenly">
+	<h1 class="col-12 col-md-5 col-xl-7"><%= I18n.t('activerecord.models.supply.other') %></h1>
 	
-		<div class="col-7 col-md-4 col-xl-2">
-			<button type="button" class="btn btn-primary btn-lg">
+		<div class="col-12 col-md-7 col-xl-5">
+			<button type="button" class="btn btn-primary btn-lg m-1">
 				<%= link_to I18n.t('helpers.links.new_supply'), new_supply_path, class: 'text-white text-decoration-none' %>
+			</button>
+			<button type="button" class="btn btn-primary btn-lg m-1">
+				<%= link_to I18n.t('helpers.buttons.update_stock'), mass_stock_supplies_path, class: 'text-white text-decoration-none' %>
 			</button>
 		</div>
 </div>
