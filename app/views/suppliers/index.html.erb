@@ -1,44 +1,96 @@
-<div>
-  <div>
-    <h1><%= I18n.t('activerecord.models.supplier.other') %></h1>
-    
-    <button type="button"><%= link_to I18n.t('helpers.links.new_supplier'), new_supplier_path %></button>
+<div class="row pt-1 mb-3 justify-content-sm-evenly">
+  <h1 class="col-12 col-md-7 col-lg-8 col-xl-9"><%= I18n.t('activerecord.models.supplier.other') %></h1>
+  
+  <div class="col-12 col-md-5 col-lg-4 col-xl-3">
+    <button type="button" class="btn btn-primary btn-lg m-1">
+      <%= link_to I18n.t('helpers.links.new_supplier'), new_supplier_path, class: 'text-white text-decoration-none' %>
+    </button>
   </div>
-
-  <div>
-    <table>
-      <thead>
-        <tr>
-          <th><%= I18n.t('activerecord.attributes.suppliers.name') %></th>
-          <th><%= I18n.t('activerecord.attributes.suppliers.phone_number') %></th>
-          <th><%= I18n.t('activerecord.attributes.suppliers.account_balance') %></th>
-          <th><%= I18n.t('activerecord.attributes.suppliers.notification_threshold') %></th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @suppliers.order(name: :asc).each do |supplier| %>
-          <tr>
-            <td><%= supplier.name %></td>
-            <td><%= supplier.phone_number %></td>
-            <td>$ <%= supplier.account_balance %></td>
-            <td>$ <%= supplier.notification_threshold %></td>
-            <td>
-              <button type="button"><%= link_to I18n.t('helpers.buttons.show'), supplier%></button>
-            </td>
-            <td>
-              <button type="button">
-                <%= link_to I18n.t('helpers.buttons.edit'), edit_supplier_path(supplier) %>
-              </button>
-            </td>
-            <td>
-              <%= button_to I18n.t('helpers.buttons.destroy'), supplier, method: :delete, data: { turbo_method: :delete, turbo_confirm: I18n.t('helpers.buttons.are_you_sure') }%>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-  <br>
 </div>
+
+<div class="d-none d-lg-block row table-responsive col-lg-10">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col"><%= I18n.t('activerecord.attributes.suppliers.name') %></th>
+        <th scope="col"><%= I18n.t('activerecord.attributes.suppliers.phone_number') %></th>
+        <th scope="col"><%= I18n.t('activerecord.attributes.suppliers.account_balance') %></th>
+        <th scope="col"><%= I18n.t('activerecord.attributes.suppliers.notification_threshold') %></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @suppliers.each do |supplier| %>
+        <tr>
+          <td><%= supplier.name %></td>
+          <td><%= supplier.phone_number %></td>
+          <td><%= number_to_currency(supplier.account_balance) %></td>
+          <td><%= number_to_currency(supplier.notification_threshold) %></td>
+          <td>
+            <%= link_to(image_tag("icon_show.svg", size:"23x23", data: {title: I18n.t('helpers.buttons.show')}), supplier_path(supplier), class: 'btn btn-info') %>
+          </td>
+          <td>
+            <%= link_to(image_tag("icon_edit.svg", size: "23x23", data: {title: I18n.t('helpers.buttons.edit')} ), edit_supplier_path(supplier), class: 'btn btn-primary') %>
+          </td>
+          <td>
+            <%= button_to(image_tag("icon_delete.svg", size: "23x23", data: {title: I18n.t('helpers.buttons.destroy')}), supplier, class: 'btn btn-danger', method: :delete, data: { turbo_method: :delete, turbo_confirm: I18n.t('helpers.buttons.are_you_sure') }) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="d-block d-lg-none row m-1">
+  <% @suppliers.each do |supplier| %>
+    <div class='card bg-light border-info my-2 col-12 col-md-7'>
+      <div class='card-body'>
+        <h4><%= supplier.name %></h4>
+				<div class='row'>
+          <div class="col-12 row">
+            <div class="col-6 col-md-7 fw-bold">
+              <%= I18n.t('activerecord.attributes.suppliers.phone_number') %>:
+            </div>
+            <div class="col-6 col-md-5">
+              <%= supplier.phone_number %>
+            </div>
+          </div>
+          <div class="col-12 row">
+            <div class="col-6 col-md-7 fw-bold">
+              <%= I18n.t('activerecord.attributes.suppliers.account_balance') %>:
+            </div>
+            <div class="col-6 col-md-5">
+              <%= number_to_currency(supplier.account_balance) %>
+            </div>
+          </div>
+
+          <div class="col-12 row mb-1">
+            <div class="col-6 col-md-7 fw-bold">
+              <%= I18n.t('activerecord.attributes.suppliers.notification_threshold') %>:
+            </div>
+            <div class="col-6 col-md-5">
+              <%= number_to_currency(supplier.notification_threshold) %>
+            </div>
+          </div>
+
+
+
+          <div class='row mb-1 col-12 align-content-center'>
+            <div class='col-4 d-flex justify-content-center'>
+              <%= link_to(image_tag("icon_show.svg", size:"23x23", data: {title: I18n.t('helpers.buttons.show')}), supplier_path(supplier), class: 'btn btn-info') %>
+            </div>
+            <div class='col-4 d-flex justify-content-center'>
+              <%= link_to(image_tag("icon_edit.svg", size: "23x23", data: {title: I18n.t('helpers.buttons.edit')} ), edit_supplier_path(supplier), class: 'btn btn-primary') %>
+            </div>
+            <div class='col-4 d-flex justify-content-center'>
+              <%= button_to(image_tag("icon_delete.svg", size: "23x23", data: {title: I18n.t('helpers.buttons.destroy')}), supplier, class: 'btn btn-danger', method: :delete, data: { turbo_method: :delete, turbo_confirm: I18n.t('helpers.buttons.are_you_sure') }) %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= paginate @suppliers %>

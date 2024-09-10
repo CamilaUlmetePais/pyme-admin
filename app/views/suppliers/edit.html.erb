@@ -1,5 +1,6 @@
 <div>
-	<h1><%= I18n.t('views.headers.edit', model: I18n.t('activerecord.models.supplier.one') ) %></h1>
-
+	<div class='m-2'>
+		<h1><%= I18n.t('views.headers.edit', model: I18n.t('activerecord.models.supplier.one') ) %></h1>
+	</div>
 	<%= render 'form', supplier: @supplier %>
 </div>

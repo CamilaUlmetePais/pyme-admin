@@ -1,16 +1,32 @@
-<%= simple_form_for(@supplier, html: {}) do |f| %>
-  <div>
-    <%= f.error_notification %>
-    <%= f.input :name  %>
-    <%= f.input :phone_number %>
-    <%= f.input :account_balance %>
-    <%= f.input :notification_threshold %>
-  </div>
+<div>
+  <fieldset class='row m-2'>
+    <%= simple_form_for(@supplier, html: {}) do |f| %>
+      <div>
+        <%= f.error_notification %>
+        <div class="row col-12 col-lg-6">
+          <%= f.input :name, label: I18n.t('activerecord.attributes.suppliers.name')  %>
+        </div>
+        <div class="row col-12 col-lg-6">
+          <%= f.input :phone_number, label: I18n.t('activerecord.attributes.suppliers.phone_number') %>
+        </div>
+        <div class="row col-12 col-lg-6">
+          <%= f.input :account_balance, label: I18n.t('activerecord.attributes.suppliers.account_balance') %>
+        </div>
+        <div class="row col-12 col-lg-6">
+          <%= f.input :notification_threshold, label: I18n.t('activerecord.attributes.suppliers.notification_threshold') %>
+        </div>
+      </div>
 
-  <div>
-    <button type="button">
-      <%= link_to I18n.t('helpers.buttons.back') , suppliers_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')} %>
-    </button>
-    <%= f.button :submit %>
-  </div>
-<% end %>
+      <div class='row mb-4 mt-1'>
+				<div class='col-5 col-md-9 col-lg-4'>
+					<button type="button" class='btn btn-outline-primary'>
+						<%= link_to I18n.t('helpers.buttons.back'), suppliers_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')}, class:'text-decoration-none' %>
+					</button>
+				</div>
+				<div class='col-3'>
+					<%= f.button :submit, class:'btn btn-primary' %>
+				</div>
+			</div>
+    <% end %>
+  </fieldset>
+</div>
