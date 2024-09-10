@@ -5,13 +5,13 @@
 			<button type="button" class="btn btn-primary btn-lg m-1">
 				<%= link_to I18n.t('helpers.links.new_supply'), new_supply_path, class: 'text-white text-decoration-none' %>
 			</button>
-			<button type="button" class="btn btn-primary btn-lg m-1">
-				<%= link_to I18n.t('helpers.buttons.update_stock'), mass_stock_supplies_path, class: 'text-white text-decoration-none' %>
+			<button type="button" class="btn btn-outline-primary btn-lg m-1">
+				<%= link_to I18n.t('helpers.buttons.update_stock'), mass_stock_supplies_path, class: 'text-decoration-none' %>
 			</button>
 		</div>
 </div>
 
-<div class="d-none d-lg-block row table-responsive col-12 col-lg-10">
+<div class="d-none d-lg-block row table-responsive col-lg-10">
 	<table class="table table-hover">
 		<thead>
 			<tr>
@@ -83,4 +83,3 @@
 </div>
 
 <%= paginate @supplies %>
-<br>
