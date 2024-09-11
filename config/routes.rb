@@ -23,5 +23,5 @@ Rails.application.routes.draw do
     end
   end
   get 'statistics', to: 'pages#statistics', as: :statistics
-  get 'take', to: 'pages#take', as: :take
+  get 'take', to: 'pages#register', as: :register
 end

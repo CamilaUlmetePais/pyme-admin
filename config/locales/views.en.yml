@@ -26,13 +26,13 @@ en:
             total_expenses: Total expenses
             total_cogs: Total cost of goods sold
             total_operative_expenses: Total operative expenses
-          take:
+          register:
             balance: Balance
             cash_inflows: Cash inflows
             cash_outflows: Cash outflows
             cash_inflows_total: Cash inflows total
             cash_outflows_total: Cash outflows total
-            cash_total: Cash total
+            cash_total: Cash in register
         show:
           history: Transactions history
           date: Created at
@@ -51,7 +51,7 @@ en:
         add_items: Add items to %{model}
         pages:
           statistics: Statistics
-          take: Take
+          register: registerster
         products:
           mass_stock: Stock update
         system_alerts: System alerts

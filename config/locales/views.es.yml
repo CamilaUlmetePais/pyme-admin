@@ -26,13 +26,13 @@ es:
             total_expenses: Costos totales
             total_cogs: Costo total de productos para la venta
             total_operative_expenses: Costos operativos totales
-          take:
+          register:
             balance: Balance
-            cash_inflows: Entradas en efectivo
-            cash_outflows: Salidas en efectivo
-            cash_inflows_total: Total de entradas en efectivo
-            cash_outflows_total: Total de salidas en efectivo
-            cash_total: Total en efectivo
+            cash_inflows: Ventas en efectivo
+            cash_outflows: Compras en efectivo
+            cash_inflows_total: Total de ventas en efectivo
+            cash_outflows_total: Total de compras en efectivo
+            cash_total: Efectivo en caja
         show:
           history: Historial de transacciones
           date: Creado el
@@ -51,7 +51,7 @@ es:
         add_items: Agregar ítems a %{model}
         pages:
           statistics: Estadísticas
-          take: Caja
+          register: Caja
         products:
           mass_stock: Actualizar stock
         system_alerts: Alertas del sistema

@@ -11,6 +11,7 @@ en:
       show: Show
       update_stock: Update stock
       search: Search
+      today: Today
     label:
       inflow:
         payment_method: Forma de pago

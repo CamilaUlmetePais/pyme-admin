@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-	before_action :authenticate_cashier, only: [:take]
+	before_action :authenticate_cashier, only: [:register]
   before_action :authenticate_owner, only: [:statistics]
 
 	def statistics
@@ -25,10 +25,10 @@ class PagesController < ApplicationController
       }
   end
 
-	def take
+	def register
 		@inflows   = Inflow.all
 		@outflows  = Outflow.all
-		take_date unless take_params.nil?
+		register_date unless register_params.nil?
 		@variables = {
 			inflow_total: @inflows.sum('total'),
 			outflow_total: @outflows.sum('total'),
@@ -52,14 +52,14 @@ class PagesController < ApplicationController
     end
   end
 
-	def take_params
+	def register_params
 		params.require(:pages).permit(:date) unless params[:pages].nil?
 	end
 
-	def take_date
-		date = DateTime.strptime(take_params[:date], '%m/%d/%Y')
-		@inflows = @inflows.date_range(date, date.end_of_day) unless take_params[:date].empty?
-		@outflows = @outflows.date_range(date, date.end_of_day) unless take_params[:date].empty?
+	def register_date
+		date = DateTime.strptime(register_params[:date], '%m/%d/%Y')
+		@inflows = @inflows.date_range(date, date.end_of_day) unless register_params[:date].empty?
+		@outflows = @outflows.date_range(date, date.end_of_day) unless register_params[:date].empty?
 	end
 
 end
