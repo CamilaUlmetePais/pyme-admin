@@ -25,8 +25,8 @@
         <tr>
           <td><%= supplier.name %></td>
           <td><%= supplier.phone_number %></td>
-          <td><%= number_to_currency(supplier.account_balance) %></td>
-          <td><%= number_to_currency(supplier.notification_threshold) %></td>
+          <td><%= number_to_currency_ars(supplier.account_balance) %></td>
+          <td><%= number_to_currency_ars(supplier.notification_threshold) %></td>
           <td>
             <%= link_to(image_tag("icon_show.svg", size:"23x23", data: {title: I18n.t('helpers.buttons.show')}), supplier_path(supplier), class: 'btn btn-info') %>
           </td>
@@ -61,7 +61,7 @@
               <%= I18n.t('activerecord.attributes.suppliers.account_balance') %>:
             </div>
             <div class="col-6 col-md-5">
-              <%= number_to_currency(supplier.account_balance) %>
+              <%= number_to_currency_ars(supplier.account_balance) %>
             </div>
           </div>
 
@@ -70,7 +70,7 @@
               <%= I18n.t('activerecord.attributes.suppliers.notification_threshold') %>:
             </div>
             <div class="col-6 col-md-5">
-              <%= number_to_currency(supplier.notification_threshold) %>
+              <%= number_to_currency_ars(supplier.notification_threshold) %>
             </div>
           </div>
 

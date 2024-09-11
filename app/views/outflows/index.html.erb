@@ -44,8 +44,8 @@
       <tbody>
         <% @outflows.each do |outflow| %>
           <tr>
-            <td><%= number_to_currency(outflow.total) %></td>
-            <td><%= number_to_currency(outflow.paid) %></td>
+            <td><%= number_to_currency_ars(outflow.total) %></td>
+            <td><%= number_to_currency_ars(outflow.paid) %></td>
             <td><%= outflow.payment_method.capitalize %></td>
             <td><%= outflow.notes.truncate(30, omission: '... (+)') unless outflow.notes.nil? %></td>
             <td><%= outflow.supplier.name %></td>
@@ -79,7 +79,7 @@
               <%=  I18n.t('activerecord.attributes.outflows.total')%>:
             </div>
             <div class="col-6 fw-bold">
-              <%= number_to_currency(outflow.total) %>
+              <%= number_to_currency_ars(outflow.total) %>
             </div>
           </div>
           <div class='row p-2 m-1 bg-secondary rounded'>
@@ -87,7 +87,7 @@
               <%= I18n.t('activerecord.attributes.outflows.paid') %>:
             </div>
             <div class="col-6 fw-bold">
-              <%= number_to_currency(outflow.paid) %> 
+              <%= number_to_currency_ars(outflow.paid) %> 
             </div>
           </div>
           <div class='row p-2 m-1 bg-secondary rounded'>

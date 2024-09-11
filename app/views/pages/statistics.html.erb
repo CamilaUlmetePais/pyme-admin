@@ -24,7 +24,7 @@
   <div class='col-12 col-lg-6 mb-2'>
     <div class='card text-white bg-success mb-2 '>
       <div class='card-body d-flex justify-content-center'>
-        <h3 class='card-title'><%= I18n.t('views.body.pages.statistics.gross_income') %>: <%= number_to_currency(@statistics[:gross_income]) %></h3>
+        <h3 class='card-title'><%= I18n.t('views.body.pages.statistics.gross_income') %>: <%= number_to_currency_ars(@statistics[:gross_income]) %></h3>
       </div>
     </div>
   
@@ -48,7 +48,7 @@
                 <tr class='table-success'>
                   <td><%= product.name %></td>
                   <td><%= trim_zeroes(product.units_sold) %>  <%= product.unit %></td>
-                  <td><%= number_to_currency(product.sales_total) %></td>
+                  <td><%= number_to_currency_ars(product.sales_total) %></td>
                   <td><%= trim_zeroes(percent_of(product.sales_total, @statistics[:gross_income]).round(2)) %>%</td>
                 </tr>
               <%end%>
@@ -62,7 +62,7 @@
   <div class='col-12 col-lg-6 mb-2'>
     <div class='card text-white bg-danger mb-2 '>
       <div class='card-body d-flex justify-content-center'>
-        <h3 class='card-title'><%= I18n.t('views.body.pages.statistics.total_expenses') %>: <%= number_to_currency(@statistics[:total_expenses])%></h3>
+        <h3 class='card-title'><%= I18n.t('views.body.pages.statistics.total_expenses') %>: <%= number_to_currency_ars(@statistics[:total_expenses])%></h3>
       </div>
     </div>
   
@@ -85,7 +85,7 @@
                 <% supplier_total = supplier.outflows.sum('total') %>
                 <tr class='table-danger'>
                   <td><%= supplier.name %></td>
-                  <td><%= number_to_currency(supplier_total) %></td>
+                  <td><%= number_to_currency_ars(supplier_total) %></td>
                   <td><%= trim_zeroes(percent_of(supplier_total, @statistics[:total_expenses]).round(2)) %>%</td>
                 </tr>
               <% end %>
@@ -103,7 +103,7 @@
     <div class='card border-danger'>
       <div class='card-body'>
         <% total_op_ex = total_operative_expenses(@statistics[:operative_expenses]) %>  
-        <h3 class='text-black'><%= I18n.t('views.body.pages.statistics.total_operative_expenses') %>: <%= number_to_currency(total_op_ex) %></h3>
+        <h3 class='text-black'><%= I18n.t('views.body.pages.statistics.total_operative_expenses') %>: <%= number_to_currency_ars(total_op_ex) %></h3>
         
         <div class='table-responsive'>
           <table class='table table-hover'>
@@ -121,7 +121,7 @@
                 <tr class='table-danger'>
                   <td><%= op_ex[:supply_name] %></td>
                   <td><%= op_ex[:supplier_name] %></td>
-                  <td><%= number_to_currency(op_ex[:expenses]) %></td>
+                  <td><%= number_to_currency_ars(op_ex[:expenses]) %></td>
                   <td><%= trim_zeroes(percent_of(op_ex[:expenses],total_op_ex).round(2)) %>%</td>
                 </tr>
               <% end %>
@@ -135,7 +135,7 @@
   <div class='col-12 col-lg-6 mb-2'>  
     <div class='card border-danger'>
       <div class='card-body'>
-        <h3 class='text-black'><%= I18n.t('views.body.pages.statistics.total_cogs') %>: <%= number_to_currency(total_cogs(@statistics[:consumables])) %></h3>
+        <h3 class='text-black'><%= I18n.t('views.body.pages.statistics.total_cogs') %>: <%= number_to_currency_ars(total_cogs(@statistics[:consumables])) %></h3>
         
         <div class='table-responsive'>
           <table class='table table-hover'>
@@ -153,7 +153,7 @@
                 <tr class='table-danger'>
                   <td><%= consumable.name %></td>
                   <td><%= trim_zeroes(consumable.units_bought) %>  <%= consumable.unit %></td>
-                  <td><%= number_to_currency(consumable_total(consumable)) %></td>
+                  <td><%= number_to_currency_ars(consumable_total(consumable)) %></td>
                   <td><%= trim_zeroes(percent_of(consumable_total(consumable), total_cogs(@statistics[:consumables])).round(2)) %>%</td>
                 </tr>
               <% end %>
@@ -168,7 +168,7 @@
 <div class='row d-flex justify-content-center mb-3'>
   <div class='card bg-info mb-2 col-11 col-md-9 col-lg-6'>
     <div class='card-body d-flex justify-content-center'>
-      <h3 class='card-title text-black'><%= I18n.t('views.body.pages.statistics.balance') %>:  <%= number_to_currency(@statistics[:balance]) %></h3>
+      <h3 class='card-title text-black'><%= I18n.t('views.body.pages.statistics.balance') %>:  <%= number_to_currency_ars(@statistics[:balance]) %></h3>
     </div>
   </div>
 </div>

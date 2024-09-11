@@ -6,7 +6,7 @@
       <div class='col-6 col-md-4 col-lg-3 text-primary fs-5 fw-bold align-content-center'>
         <%= I18n.t('activerecord.attributes.supplies.price') %>:
       </div> 
-      <div class='col-6 align-content-center'><%= number_to_currency(@supply.price) %></div>
+      <div class='col-6 align-content-center'><%= number_to_currency_ars(@supply.price) %></div>
     </div>
     <div class='row col-12 col-md-6 col-xl-3'>
       <div class='col-6 col-md-4 col-lg-3 text-primary fs-5 fw-bold align-content-center'>
@@ -46,7 +46,7 @@
           <tr>
             <td><%= I18n.l(item.created_at, format: :long) %></td>
             <td><%= trim_zeroes(item.quantity) %>  <%= item.supply.unit %></td>
-            <td><%= number_to_currency(item.quantity * item.supply.price) %></td>
+            <td><%= number_to_currency_ars(item.quantity * item.supply.price) %></td>
           </tr>
         <% end %>
       </tbody>

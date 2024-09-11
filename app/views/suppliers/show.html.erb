@@ -12,13 +12,13 @@
       <div class='col-6 col-md-4 col-lg-3 col-xl-4 text-primary fs-6 fw-bold align-content-center'>
         <%= I18n.t('activerecord.attributes.suppliers.account_balance') %>:
       </div> 
-      <div class='col-6 align-content-center'><%= number_to_currency(@supplier.account_balance) %></div>
+      <div class='col-6 align-content-center'><%= number_to_currency_ars(@supplier.account_balance) %></div>
     </div>
     <div class='row col-12 col-xl-4'>
       <div class='col-6 col-md-4 col-lg-3 col-xl-6 text-primary fs-6 fw-bold align-content-center'>
         <%= I18n.t('activerecord.attributes.suppliers.notification_threshold') %>:
       </div> 
-      <div class='col-6 align-content-center'><%= number_to_currency(@supplier.notification_threshold) %></div>
+      <div class='col-6 align-content-center'><%= number_to_currency_ars(@supplier.notification_threshold) %></div>
     </div>
   </div>
 
@@ -51,8 +51,8 @@
       <tbody>
         <% @transactions.each do |outflow| %>
           <tr>
-            <td><%= number_to_currency(outflow.total) %></td>
-            <td><%= number_to_currency(outflow.paid) %></td>
+            <td><%= number_to_currency_ars(outflow.total) %></td>
+            <td><%= number_to_currency_ars(outflow.paid) %></td>
             <td><% outflow.items.each do |item| %>
                   <span class='badge bg-primary'><%= item.list %></span>
                 <% end %>

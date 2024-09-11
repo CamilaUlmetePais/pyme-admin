@@ -16,4 +16,12 @@ module ApplicationHelper
     # removes trailing zeroes from a float. 14.5 -> 14.5 || 14.0 -> 14
     float = float == float.to_i ? float.to_i : float
   end
+
+  def number_to_currency_ars(number)
+    if I18n.locale == :es
+      number_to_currency(number, separator: ",", delimiter: ".") 
+    else
+      number_to_currency(number, separator: ".", delimiter: ",") 
+    end
+  end
 end

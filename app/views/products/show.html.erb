@@ -53,7 +53,7 @@
           <tr>
             <td><%= I18n.l(item.created_at, format: :long) %></td>
             <td><%= trim_zeroes(item.quantity) %>  <%= item.product.unit %></td>
-            <td><%= number_to_currency(item.quantity * item.product.price) %></td>
+            <td><%= number_to_currency_ars(item.quantity * item.product.price) %></td>
           </tr>
         <% end %>
       </tbody>

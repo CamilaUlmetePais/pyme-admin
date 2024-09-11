@@ -25,13 +25,13 @@
   <div class='col-12 col-lg-6 mb-2'>
     <div class='card text-white bg-success mb-2 '>
       <div class='card-body d-flex justify-content-center'>
-        <h3 class='card-title'><%= I18n.t('activerecord.models.inflow.other') %>: <%= number_to_currency(@variables[:inflow_total]) %></h3>
+        <h3 class='card-title'><%= I18n.t('activerecord.models.inflow.other') %>: <%= number_to_currency_ars(@variables[:inflow_total]) %></h3>
       </div>
     </div>
   
     <div class='card border-success'>
       <div class='card-body'>
-        <h3 class='text-black'><%= I18n.t('views.body.pages.register.cash_inflows') %>: <%= number_to_currency(@variables[:cash_inflows].sum('total')) %></h3>
+        <h3 class='text-black'><%= I18n.t('views.body.pages.register.cash_inflows') %>: <%= number_to_currency_ars(@variables[:cash_inflows].sum('total')) %></h3>
         
         <div class='table-responsive'>
           <table class='table table-hover'>
@@ -45,7 +45,7 @@
             <tbody>
               <% @variables[:cash_inflows].each do |inflow| %>
                 <tr class='table-success'>
-                  <td><%= number_to_currency(inflow.total) %></td>
+                  <td><%= number_to_currency_ars(inflow.total) %></td>
                   <td>
                     <% inflow.items.each do |item| %>
                       <span class='badge bg-success'><%= item.list %></span>
@@ -63,13 +63,13 @@
   <div class='col-12 col-lg-6 mb-2'>
     <div class='card text-white bg-danger mb-2 '>
       <div class='card-body d-flex justify-content-center'>
-        <h3 class='card-title'><%= I18n.t('activerecord.models.outflow.other') %>: <%= number_to_currency(@variables[:outflow_total]) %></h3>
+        <h3 class='card-title'><%= I18n.t('activerecord.models.outflow.other') %>: <%= number_to_currency_ars(@variables[:outflow_total]) %></h3>
       </div>
     </div>
   
     <div class='card border-danger'>
       <div class='card-body'>
-        <h3 class='text-black'><%= I18n.t('views.body.pages.register.cash_outflows') %>: <%= number_to_currency(@variables[:cash_outflows].sum('total')) %></h3>
+        <h3 class='text-black'><%= I18n.t('views.body.pages.register.cash_outflows') %>: <%= number_to_currency_ars(@variables[:cash_outflows].sum('total')) %></h3>
         
         <div class='table-responsive'>
           <table class='table table-hover'>
@@ -84,7 +84,7 @@
             <tbody>
               <% @variables[:cash_outflows].each do |outflow| %>
                 <tr class='table-danger'>
-                  <td><%= number_to_currency(outflow.total) %></td>
+                  <td><%= number_to_currency_ars(outflow.total) %></td>
                   <td><%= outflow.supplier.name %></td>
                   <td>
                     <% outflow.items.each do |item| %>
@@ -104,7 +104,7 @@
 <div class='row d-flex justify-content-center mb-3'>
   <div class='card bg-info mb-2 col-11 col-md-9 col-lg-6'>
     <div class='card-body d-flex justify-content-center'>
-      <h3 class='card-title text-black'><%= I18n.t('views.body.pages.register.balance') %>: <%= number_to_currency(@variables[:inflow_total] - @variables[:outflow_total]) %></h3>
+      <h3 class='card-title text-black'><%= I18n.t('views.body.pages.register.balance') %>: <%= number_to_currency_ars(@variables[:inflow_total] - @variables[:outflow_total]) %></h3>
     </div>
   </div>
 </div>
@@ -112,7 +112,7 @@
 <div class='row d-flex justify-content-center mb-3'>
   <div class='card bg-info mb-2 col-11 col-md-9 col-lg-6'>
     <div class='card-body d-flex justify-content-center'>
-      <h3 class='card-title text-black'><%= I18n.t('views.body.pages.register.cash_total') %>: <%= number_to_currency(@variables[:cash_inflows].sum('total') - @variables[:cash_outflows].sum('total')) %></h3>
+      <h3 class='card-title text-black'><%= I18n.t('views.body.pages.register.cash_total') %>: <%= number_to_currency_ars(@variables[:cash_inflows].sum('total') - @variables[:cash_outflows].sum('total')) %></h3>
     </div>
   </div>
 </div>
