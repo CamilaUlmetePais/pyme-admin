@@ -73,6 +73,7 @@ en:
       leave_it_blank: leave it blank if you don't want to change it
       current_password: we need your current password to confirm your changes
       cancel_account: Cancel my account
+      want_to_cancel_account: Want to cancel your account?
       didnt_receive_confirmation: Didn't receive confirmation instructions?
       didnt_receive_unlock: Didn't receive unlocking instructions?
       resend_unlock_instructions: Resend unlock instructions

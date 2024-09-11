@@ -20,13 +20,17 @@ en:
     labels:
       defaults:
         password: Password
+        remember_me: Remember me
       user:
         new:
           email: E-mail to sign in.
           username: Username to sign in.
+          password_confirmation: Confirm password
         edit:
           email: E-mail
           username: Username
+          password_confirmation: Confirm new password
+          current_password: Current password
     prompts:
       defaults:
         product: Select a product

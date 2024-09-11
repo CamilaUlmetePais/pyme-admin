@@ -12,7 +12,7 @@ es:
       default_message: "Por favor revisá los siguientes problemas:"
     hints:
       defaults:
-        username: 'Nombre de usuario para iniciar sesión'
+        username: 'Nombre de usuarie para iniciar sesión'
         password: 'Sin caracteres especiales, por favor.'
     include_blanks:
       defaults:
@@ -20,13 +20,17 @@ es:
     labels:
       defaults:
         password: Contraseña
+        remember_me: Recordarme
       user:
         new:
           email: E-mail para iniciar sesión.
-          username: Nombre de usuario para iniciar sesión
+          username: Nombre de usuarie para iniciar sesión
+          password_confirmation: Confirmar contraseña
         edit:
           email: E-mail
-          username: Username
+          username: Nombre de usuarie
+          password_confirmation: Confirmar contraseña nueva
+          current_password: Contraseña actual
     placeholders:
     prompts:
       defaults:

@@ -73,6 +73,7 @@ es:
       leave_it_blank: dejá este campo en blanco si no querés cambiarlo
       current_password: necesitamos tu contraseña actual para confirmar los cambios
       cancel_account: Cancelar mi cuenta
+      want_to_cancel_account: Querés cancelar tu cuenta?
       didnt_receive_confirmation: ¿No recibiste instrucciones para confirmar tu cuenta?
       didnt_receive_unlock: ¿No recibiste instrucciones para desbloquear tu cuenta?
       resend_unlock_instructions: Volver a enviar instrucciones de desbloqueo
