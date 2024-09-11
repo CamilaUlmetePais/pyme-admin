@@ -24,14 +24,10 @@
 
   <div class='row my-2'>
     <div class='col-7 col-lg-7 col-xl-3'>
-      <button type="button" class='btn btn-outline-primary'>
-        <%= link_to I18n.t('helpers.buttons.back'), suppliers_path, class:'text-decoration-none' %>
-      </button>
+      <%= link_to I18n.t('helpers.buttons.back'), suppliers_path, class:'btn btn-outline-primary text-decoration-none' %>
     </div>
     <div class='col-2'>
-      <button type="button" class='btn btn-primary'>
-        <%= link_to I18n.t('helpers.buttons.edit'), edit_supplier_path(@supplier), class:'text-white text-decoration-none' %>
-      </button>
+      <%= link_to I18n.t('helpers.buttons.edit'), edit_supplier_path(@supplier), class:'btn btn-primary text-white text-decoration-none' %>
     </div>
   </div>
   

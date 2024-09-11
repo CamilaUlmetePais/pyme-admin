@@ -19,9 +19,7 @@
 
       <div class='row mb-4 mt-1'>
 				<div class='col-5 col-md-9 col-lg-4'>
-					<button type="button" class='btn btn-outline-primary'>
-						<%= link_to I18n.t('helpers.buttons.back'), suppliers_path, data: { turbo_method: :get, turbo_confirm: I18n.t('helpers.buttons.are_you_sure')}, class:'text-decoration-none' %>
-					</button>
+					<%= link_to I18n.t('helpers.buttons.back'), suppliers_path, data: { turbo_method: :get, turbo_confirm: I18n.t('helpers.buttons.are_you_sure')}, class:'btn btn-outline-primary text-decoration-none' %>
 				</div>
 				<div class='col-3'>
 					<%= f.button :submit, class:'btn btn-primary' %>
