@@ -225,9 +225,7 @@
 
         <div class="row mb-2">
           <div class="col-5">
-            <button type="button" class="btn btn-outline-primary">
-              <%= link_to I18n.t('helpers.buttons.back'), inflows_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')} %>
-            </button>
+              <%= link_to I18n.t('helpers.buttons.back'), inflows_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')}, class: "btn btn-outline-primary" %>
           </div>
           <div class="col-3">
             <%= f.button :submit, class: "btn-primary" %>

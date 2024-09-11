@@ -17,14 +17,10 @@
 
 	<div class='row'>
 		<div class='col-8 col-md-10 col-lg-5 col-xl-4'>
-			<button type="button" class='btn btn-outline-primary'>
-				<%= link_to I18n.t('helpers.buttons.back'), reminders_path, class:'text-decoration-none' %>
-			</button>
+			<%= link_to I18n.t('helpers.buttons.back'), reminders_path, class:'btn btn-outline-primary text-decoration-none' %>
 		</div>
 		<div class='col-2'>
-			<button type="button" class='btn btn-primary'>
-				<%= link_to I18n.t('helpers.buttons.edit'), edit_reminder_path(@reminder), class:'text-white text-decoration-none' %>
-			</button>
+			<%= link_to I18n.t('helpers.buttons.edit'), edit_reminder_path(@reminder), class:'btn btn-primary text-white text-decoration-none' %>
 		</div>
 	</div>
 

@@ -11,9 +11,7 @@
 	</div>
 
 	<div>
-		<button type="button" class="btn btn-outline-primary">
-			<%= link_to I18n.t('helpers.buttons.back'), products_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')} %>
-		</button>
+		<%= link_to I18n.t('helpers.buttons.back'), products_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')}, class: 'btn btn-outline-primary' %>
 	
 		<%= f.button :submit, class: "btn-primary" %>
 		<% end %>
