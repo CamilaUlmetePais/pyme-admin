@@ -1,10 +1,11 @@
 <div>
   <fieldset class='row m-2'>
     <div class="field col-12 col-md-6 col-lg-4 col-xl-3">
-      <%= f.input :quantity, label: false, input_html: {placeholder: I18n.t('activerecord.attributes.outflow_items.quantity')} %>
+      <%= f.input :quantity, label: I18n.t('activerecord.attributes.outflow_items.quantity') %>
     </div>
     <div class="field col-12 col-md-6 col-lg-4 col-xl-3">
-      <%= f.input :supply_id, label: false, collection: @supplies, prompt: I18n.t('activerecord.attributes.outflow_items.supply_id') %>
+      <%= f.input :supply_id, collection: @supplies,
+      label: I18n.t('activerecord.attributes.outflow_items.supply_id') %>
     </div>    
   </fieldset>
 </div>

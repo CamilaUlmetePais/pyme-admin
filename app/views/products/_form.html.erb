@@ -13,7 +13,8 @@
           <%= f.input :unit, collection: [
               [ I18n.t('views.body.unit.kg'), :kg], 
               [ I18n.t('views.body.unit.u'), :u]
-            ], prompt: I18n.t('simple_form.prompts.defaults.unit'), label: false %>
+            ], prompt: I18n.t('helpers.select.prompt'), 
+            label: I18n.t('activerecord.attributes.products.unit') %>
         </div>
         <div class="row col-12 col-lg-6">
           <%= f.input :stock, label: I18n.t('activerecord.attributes.products.stock') %>
@@ -26,7 +27,7 @@
       <div class='row mb-4 mt-1'>
         <div class='col-4 col-md-9 col-lg-4'>
           <button type="button" class='btn btn-outline-primary'>
-            <%= link_to I18n.t('helpers.buttons.back'), products_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')}, class:'text-decoration-none' %>
+            <%= link_to I18n.t('helpers.buttons.back'), products_path, data: { turbo_method: :get, turbo_confirm: I18n.t('helpers.buttons.are_you_sure')}, class:'text-decoration-none' %>
           </button>
         </div>
         <div class='col-3'>

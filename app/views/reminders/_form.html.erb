@@ -21,7 +21,7 @@
 			<div class='row mb-4 mt-1'>
 				<div class='col-6 col-md-9 col-xl-4'>
 					<button type="button" class='btn btn-outline-primary'>
-						<%= link_to I18n.t('helpers.buttons.back'), reminders_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')}, class:'text-decoration-none' %>
+						<%= link_to I18n.t('helpers.buttons.back'), reminders_path, data: { turbo_method: :get, turbo_confirm: I18n.t('helpers.buttons.are_you_sure')}, class:'text-decoration-none' %>
 					</button>
 				</div>
 				<div class='col-3'>

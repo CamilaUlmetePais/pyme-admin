@@ -11,17 +11,12 @@
     <div>
       <%= f.simple_fields_for :outflow_items do |builder| %>
         <%= render "outflow_item_fields", f: builder %>
-        <div class="links">
-          <!--button type="button">
-            <%# link_to_add_association I18n.t('helpers.links.new_item'), f, :outflow_items %>
-          </button-->
-        </div>
       <% end %>
     </div>
 
     <div class='row m-2'>
       <div class="col-12 col-md-6 col-xl-3 align-content-center">
-        <%= f.input :paid, label: false, input_html: {placeholder: I18n.t('activerecord.attributes.outflows.paid')} %>
+        <%= f.input :paid, label: I18n.t('activerecord.attributes.outflows.paid') %>
       </div>
       <div class="col-12 col-md-6 col-xl-3 align-content-center">
         <%= I18n.t('activerecord.attributes.outflows.total') %>:
@@ -31,27 +26,29 @@
 
     <div class='row m-2'>
       <div class='col-12 col-md-6 col-xl-3'>
-        <%= f.input :supplier_id, collection: @suppliers, label: I18n.t('activerecord.attributes.outflows.supplier_id') %>
+        <%= f.input :supplier_id, collection: @suppliers, 
+        label: I18n.t('activerecord.attributes.outflows.supplier_id') %>
       </div>
       <div class='col-12 col-md-6 col-xl-3'>
         <%= f.input :payment_method, collection: [
-            [ I18n.t('views.body.payment_method.cash'), :cash], 
-            [ I18n.t('views.body.payment_method.debit'), :debit], 
-            [ I18n.t('views.body.payment_method.credit'), :credit], 
-            [ I18n.t('views.body.payment_method.pay_pal'), :pay_pal]], label: I18n.t('activerecord.attributes.outflows.payment_method') %>
+              [ I18n.t('views.body.payment_method.cash'), :cash], 
+              [ I18n.t('views.body.payment_method.debit'), :debit], 
+              [ I18n.t('views.body.payment_method.credit'), :credit], 
+              [ I18n.t('views.body.payment_method.pay_pal'), :pay_pal]], 
+            label: I18n.t('activerecord.attributes.outflows.payment_method') %>
       </div>
     </div>
 
     <div class='row m-2'>
       <div class='col-12 col-xl-6'>
-        <%= f.input :notes, label: false, input_html: {placeholder: I18n.t('activerecord.attributes.outflows.notes')} %>
+        <%= f.input :notes, label: I18n.t('activerecord.attributes.outflows.notes') %>
       </div>
     </div>
 
     <div class='row mb-4 mt-1 mx-2'>
       <div class='col-6 col-md-9 col-xl-4'>
         <button type="button" class='btn btn-outline-primary'>
-          <%= link_to I18n.t('helpers.buttons.back'), outflows_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')}, class:'text-decoration-none' %>
+          <%= link_to I18n.t('helpers.buttons.back'), outflows_path, data: { turbo_method: :get, turbo_confirm: I18n.t('helpers.buttons.are_you_sure')}, class:'text-decoration-none' %>
         </button>
       </div>
       <div class='col-3'>
