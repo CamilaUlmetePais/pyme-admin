@@ -75,7 +75,7 @@ es:
         card: Tarjeta
         date: Fecha
       select:
-        prompt: Por favor seleccione
+        prompt: Por favor seleccioná
       submit:
         create: Crear %{model}
         submit: Guardar %{model}
