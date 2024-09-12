@@ -29,9 +29,9 @@ es:
           register:
             balance: Balance
             cash_inflows: Ventas en efectivo
-            cash_outflows: Compras en efectivo
+            cash_outflows: Salidas en efectivo
             cash_inflows_total: Total de ventas en efectivo
-            cash_outflows_total: Total de compras en efectivo
+            cash_outflows_total: Total de salidas en efectivo
             cash_total: Efectivo en caja
         show:
           history: Historial de transacciones

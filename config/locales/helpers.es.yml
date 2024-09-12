@@ -11,7 +11,7 @@ es:
         show: Mostrar
         update_stock: Actualizar stock
         search: Buscar
-        today: Hoy
+        calculate: Calcular
       label:
         inflow:
           payment_method: Forma de pago
@@ -30,7 +30,7 @@ es:
           paid: Pagado
           supplier_id: Proveedor/a
         outflow_item:
-          outflow_id: Compra
+          outflow_id: Salida
           quantity: Cantidad
           supply_id: Insumo
         product:
@@ -61,7 +61,7 @@ es:
         new_inflow: Nueva Venta
         new_item: Nuevo Ítem
         new_notification: Nueva Notificación
-        new_outflow: Nueva Compra
+        new_outflow: Nueva Salida
         new_product: Nuevo Producto
         new_supplier: Nuevo/a Proveedor/a
         new_supply: Nuevo Insumo

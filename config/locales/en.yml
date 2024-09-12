@@ -76,6 +76,8 @@ en:
         name: Name
         notification_threshold: Notification Threshold
         phone_number: Phone number
+        email: E-mail
+        notes: Notes
       supply_product_links:
         product_id: Product
         supply_id: Supply
