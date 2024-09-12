@@ -6,16 +6,11 @@
   <div class="row d-flex justify-content-sm-evenly col-12 col-md-7 col-lg-5" >
     <%= simple_form_for(:pages, html: {}, url: register_path , method: :get) do |f| %>
       <%= f.error_notification %>
-      <div class="col-auto d-inline-block">
-        <button type="button" class="btn btn-primary text-white text-decoration-none">
-          <%= I18n.t('helpers.buttons.today') %>
-        </button>
-      </div>
       <div class="col-4 col-md-4 d-inline-block">
-        <%= f.input :date, id: 'date', placeholder: I18n.t('helpers.search.date'), label: false %>
+        <%= f.input :date, id: 'date', placeholder: I18n.t('helpers.search.date'), label: false, input_html: { value: Date.today }, class:'d-inline-block'  %>
       </div>
       <div class="col-3 col-md-3 d-inline-block">
-        <%= f.button :submit, I18n.t('helpers.buttons.search'), class: 'btn btn-secondary' %>
+        <%= f.button :submit, I18n.t('helpers.buttons.calculate'), class: 'btn btn-secondary' %>
       </div>
     <% end %>
   </div>
