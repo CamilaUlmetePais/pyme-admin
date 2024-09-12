@@ -5,4 +5,4 @@ en:
       text: 'Your stock of %{product} has dropped to %{stock}. Consider re-stocking soon.'
     balance_alert:
       title: 'Balance Alert: %{supplier}'
-      text: 'Remember to prioritize paying %{supplier}. Your balance is at $ %{balance}, %{difference} below the threshold.'
+      text: 'Remember to prioritize paying %{supplier}. Your balance is at $ %{balance}, $ %{difference} below the threshold.'

@@ -16,8 +16,8 @@ class Notification < ApplicationRecord
 			title: I18n.t('notification.balance_alert.title', supplier: supplier.name.capitalize),
 			text: I18n.t('notification.balance_alert.text',
 				supplier: supplier.name,
-				balance: '$' + supplier.account_balance,
-				difference: '$' + difference
+				balance: supplier.account_balance,
+				difference: difference
 				)
 		}
 		self.create(params)

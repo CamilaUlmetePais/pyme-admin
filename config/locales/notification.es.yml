@@ -5,4 +5,4 @@ es:
       text: 'El stock de %{product} bajó a %{stock}. Considerá re-stockear pronto.'
     balance_alert:
       title: 'Alerta de balance: %{supplier}'
-      text: 'Recordá priorizar pagar a %{supplier}. Tu cuenta está en $ %{balance}, %{difference} por debajo del límite.'
+      text: 'Recordá priorizar pagar a %{supplier}. Tu cuenta está en $ %{balance}, $ %{difference} por debajo del límite.'
