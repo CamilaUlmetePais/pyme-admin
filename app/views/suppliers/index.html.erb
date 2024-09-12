@@ -12,8 +12,10 @@
       <tr>
         <th scope="col"><%= I18n.t('activerecord.attributes.suppliers.name') %></th>
         <th scope="col"><%= I18n.t('activerecord.attributes.suppliers.phone_number') %></th>
+        <th scope="col"><%= I18n.t('activerecord.attributes.suppliers.email') %></th>
         <th scope="col"><%= I18n.t('activerecord.attributes.suppliers.account_balance') %></th>
         <th scope="col"><%= I18n.t('activerecord.attributes.suppliers.notification_threshold') %></th>
+        <th scope="col"><%= I18n.t('activerecord.attributes.suppliers.notes') %></th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -23,8 +25,10 @@
         <tr>
           <td><%= supplier.name %></td>
           <td><%= supplier.phone_number %></td>
+          <td><%= supplier.email.truncate(30, omission: '... (+)') unless supplier.email.nil? %></td>
           <td><%= number_to_currency_ars(supplier.account_balance) %></td>
           <td><%= number_to_currency_ars(supplier.notification_threshold) %></td>
+          <td><%= supplier.notes.truncate(30, omission: '... (+)') unless supplier.notes.nil? %></td>
           <td>
             <%= link_to(image_tag("icon_show.svg", size:"23x23", data: {title: I18n.t('helpers.buttons.show')}), supplier_path(supplier), class: 'btn btn-info') %>
           </td>
@@ -56,13 +60,20 @@
           </div>
           <div class="col-12 row">
             <div class="col-6 col-md-7 fw-bold">
+              <%= I18n.t('activerecord.attributes.suppliers.email') %>:
+            </div>
+            <div class="col-6 col-md-5">
+              <%= supplier.email %>
+            </div>
+          </div>
+          <div class="col-12 row">
+            <div class="col-6 col-md-7 fw-bold">
               <%= I18n.t('activerecord.attributes.suppliers.account_balance') %>:
             </div>
             <div class="col-6 col-md-5">
               <%= number_to_currency_ars(supplier.account_balance) %>
             </div>
           </div>
-
           <div class="col-12 row mb-1">
             <div class="col-6 col-md-7 fw-bold">
               <%= I18n.t('activerecord.attributes.suppliers.notification_threshold') %>:
@@ -71,10 +82,15 @@
               <%= number_to_currency_ars(supplier.notification_threshold) %>
             </div>
           </div>
-
-
-
-          <div class='row mb-1 col-12 align-content-center'>
+          <div class="col-12 row">
+            <div class="col-6 col-md-7 fw-bold">
+              <%= I18n.t('activerecord.attributes.suppliers.notes') %>:
+            </div>
+            <div class="col-6 col-md-5">
+              <%= supplier.notes.truncate(30, omission: '... (+)') unless supplier.notes.nil? %>
+            </div>
+          </div>
+          <div class='row mt-2 mb-1 col-12 align-content-center'>
             <div class='col-4 d-flex justify-content-center'>
               <%= link_to(image_tag("icon_show.svg", size:"23x23", data: {title: I18n.t('helpers.buttons.show')}), supplier_path(supplier), class: 'btn btn-info') %>
             </div>

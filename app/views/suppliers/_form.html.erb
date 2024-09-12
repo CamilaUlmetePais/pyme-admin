@@ -10,10 +10,16 @@
           <%= f.input :phone_number, label: I18n.t('activerecord.attributes.suppliers.phone_number') %>
         </div>
         <div class="row col-12 col-lg-6">
+          <%= f.input :email, label: I18n.t('activerecord.attributes.suppliers.email') %>
+        </div>
+        <div class="row col-12 col-lg-6">
           <%= f.input :account_balance, label: I18n.t('activerecord.attributes.suppliers.account_balance') %>
         </div>
         <div class="row col-12 col-lg-6">
           <%= f.input :notification_threshold, label: I18n.t('activerecord.attributes.suppliers.notification_threshold') %>
+        </div>
+        <div class="row col-12 col-lg-6">
+          <%= f.input :notes, label: I18n.t('activerecord.attributes.suppliers.notes') %>
         </div>
       </div>
 

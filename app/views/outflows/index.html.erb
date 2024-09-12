@@ -138,7 +138,7 @@
           <div class='row p-2 m-1 bg-secondary rounded'>
             <div class="col-12">
               <span class='text-decoration-underline'><%= I18n.t('activerecord.attributes.outflows.notes') %>:</span> 
-              <span class="fst-italic"><%= outflow.notes %></span>
+              <span class="fst-italic"><%= outflow.notes.truncate(30, omission: '... (+)') unless outflow.notes.nil? %></span>
             </div>
           </div>
           <div class="row"> 

@@ -1,24 +1,36 @@
 <div class="mx-1">
   <h1><%= @supplier.name %></h1>
   
-  <div class='row m-1'>
-    <div class='row col-12 col-xl-3'>
+  <div class='row mb-3 mt-1'>
+    <div class='row col-12 col-xl-6'>
       <div class='col-6 col-md-4 col-lg-3 col-xl-4 text-primary fs-6 fw-bold align-content-center'>
         <%= I18n.t('activerecord.attributes.suppliers.phone_number') %>:
       </div> 
       <div class='col-6 align-content-center'><%= @supplier.phone_number %></div>
     </div>
-    <div class='row col-12 col-xl-3'>
+    <div class='row col-12 col-xl-6'>
+      <div class='col-6 col-md-4 col-lg-3 col-xl-4 text-primary fs-6 fw-bold align-content-center'>
+        <%= I18n.t('activerecord.attributes.suppliers.email') %>:
+      </div> 
+      <div class='col-6 align-content-center'><%= @supplier.email %></div>
+    </div>
+    <div class='row col-12 col-xl-6'>
       <div class='col-6 col-md-4 col-lg-3 col-xl-4 text-primary fs-6 fw-bold align-content-center'>
         <%= I18n.t('activerecord.attributes.suppliers.account_balance') %>:
       </div> 
       <div class='col-6 align-content-center'><%= number_to_currency_ars(@supplier.account_balance) %></div>
     </div>
-    <div class='row col-12 col-xl-4'>
+    <div class='row col-12 col-xl-6'>
       <div class='col-6 col-md-4 col-lg-3 col-xl-6 text-primary fs-6 fw-bold align-content-center'>
         <%= I18n.t('activerecord.attributes.suppliers.notification_threshold') %>:
       </div> 
       <div class='col-6 align-content-center'><%= number_to_currency_ars(@supplier.notification_threshold) %></div>
+    </div>
+    <div class='row col-12'>
+      <div class='col-6 col-md-4 col-lg-3 col-xl-4 text-primary fs-6 fw-bold align-content-center'>
+        <%= I18n.t('activerecord.attributes.suppliers.notes') %>:
+      </div> 
+      <div class='col-6 align-content-center'><%= @supplier.notes %></div>
     </div>
   </div>
 
