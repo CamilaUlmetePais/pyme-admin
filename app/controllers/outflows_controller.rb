@@ -21,7 +21,7 @@ class OutflowsController < ApplicationController
                     }
         format.json { render :show, status: :created, location: @outflow }
       else
-        @supplies = Supply.all.order('name')
+        @supplies = Supply.all.order(:name)
         format.html { redirect_to outflows_path,
                       alert: {
                         message: I18n.t('activerecord.controllers.actions.failed',
@@ -51,8 +51,8 @@ class OutflowsController < ApplicationController
 
   # GET /outflows/1/edit
   def edit
-    @supplies = Supply.all.order('name')
-    @suppliers = Supplier.all.order('name')
+    @supplies = Supply.all.order(:name)
+    @suppliers = Supplier.all.order(:name)
   end
 
   # GET /outflows
@@ -67,8 +67,8 @@ class OutflowsController < ApplicationController
   def new
     @outflow = Outflow.new
     @outflow.items.build
-    @supplies = Supply.all.order('name')
-    @suppliers = Supplier.all.order('name')
+    @supplies = Supply.all.order(:name)
+    @suppliers = Supplier.all.order(:name)
   end
 
   def show

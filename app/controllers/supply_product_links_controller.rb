@@ -13,8 +13,8 @@ class SupplyProductLinksController < ApplicationController
                       }
                     }
       else
-        @products = Product.all.order('name')
-        @supplies = Supply.all.order('name')
+        @products = Product.all.order(:name)
+        @supplies = Supply.all.order(:name)
         format.html { render :new }
         format.json { render json: @supply_product_link.errors, status: :unprocessable_entity }
       end
@@ -43,8 +43,8 @@ class SupplyProductLinksController < ApplicationController
 
 	def new
 		@supply_product_link = SupplyProductLink.new
-    @products            = Product.all.order('name')
-    @supplies            = Supply.all.order('name')
+    @products            = Product.all.order(:name)
+    @supplies            = Supply.all.order(:name)
 	end
 
  private

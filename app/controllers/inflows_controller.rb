@@ -34,7 +34,7 @@ class InflowsController < ApplicationController
                     }
         format.json { render :show, status: :created, location: @inflow }
       else
-        @products = Product.all.order('name')
+        @products = Product.all.order(:name)
         format.html { redirect_to inflows_path,
                       alert: {
                         message: I18n.t('activerecord.controllers.actions.failed',
@@ -62,11 +62,11 @@ class InflowsController < ApplicationController
 
   # GET /inflows/1/edit
   def edit
-    @products = Product.all.order('name')
+    @products = Product.all.order(:name)
   end
 
   def expand
-    @products = Product.all.order('name')
+    @products = Product.all.order(:name)
   end
 
   # GET /inflows
@@ -81,7 +81,7 @@ class InflowsController < ApplicationController
   def new
     @inflow = Inflow.new
     @inflow.items.build
-    @products = Product.all.order('name')
+    @products = Product.all.order(:name)
   end
 
   def show

@@ -22,7 +22,7 @@
 				</thead>
 
 				<tbody>
-					<% @reminders.order(due_date: :asc).each do |reminder| %>
+					<% @reminders.order(:due_date).each do |reminder| %>
 						<tr>
 							<td><%= reminder.title %></td>
 							<td><%= reminder.text.truncate(50, omission: '... (+)') %></td>

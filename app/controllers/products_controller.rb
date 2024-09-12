@@ -49,7 +49,7 @@ class ProductsController < ApplicationController
   end
 
   def mass_stock
-    @products = Product.all.order('name')
+    @products = Product.all.order(:name)
   end
 
   def mass_stock_update
