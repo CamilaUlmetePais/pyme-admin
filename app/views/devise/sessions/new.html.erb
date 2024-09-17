@@ -5,13 +5,10 @@
     <div class="form-inputs">
       <%= f.error_notification %>
       <%= f.input :username,
-                  required: false,
-                  autofocus: true,#,
-                  #input_html: { autocomplete: "email" },
+                  autofocus: true,
                   hint: false
                   %>
       <%= f.input :password,
-                  required: false,
                   input_html: { autocomplete: "current-password" } %>
       <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
     </div>
