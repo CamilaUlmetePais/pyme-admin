@@ -6,9 +6,7 @@ class Inflow < ApplicationRecord
 
   after_save										:notification_builder, :subtract_stock
 
-	#scope :cash_scope, -> (value) { where('cash = ?', value) }
-	scope :date_range, -> (start_date, end_date) { where(
-		'created_at >= ? AND created_at <= ?', start_date, end_date) }
+	scope :by_payment_method, -> (value) { where('payment_method = ?', value) }
 
 	enum payment_method: [:cash, :debit, :credit, :pay_pal] 
 
