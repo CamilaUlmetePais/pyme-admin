@@ -1,6 +1,6 @@
 <div>
 	<fieldset class="row m-2">
-		<%= simple_form_for(@reminder, as: :reminder, html: { class: 'form-vertical' }, method: :post, url: reminders_path ) do |f| %>
+		<%= simple_form_for(@reminder, html: {}) do |f| %>
 			<%= f.error_notification %>
 			
 			<div class="row col-12 col-lg-6">

@@ -1,6 +1,6 @@
 class Reminder < ApplicationRecord
 	validates :title, :due_date, presence: true
-  validate :due_date_cannot_be_in_the_past
+  validate :due_date_cannot_be_in_the_past, on: create
 
   scope :last_60_days, -> { where('created_at >= ?', 60.days.ago) }
 
