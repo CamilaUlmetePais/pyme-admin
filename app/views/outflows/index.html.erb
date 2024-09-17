@@ -29,14 +29,14 @@
     <table class="table table-hover">
       <thead>
         <tr>
-          <th scope="col"><%= I18n.t('activerecord.attributes.outflows.total') %></th>
-          <th scope="col"><%= I18n.t('activerecord.attributes.outflows.paid') %></th>
-          <th scope="col"><%= I18n.t('activerecord.attributes.outflows.payment_method') %></th>
-          <th scope="col"><%= I18n.t('activerecord.attributes.outflows.notes') %></th>
-          <th scope="col"><%= I18n.t('activerecord.attributes.outflows.supplier_id') %></th>
-          <th scope="col"><%= I18n.t('activerecord.attributes.outflows.items') %></th>
-          <th scope="col"><%= I18n.t('activerecord.attributes.outflows.created_at') %></th>
-          <th scope="col"><%= I18n.t('activerecord.attributes.outflows.last_updated') %></th>
+          <th scope="col"><%= I18n.t('activerecord.attributes.outflow.total') %></th>
+          <th scope="col"><%= I18n.t('activerecord.attributes.outflow.paid') %></th>
+          <th scope="col"><%= I18n.t('activerecord.attributes.outflow.payment_method') %></th>
+          <th scope="col"><%= I18n.t('activerecord.attributes.outflow.notes') %></th>
+          <th scope="col"><%= I18n.t('activerecord.attributes.outflow.supplier_id') %></th>
+          <th scope="col"><%= I18n.t('activerecord.attributes.outflow.items') %></th>
+          <th scope="col"><%= I18n.t('activerecord.attributes.outflow.created_at') %></th>
+          <th scope="col"><%= I18n.t('activerecord.attributes.outflow.last_updated') %></th>
           <th scope="col"></th>
         </tr>
       </thead>
@@ -76,7 +76,7 @@
         <div class='card-body'>
           <div class='row p-2 m-1 bg-secondary rounded'>
             <div class="col-6 text-decoration-underline">
-              <%=  I18n.t('activerecord.attributes.outflows.total')%>:
+              <%=  I18n.t('activerecord.attributes.outflow.total')%>:
             </div>
             <div class="col-6 fw-bold">
               <%= number_to_currency_ars(outflow.total) %>
@@ -84,7 +84,7 @@
           </div>
           <div class='row p-2 m-1 bg-secondary rounded'>
             <div class="col-6 text-decoration-underline">
-              <%= I18n.t('activerecord.attributes.outflows.paid') %>:
+              <%= I18n.t('activerecord.attributes.outflow.paid') %>:
             </div>
             <div class="col-6 fw-bold">
               <%= number_to_currency_ars(outflow.paid) %> 
@@ -92,7 +92,7 @@
           </div>
           <div class='row p-2 m-1 bg-secondary rounded'>
             <div class="col-6 text-decoration-underline">
-              <%= I18n.t('activerecord.attributes.outflows.supplier_id') %>:
+              <%= I18n.t('activerecord.attributes.outflow.supplier_id') %>:
             </div>
             <div class="col-6 fw-bold">
               <%= outflow.supplier.name %>
@@ -100,7 +100,7 @@
           </div>
           <div class='row p-2 m-1 bg-secondary rounded'>
             <div class="col-6 text-decoration-underline">
-              <%= I18n.t('activerecord.attributes.outflows.payment_method') %>:
+              <%= I18n.t('activerecord.attributes.outflow.payment_method') %>:
             </div>
             <div class="col-6 fw-bold">
               <%= outflow.payment_method.capitalize %>
@@ -110,7 +110,7 @@
           
           <div class='row p-2 m-1 bg-secondary rounded'>
             <div class="col-6 text-decoration-underline">
-              <%= I18n.t('activerecord.attributes.outflows.created_at') %>: 
+              <%= I18n.t('activerecord.attributes.outflow.created_at') %>: 
             </div>
             <div class="col-6 fst-italic">
               <%= I18n.l(outflow.created_at, format: :short) %>
@@ -118,7 +118,7 @@
           </div>
           <div class='row p-2 m-1 bg-secondary rounded'>
             <div class="col-6 text-decoration-underline">
-              <%= I18n.t('activerecord.attributes.outflows.last_updated') %>: 
+              <%= I18n.t('activerecord.attributes.outflow.last_updated') %>: 
             </div>
             <div class="col-6 fst-italic">
               <%= I18n.l(outflow.updated_at, format: :short) %>
@@ -128,7 +128,7 @@
           <div class="p-2 m-1 bg-secondary rounded">
             <div class='row p-2'>
               <div class="col-12">
-                <span class="text-decoration-underline"><%= I18n.t('activerecord.attributes.outflows.items') %>:</span>
+                <span class="text-decoration-underline"><%= I18n.t('activerecord.attributes.outflow.items') %>:</span>
                 <% outflow.items.each do |item| %>
                   <span class='badge bg-primary'><%= item.list %></span>
                 <% end %>
@@ -137,7 +137,7 @@
           </div>
           <div class='row p-2 m-1 bg-secondary rounded'>
             <div class="col-12">
-              <span class='text-decoration-underline'><%= I18n.t('activerecord.attributes.outflows.notes') %>:</span> 
+              <span class='text-decoration-underline'><%= I18n.t('activerecord.attributes.outflow.notes') %>:</span> 
               <span class="fst-italic"><%= outflow.notes.truncate(30, omission: '... (+)') unless outflow.notes.nil? %></span>
             </div>
           </div>

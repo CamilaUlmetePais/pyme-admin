@@ -30,19 +30,19 @@
 en:
   activerecord:
     attributes:
-      inflows:
+      inflow:
         total: Total
         payment_method: Payment method
         created_at: Created
         last_updated: Last updated
-      inflow_items:
+      inflow_item:
         inflow_id: Inflow ID
         product_id: Product
         quantity: Quantity
-      notifications:
+      notification:
         title: Title
         text: Notification
-      outflows:
+      outflow:
         payment_method: Payment method
         items: Items
         notes: Notes
@@ -51,34 +51,34 @@ en:
         total: Total
         created_at: Created
         last_updated: Last updated
-      outflow_items:
+      outflow_item:
         outflow_id: Outflow
         quantity: Quantity
         supply_id: Supply
-      products:
+      product:
         name: Name
         notification_threshold: Notification Threshold
         price: Price
         stock: Stock
         unit: Unit
-      reminders:
+      reminder:
         done: Done
         text: Reminder
         title: Title
         due_date: Due Date
-      supplies:
+      supply:
         name: Name
         price: Price
         stock: Stock
         unit: Unit
-      suppliers:
+      supplier:
         account_balance: Account balance
         name: Name
         notification_threshold: Notification Threshold
         phone_number: Phone number
         email: E-mail
         notes: Notes
-      supply_product_links:
+      supply_product_link:
         product_id: Product
         supply_id: Supply
     controllers:
@@ -95,7 +95,7 @@ en:
         restrict_dependent_destroy:
           has_many: Cannot delete record because dependent %{record} exist
           has_one: Cannot delete record because a dependent %{record} exists
-        due_date: Due date cannot be in the past
+        due_date: cannot be in the past
     models:
       inflow:
         one: Inflow

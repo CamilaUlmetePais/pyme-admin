@@ -9,9 +9,9 @@
 				<h4><%= @reminder.title %></h4>
 			</div>
 			<p class='card-text'><%= @reminder.text %></p>
-			<p class='card-text'><%= I18n.t('activerecord.attributes.reminders.due_date') %>:
+			<p class='card-text'><%= I18n.t('activerecord.attributes.reminder.due_date') %>:
 				<%= I18n.l(@reminder.due_date, format: :short) %></p>
-			<p class='card-text'><%= I18n.t('activerecord.attributes.reminders.done')%> <%=checkbox(@reminder.done) %></p>
+			<p class='card-text'><%= I18n.t('activerecord.attributes.reminder.done')%> <%=checkbox(@reminder.done) %></p>
 		</div>
 	</div>
 

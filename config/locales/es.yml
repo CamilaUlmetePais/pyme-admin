@@ -7,19 +7,19 @@
 es:
   activerecord:
     attributes:
-      inflows:
+      inflow:
         total: Total
         payment_method: Forma de pago
         created_at: Creado el
         last_updated: Modificado el
-      inflow_items:
+      inflow_item:
         inflow_id: Venta
         product_id: Producto
         quantity: Cantidad
-      notifications:
+      notification:
         title: Título
         text: Notificación
-      outflows:
+      outflow:
         payment_method: Forma de pago
         items: Ítems
         notes: Notas
@@ -28,34 +28,34 @@ es:
         total: Total
         created_at: Creado el
         last_updated: Modificado el
-      outflow_items:
+      outflow_item:
         outflow_id: Salida
         quantity: Cantidad
         supply_id: Insumo
-      products:
+      product:
         name: Nombre
         notification_threshold: Umbral de notificación
         price: Precio
         stock: Stock
         unit: Unidad
-      reminders:
+      reminder:
         done: Listo
         text: Recordatorio
         title: Título
         due_date: Fecha límite
-      supplies:
+      supply:
         name: Nombre
         price: Precio
         stock: Stock
         unit: Unidad
-      suppliers:
+      supplier:
         account_balance: Saldo
         name: Nombre
         notification_threshold: Umbral de notificación
         phone_number: Teléfono
         email: E-mail
         notes: Notas
-      supply_product_links:
+      supply_product_link:
         product_id: Producto
         supply_id: Insumo
     controllers:
@@ -72,7 +72,7 @@ es:
         restrict_dependent_destroy:
           has_many: No se puede borrar porque existe %{record} que dependen de él
           has_one: No se puede borrar porque existe %{record} que depende de él
-        due_date: La fecha límite no puede estar en el pasado
+        due_date: no puede estar en el pasado
     models:
       inflow:
         one: Venta

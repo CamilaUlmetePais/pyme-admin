@@ -4,17 +4,17 @@
 			<%= f.error_notification %>
 			
 			<div class="row col-12 col-lg-6">
-				<%= f.input :title, label: I18n.t('activerecord.attributes.reminders.title')  %>
+				<%= f.input :title, label: I18n.t('activerecord.attributes.reminder.title')  %>
 			</div>
 			<div class="row col-12 col-lg-6">
-				<%= f.input :text, label: I18n.t('activerecord.attributes.reminders.text') %>
+				<%= f.input :text, label: I18n.t('activerecord.attributes.reminder.text') %>
 				</div>
 			<div class="row align-items-center">
 				<div class="col-12 col-md-10 col-lg-5">
-					<%= f.input :due_date, as: :datetime, label: I18n.t('activerecord.attributes.reminders.due_date') %>
+					<%= f.input :due_date, as: :datetime, label: I18n.t('activerecord.attributes.reminder.due_date') %>
 				</div>
 				<div class="col-12 col-md-2 fs-5">
-					<%= f.input :done, as: :boolean, label: I18n.t('activerecord.attributes.reminders.done') %>
+					<%= f.input :done, as: :boolean, label: I18n.t('activerecord.attributes.reminder.done') %>
 				</div>
 			</div>
 			

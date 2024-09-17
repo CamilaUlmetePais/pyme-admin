@@ -19,9 +19,9 @@
       <div class='row table-responsive-sm'>
         <table class='table table-borderless table-sm'>
           <thead>
-            <th scope='col'><%= I18n.t('activerecord.attributes.inflow_items.product_id') %></th>
-            <th scope='col'><%= I18n.t('activerecord.attributes.inflow_items.quantity') %></th>
-            <th scope='col'><%= I18n.t('activerecord.attributes.products.price') %></th>
+            <th scope='col'><%= I18n.t('activerecord.attributes.inflow_item.product_id') %></th>
+            <th scope='col'><%= I18n.t('activerecord.attributes.inflow_item.quantity') %></th>
+            <th scope='col'><%= I18n.t('activerecord.attributes.product.price') %></th>
             <th scope='col'><%= I18n.t('views.body.show.subtotal') %></th>
           </thead>
           <tbody>
@@ -36,7 +36,7 @@
             <tr>
               <td></td>
               <td></td>
-              <td class='fs-5 text-decoration-underline'><strong><%= I18n.t('activerecord.attributes.inflows.total') %>:</strong></td>
+              <td class='fs-5 text-decoration-underline'><strong><%= I18n.t('activerecord.attributes.inflow.total') %>:</strong></td>
               <td class='fs-5 text-decoration-underline'><strong><%= number_to_currency_ars(@inflow.total) %></strong></td>
             </tr>
           </tbody>

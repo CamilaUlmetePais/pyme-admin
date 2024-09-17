@@ -4,10 +4,10 @@
       <div>
         <%= f.error_notification %>
         <div class="row col-12 col-lg-6">
-          <%= f.input :name, label: I18n.t('activerecord.attributes.supplies.name') %>
+          <%= f.input :name, label: I18n.t('activerecord.attributes.supply.name') %>
         </div>
         <div class="row col-12 col-lg-6">
-          <%= f.input :price, label: I18n.t('activerecord.attributes.supplies.price') %>
+          <%= f.input :price, label: I18n.t('activerecord.attributes.supply.price') %>
         </div>
         <div class="row col-12 col-lg-6">
           <%= f.input :unit, collection: [
@@ -15,10 +15,10 @@
               [ I18n.t('views.body.unit.u'), :u],
               [ I18n.t('views.body.unit.ars'), :ars]
             ], prompt: I18n.t('helpers.select.prompt'), 
-            label: I18n.t('activerecord.attributes.supplies.unit') %>
+            label: I18n.t('activerecord.attributes.supply.unit') %>
         </div>
         <div class="row col-12 col-lg-6">
-          <%= f.input :stock, label: I18n.t('activerecord.attributes.supplies.stock') %>
+          <%= f.input :stock, label: I18n.t('activerecord.attributes.supply.stock') %>
         </div>
       </div>
 

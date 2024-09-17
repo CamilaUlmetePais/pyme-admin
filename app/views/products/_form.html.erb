@@ -4,23 +4,23 @@
       <div>
         <%= f.error_notification %>
         <div class="row col-12 col-lg-6">
-          <%= f.input :name, label: I18n.t('activerecord.attributes.products.name')  %>
+          <%= f.input :name, label: I18n.t('activerecord.attributes.product.name')  %>
         </div>
         <div class="row col-12 col-lg-6">
-          <%= f.input :price, label: I18n.t('activerecord.attributes.products.price') %>
+          <%= f.input :price, label: I18n.t('activerecord.attributes.product.price') %>
         </div>
         <div class="row col-12 col-lg-6">
           <%= f.input :unit, collection: [
               [ I18n.t('views.body.unit.kg'), :kg], 
               [ I18n.t('views.body.unit.u'), :u]
             ], prompt: I18n.t('helpers.select.prompt'), 
-            label: I18n.t('activerecord.attributes.products.unit') %>
+            label: I18n.t('activerecord.attributes.product.unit') %>
         </div>
         <div class="row col-12 col-lg-6">
-          <%= f.input :stock, label: I18n.t('activerecord.attributes.products.stock') %>
+          <%= f.input :stock, label: I18n.t('activerecord.attributes.product.stock') %>
         </div>
         <div class="row col-12 col-lg-6">
-          <%= f.input :notification_threshold, label: I18n.t('activerecord.attributes.products.notification_threshold') %>
+          <%= f.input :notification_threshold, label: I18n.t('activerecord.attributes.product.notification_threshold') %>
         </div>
       </div>
     

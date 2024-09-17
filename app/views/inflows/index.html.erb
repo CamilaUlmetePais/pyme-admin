@@ -36,11 +36,11 @@
   <table class="table table-hover">
     <thead>
       <tr>
-        <th scope="col"><%= I18n.t('activerecord.attributes.inflows.total') %></th>
-        <th scope="col"><%= I18n.t('activerecord.attributes.inflows.payment_method') %></th>
+        <th scope="col"><%= I18n.t('activerecord.attributes.inflow.total') %></th>
+        <th scope="col"><%= I18n.t('activerecord.attributes.inflow.payment_method') %></th>
         <th scope="col"><%= I18n.t('views.body.index.items') %></th>
-        <th scope="col"><%= I18n.t('activerecord.attributes.inflows.created_at') %></th>
-        <th scope="col"><%= I18n.t('activerecord.attributes.inflows.last_updated') %></th>
+        <th scope="col"><%= I18n.t('activerecord.attributes.inflow.created_at') %></th>
+        <th scope="col"><%= I18n.t('activerecord.attributes.inflow.last_updated') %></th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -96,7 +96,7 @@
         </div>
         <div class='row p-2 m-1 bg-secondary rounded fst-italic'>
           <div class="col-6 text-decoration-underline">
-            <span class='text-primary-emphasis'><%= I18n.t('activerecord.attributes.inflows.created_at') %>:</span> 
+            <span class='text-primary-emphasis'><%= I18n.t('activerecord.attributes.inflow.created_at') %>:</span> 
           </div>
           <div class="col-6 fst-italic">
             <%= I18n.l(inflow.created_at, format: :short) %>
@@ -104,7 +104,7 @@
         </div>
         <div class='row p-2 m-1 bg-secondary rounded fst-italic'>
           <div class="col-6 text-decoration-underline">
-            <span class='text-primary-emphasis'><%= I18n.t('activerecord.attributes.inflows.last_updated') %>:</span> 
+            <span class='text-primary-emphasis'><%= I18n.t('activerecord.attributes.inflow.last_updated') %>:</span> 
           </div>
           <div class="col-6 fst-italic">
             <%= I18n.l(inflow.updated_at, format: :short) %>

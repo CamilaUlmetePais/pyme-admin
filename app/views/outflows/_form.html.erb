@@ -16,10 +16,10 @@
 
     <div class='row m-2'>
       <div class="col-12 col-md-6 col-xl-3 align-content-center">
-        <%= f.input :paid, label: I18n.t('activerecord.attributes.outflows.paid') %>
+        <%= f.input :paid, label: I18n.t('activerecord.attributes.outflow.paid') %>
       </div>
       <div class="col-12 col-md-6 col-xl-3 align-content-center">
-        <%= I18n.t('activerecord.attributes.outflows.total') %>:
+        <%= I18n.t('activerecord.attributes.outflow.total') %>:
       </div>
       <div class='d-inline-block' id="total"> </div>
     </div>
@@ -27,7 +27,7 @@
     <div class='row m-2'>
       <div class='col-12 col-md-6 col-xl-3'>
         <%= f.input :supplier_id, collection: @suppliers, 
-        label: I18n.t('activerecord.attributes.outflows.supplier_id') %>
+        label: I18n.t('activerecord.attributes.outflow.supplier_id') %>
       </div>
       <div class='col-12 col-md-6 col-xl-3'>
         <%= f.input :payment_method, collection: [
@@ -35,13 +35,13 @@
               [ I18n.t('views.body.payment_method.debit'), :debit], 
               [ I18n.t('views.body.payment_method.credit'), :credit], 
               [ I18n.t('views.body.payment_method.pay_pal'), :pay_pal]], 
-            label: I18n.t('activerecord.attributes.outflows.payment_method') %>
+            label: I18n.t('activerecord.attributes.outflow.payment_method') %>
       </div>
     </div>
 
     <div class='row m-2'>
       <div class='col-12 col-xl-6'>
-        <%= f.input :notes, label: I18n.t('activerecord.attributes.outflows.notes') %>
+        <%= f.input :notes, label: I18n.t('activerecord.attributes.outflow.notes') %>
       </div>
     </div>
 

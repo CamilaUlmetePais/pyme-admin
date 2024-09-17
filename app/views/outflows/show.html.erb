@@ -19,9 +19,9 @@
       <div class='row table-responsive-sm'>
         <table class='table table-borderless table-sm'>
           <thead>
-            <th scope='col'><%= I18n.t('activerecord.attributes.outflow_items.supply_id') %></th>
-            <th scope='col'><%= I18n.t('activerecord.attributes.outflow_items.quantity') %></th>
-            <th scope='col'><%= I18n.t('activerecord.attributes.supplies.price') %></th>
+            <th scope='col'><%= I18n.t('activerecord.attributes.outflow_item.supply_id') %></th>
+            <th scope='col'><%= I18n.t('activerecord.attributes.outflow_item.quantity') %></th>
+            <th scope='col'><%= I18n.t('activerecord.attributes.supply.price') %></th>
             <th scope='col'><%= I18n.t('views.body.show.subtotal') %></th>
           </thead>
           <tbody>
@@ -36,13 +36,13 @@
             <tr>
               <td></td>
               <td></td>
-              <td class='fs-5 text-decoration-underline'><strong><%= I18n.t('activerecord.attributes.outflows.total') %>:</strong></td>
+              <td class='fs-5 text-decoration-underline'><strong><%= I18n.t('activerecord.attributes.outflow.total') %>:</strong></td>
               <td class='fs-5 text-decoration-underline'><strong><%= number_to_currency_ars(@outflow.total) %></strong></td>
             </tr>
             <tr>
               <td></td>
               <td></td>
-              <td class='fs-5 text-decoration-underline'><strong><%= I18n.t('activerecord.attributes.outflows.paid') %>:</strong></td>
+              <td class='fs-5 text-decoration-underline'><strong><%= I18n.t('activerecord.attributes.outflow.aid') %>:</strong></td>
               <td class='fs-5 text-decoration-underline'><strong><%= number_to_currency_ars(@outflow.paid) %></strong></td>
             </tr>
           </tbody>

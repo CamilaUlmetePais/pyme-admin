@@ -11,7 +11,7 @@
       <% @inflow.items.each do |item| %>
         <p><%= item.receipt_list %></p>
       <% end %>
-      <h5><%= I18n.t('activerecord.attributes.inflows.cash') %>  <%= checkbox(@inflow.cash) %></h5>
+      <h5><%= I18n.t('activerecord.attributes.inflow.cash') %>  <%= checkbox(@inflow.cash) %></h5>
       <h5><%= I18n.t('views.body.add_items.previous_total') %>:  $<%= @inflow.total %></h5>
     </div>
   </div>

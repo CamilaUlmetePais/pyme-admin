@@ -10,12 +10,12 @@
   <table class="table table-hover">
     <thead>
       <tr>
-        <th scope="col"><%= I18n.t('activerecord.attributes.suppliers.name') %></th>
-        <th scope="col"><%= I18n.t('activerecord.attributes.suppliers.phone_number') %></th>
-        <th scope="col"><%= I18n.t('activerecord.attributes.suppliers.email') %></th>
-        <th scope="col"><%= I18n.t('activerecord.attributes.suppliers.account_balance') %></th>
-        <th scope="col"><%= I18n.t('activerecord.attributes.suppliers.notification_threshold') %></th>
-        <th scope="col"><%= I18n.t('activerecord.attributes.suppliers.notes') %></th>
+        <th scope="col"><%= I18n.t('activerecord.attributes.supplier.name') %></th>
+        <th scope="col"><%= I18n.t('activerecord.attributes.supplier.phone_number') %></th>
+        <th scope="col"><%= I18n.t('activerecord.attributes.supplier.email') %></th>
+        <th scope="col"><%= I18n.t('activerecord.attributes.supplier.account_balance') %></th>
+        <th scope="col"><%= I18n.t('activerecord.attributes.supplier.notification_threshold') %></th>
+        <th scope="col"><%= I18n.t('activerecord.attributes.supplier.notes') %></th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -52,7 +52,7 @@
 				<div class='row'>
           <div class="col-12 row">
             <div class="col-6 col-md-7 fw-bold">
-              <%= I18n.t('activerecord.attributes.suppliers.phone_number') %>:
+              <%= I18n.t('activerecord.attributes.supplier.phone_number') %>:
             </div>
             <div class="col-6 col-md-5">
               <%= supplier.phone_number %>
@@ -60,7 +60,7 @@
           </div>
           <div class="col-12 row">
             <div class="col-6 col-md-7 fw-bold">
-              <%= I18n.t('activerecord.attributes.suppliers.email') %>:
+              <%= I18n.t('activerecord.attributes.supplier.email') %>:
             </div>
             <div class="col-6 col-md-5">
               <%= supplier.email %>
@@ -68,7 +68,7 @@
           </div>
           <div class="col-12 row">
             <div class="col-6 col-md-7 fw-bold">
-              <%= I18n.t('activerecord.attributes.suppliers.account_balance') %>:
+              <%= I18n.t('activerecord.attributes.supplier.account_balance') %>:
             </div>
             <div class="col-6 col-md-5">
               <%= number_to_currency_ars(supplier.account_balance) %>
@@ -76,7 +76,7 @@
           </div>
           <div class="col-12 row mb-1">
             <div class="col-6 col-md-7 fw-bold">
-              <%= I18n.t('activerecord.attributes.suppliers.notification_threshold') %>:
+              <%= I18n.t('activerecord.attributes.supplier.notification_threshold') %>:
             </div>
             <div class="col-6 col-md-5">
               <%= number_to_currency_ars(supplier.notification_threshold) %>
@@ -84,7 +84,7 @@
           </div>
           <div class="col-12 row">
             <div class="col-6 col-md-7 fw-bold">
-              <%= I18n.t('activerecord.attributes.suppliers.notes') %>:
+              <%= I18n.t('activerecord.attributes.supplier.notes') %>:
             </div>
             <div class="col-6 col-md-5">
               <%= supplier.notes.truncate(30, omission: '... (+)') unless supplier.notes.nil? %>

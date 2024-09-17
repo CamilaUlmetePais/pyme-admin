@@ -2,11 +2,11 @@
   <fieldset class='row m-2'>
     <div class="field col-12 col-md-6 col-lg-4 col-xl-3">
       <%= builder.input :quantity, 
-        label: I18n.t('activerecord.attributes.inflow_items.quantity') %>
+        label: I18n.t('activerecord.attributes.inflow_item.quantity') %>
     </div>
     <div class="field col-12 col-md-6 col-lg-4 col-xl-3">
       <%= builder.input :product_id, 
-      label: I18n.t('activerecord.attributes.inflow_items.product_id'), collection: @products %>
+      label: I18n.t('activerecord.attributes.inflow_item.product_id'), collection: @products %>
     </div>
   </fieldset>
 </div>

@@ -4,19 +4,19 @@
   <div class='row m-1'>
     <div class='row col-12 col-lg-3 col-xl-3'>
       <div class='col-7 text-primary fs-5 fw-bold align-content-center'>
-        <%= I18n.t('activerecord.attributes.products.price') %>: 
+        <%= I18n.t('activerecord.attributes.product.price') %>: 
       </div>
       <div class='col-5 align-content-center'><%= @product.price %></div>
     </div>
     <div class='row col-12 col-lg-3 col-xl-3'>
       <div class='col-7 text-primary fs-5 fw-bold align-content-center'>
-        <%= I18n.t('activerecord.attributes.products.stock') %>: 
+        <%= I18n.t('activerecord.attributes.product.stock') %>: 
       </div>
       <div class='col-5 align-content-center'><%= @product.stock %> <%= @product.unit.capitalize %></div>
     </div>
     <div class='row col-12 col-lg-6 col-xl-6'>
       <div class='col-7 text-primary fs-5 fw-bold align-content-center'>
-        <%= I18n.t('activerecord.attributes.products.notification_threshold') %>: 
+        <%= I18n.t('activerecord.attributes.product.notification_threshold') %>: 
       </div>
       <div class='col-5 align-content-center'><%= @product.notification_threshold %> <%= @product.unit.capitalize %></div>
     </div>
@@ -39,8 +39,8 @@
       <thead>
         <tr>
           <th scope="col"><%= I18n.t('activerecord.models.inflow.other') %></th>
-          <th scope="col"><%= I18n.t('activerecord.attributes.inflow_items.quantity') %></th>
-          <th scope="col"><%= I18n.t('activerecord.attributes.inflows.total') %></th>
+          <th scope="col"><%= I18n.t('activerecord.attributes.inflow_item.quantity') %></th>
+          <th scope="col"><%= I18n.t('activerecord.attributes.inflow.total') %></th>
         </tr>
       </thead>
     
