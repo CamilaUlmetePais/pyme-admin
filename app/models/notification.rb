@@ -5,7 +5,7 @@ class Notification < ApplicationRecord
 	def self.stock_alert(product)
 		params = {
 			title: I18n.t('notification.stock_alert.title', product: product.name),
-			text: I18n.t('notification.stock_alert.text', product: product.name, stock: trim_zeroes(product.stock)),
+			text: I18n.t('notification.stock_alert.text', product: product.name, stock: product.stock),
 		}
 		self.create(params)
 	end
