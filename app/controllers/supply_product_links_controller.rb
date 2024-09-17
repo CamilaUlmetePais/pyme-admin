@@ -15,7 +15,7 @@ class SupplyProductLinksController < ApplicationController
       else
         @products = Product.all.order(:name)
         @supplies = Supply.all.order(:name)
-        format.html { render :new }
+        format.html { render :new, status: :unprocessable_entity  }
         format.json { render json: @supply_product_link.errors, status: :unprocessable_entity }
       end
     end

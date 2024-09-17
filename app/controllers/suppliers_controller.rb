@@ -17,7 +17,7 @@ class SuppliersController < ApplicationController
                     }
         format.json { render :show, status: :created, location: @supplier }
       else
-        format.html { render :new }
+        format.html { render :new, status: :unprocessable_entity  }
         format.json { render json: @supplier.errors, status: :unprocessable_entity }
       end
     end
@@ -74,7 +74,7 @@ class SuppliersController < ApplicationController
                     }
         format.json { render :show, status: :ok, location: @supplier }
       else
-        format.html { render :edit }
+        format.html { render :edit, status: :unprocessable_entity  }
         format.json { render json: @supplier.errors, status: :unprocessable_entity }
       end
     end

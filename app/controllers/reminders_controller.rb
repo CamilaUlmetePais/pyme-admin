@@ -13,7 +13,7 @@ class RemindersController < ApplicationController
 											}
 										}
 			else
-				format.html { render :new }
+				format.html { render :new, status: :unprocessable_entity  }
 				format.json { render json: @reminder.errors, status: :unprocessable_entity }
 			end
 		end
@@ -58,7 +58,7 @@ class RemindersController < ApplicationController
 										}
 				format.json { render :show, status: :ok, location: @reminder }
 			else
-				format.html { render :edit }
+				format.html { render :edit, status: :unprocessable_entity  }
 				format.json { render json: @reminder.errors, status: :unprocessable_entity }
 			end
 		end
