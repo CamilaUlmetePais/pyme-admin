@@ -320,7 +320,7 @@ DEPENDENCIES
   bootswatch!
   capybara
   cssbundling-rails
-  debug
+  debug (>= 1.0.0)
   devise (= 4.9.1)
   jbuilder
   jsbundling-rails
