@@ -26,6 +26,7 @@ class InflowsController < ApplicationController
     @inflow.total = generate_inflow_total(inflow_params)
     respond_to do |format|
       if @inflow.save
+        @inflow.notification_builder
         format.html { redirect_to inflows_path,
                       notice: {
                         message: I18n.t('activerecord.controllers.actions.created',
@@ -72,8 +73,7 @@ class InflowsController < ApplicationController
   # GET /inflows
   def index
     @inflows = Inflow.all.order(created_at: :desc).page(params[:page])
-    search_dates unless search_params.nil?
-    #search_cash unless search_params.nil?
+    search_payment_method unless search_params.nil?
     @inflows.order(created_at: :desc).page(params[:page])
   end
 
@@ -130,20 +130,11 @@ class InflowsController < ApplicationController
     end
 
     def search_params
-      params.require(:inflow).permit(:created_at_from, :created_at_to, :payment_method) unless params[:inflow].nil?
+      params.require(:inflow).permit(:payment_method) unless params[:inflow].nil?
     end
 
-    # def search_cash
-    #   @inflows = @inflows.cash_scope( helpers.true?(search_params[:cash]) ) unless search_params[:cash].empty?
-    # end
-
-    def search_dates
-      empty = search_params[:created_at_from].empty? && search_params[:created_at_to].empty?
-      unless empty
-        start_date = DateTime.strptime(search_params[:created_at_from], '%m/%d/%Y')
-        end_date = DateTime.strptime(search_params[:created_at_to], '%m/%d/%Y').end_of_day
-        @inflows = @inflows.date_range(start_date, end_date)
-      end
+    def search_payment_method
+      @inflows = @inflows.by_payment_method(search_params[:payment_method]) 
     end
 
     def set_inflow
