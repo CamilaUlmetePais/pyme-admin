@@ -96,6 +96,7 @@ class InflowsController < ApplicationController
         successful = @inflow.update(inflow_params)
       end
       if successful
+        @inflow.notification_builder
         format.html { redirect_to inflows_path,
                       notice: {
                         message: I18n.t('activerecord.controllers.actions.updated',
