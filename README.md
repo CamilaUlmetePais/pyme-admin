@@ -95,6 +95,15 @@ If this turns up empty, install RDoc:
 
 3. Now you'll be able to look at the project documentation at http://localhost:8808
 
+### Notes
+
+- Throughout the documentation, the following terms are used:
+
+  - **User/s --**  The owner and any employees of the company using the app.
+  - **Client/s --** The person/people buying goods and services from the company.
+
+- The methods within models and controllers are alphabetized. 
+
 <!-- working on
 
 ### Running tests
