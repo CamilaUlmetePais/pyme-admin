@@ -6,7 +6,7 @@
 # @association accepts_nested_attributes_for [InflowItems] since the items will be created from the Inflow form, they must be manipulated from the Inflows controller. 
 # @association alias_attribute [Items] it allows InflowItems to be referred to as simply <tt>Items</tt> for simplicity.
 # @validation payment_method should be present. 
-# @enum payment_method Options: <tt> O => cash || 1 => debit || 2 => credit || 3 => pay_pal </tt> 
+# @enum payment_method Options: <tt> O => cash || 1 => debit || 2 => credit || 3 => electronic_wallet </tt> 
 # @callback after_save [notification_builder] runs the method after creating or updating an inflow.
 # @callback after_save [subtract_stock] runs the method after creating or updating an inflow.
 class Inflow < ApplicationRecord
@@ -19,7 +19,7 @@ class Inflow < ApplicationRecord
 
 	scope :by_payment_method, -> (value) { where('payment_method = ?', value) }
 
-	enum payment_method: [:cash, :debit, :credit, :pay_pal] 
+	enum payment_method: [:cash, :debit, :credit, :electronic_wallet] 
 
 	# Triggers the creation of a stock alert Notification if the conditions are met. 
 	# When an Inflow is created or updated, this method iterates through the Items inside that Inflow, and checks each associated Product. 

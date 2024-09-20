@@ -41,7 +41,7 @@ en:
           cash: Cash
           debit: Debit
           credit: Credit
-          pay_pal: Pay Pal
+          electronic_wallet: Electronic Wallet
         unit:
           kg: kg
           u: u

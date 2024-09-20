@@ -41,7 +41,7 @@ es:
           cash: Efectivo
           debit: Débito
           credit: Crédito
-          pay_pal: Mercado Pago
+          electronic_wallet: Billetera virtual
         unit:
           kg: kg
           u: u
