@@ -12,7 +12,7 @@
 # @validation supplier_id should be present
 # @validation payment_method should be present
 # @callback before_update [generate_total] Adds the total to the Outflow after updating. 
-# @modelScope date_range filters outflows between the two dates provided by the user in the search form to return only the outflows created between those two dates. 
+# @scope date_range filters outflows between the two dates provided by the user in the search form to return only the outflows created between those two dates. 
 # @enum payment_method Options <tt> O => cash || 1 => debit || 2 => credit || 3 => electronic_wallet</tt>
 class Outflow < ApplicationRecord
 	before_update 								:generate_total # DUPLICATE
