@@ -65,7 +65,6 @@ gem 'devise', '4.9.1'
 # Documentation 
 gem 'yard', '~> 0.9.37'
 
-
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", ">= 1.0.0"

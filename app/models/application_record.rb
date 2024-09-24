@@ -1,6 +1,5 @@
 class ApplicationRecord < ActiveRecord::Base 
   primary_abstract_class
-
   
   # Removes trailing zeroes from a float for cleaner display in views. 
   # 
