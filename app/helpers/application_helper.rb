@@ -12,6 +12,24 @@ module ApplicationHelper
     end
   end
 
+  # Changes separator and delimiter for views method number_to_currency according to locale to format currency in accordance to regional use. The decimal point is used in anglophone countries, while in Latin America and most of Europe the default is the decimal comma.  
+  # 
+  # @!method number_to_regional_currency(number)
+  # @param number [Float] the number to format as currency
+  # @return [String] a string containing the desired number formatted as currency. 
+  # @example Format a number as currency according to regional convention.
+  #   number = number_to_regional_currency(1234.5)
+  #   
+  #   "$1,234.5"  # EN locale  
+  #   "$1.234,5"  # other locales  
+  def number_to_regional_currency(number)
+    if I18n.locale == :en
+      number_to_currency(number, separator: ".", delimiter: ",") 
+    else
+      number_to_currency(number, separator: ",", delimiter: ".")
+    end
+  end
+
   # Removes trailing zeroes from a float for cleaner display in views. 
   # 
   # @!method trim_zeroes(float)
@@ -29,22 +47,5 @@ module ApplicationHelper
   def trim_zeroes(float)
     float = float == float.to_i ? float.to_i : float
   end
-
-  # Changes separator and delimiter for views method number_to_currency according to locale to format currency in accordance to regional use. The decimal point is used in anglophone countries, while in Latin America and most of Europe the default is the decimal comma.  
-  # 
-  # @!method number_to_currency(number)
-  # @param number [Float] the number to format as currency
-  # @return [String] a string containing the desired number formatted as currency. 
-  # @example Format a number as currency according to regional convention.
-  #   number = number_to_currency(1234.5)
-  #   
-  #   "$1,234.5"  # EN locale  
-  #   "$1.234,5"  # other locales  
-  def number_to_currency_ars(number)
-    if I18n.locale == :en
-      number_to_currency(number, separator: ".", delimiter: ",") 
-    else
-      number_to_currency(number, separator: ",", delimiter: ".")
-    end
-  end
+ 
 end
