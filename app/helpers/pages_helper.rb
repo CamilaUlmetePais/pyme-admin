@@ -11,7 +11,7 @@ module PagesHelper
   # @!method percent_of(number, total)
   # @param number [Float] the number to be converted to percentage
   # @param total [Float] the total value as a second data point for the conversion
-  # @returns [Float] the percentage value that <tt>number</tt> represents within <tt>total</tt>. 
+  # @return [Float] the percentage value that <tt>number</tt> represents within <tt>total</tt>. 
   # @example Calculate a percentage
   #   percent_of(30, 100) # = 30
   #   percent_of(150.5, 400) # = 37.625
