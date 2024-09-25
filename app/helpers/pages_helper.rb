@@ -8,7 +8,7 @@ module PagesHelper
   end
   
   def total_cogs(supplies)
-    supplies.map{|consumable| consumable.cogs}.sum
+    supplies.map{|consumable| consumable.cost_of_goods_sold}.sum
   end
   
   def total_operative_expenses(supplies)
