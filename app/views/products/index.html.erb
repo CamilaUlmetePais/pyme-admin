@@ -21,7 +21,7 @@
       <% @products.each do |product| %>
         <tr>
           <td><%= product.name %></td>
-          <td><%= number_to_currency_ars(product.price) %></td>
+          <td><%= number_to_regional_currency(product.price) %></td>
           <td><%= trim_zeroes(product.stock) %> <%= product.unit %></td>
           <td><%= product.notification_threshold %><%= product.unit %></td>
           <td>
@@ -50,7 +50,7 @@
 							<%= I18n.t('activerecord.attributes.product.price') %>: 
 						</div>
             <div class="col-6 col-md-6">
-							<%= number_to_currency_ars(product.price) %>
+							<%= number_to_regional_currency(product.price) %>
 						</div>
           </div>
           <div class='row col-12 mb-2 align-content-center'>
