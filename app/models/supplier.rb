@@ -42,7 +42,7 @@ class Supplier < ApplicationRecord
 
 	# Restores account_balance to its previous value if an outflow is deleted or before it's updated. 
 	# 
-	# !@method restore_balance(outflow)
+	# @!method restore_balance(outflow)
 	# @param outflow [Object] the outflow that has been deleted or updated.
 	# @return [Object] a Supplier with an updated account_balance.
 	# @example Restoring a Supplier's account_balance. 
@@ -56,7 +56,7 @@ class Supplier < ApplicationRecord
 
 	# Updates account_balance after an outflow is created or updated. 
 	# 
-	# !@method update_balance(outflow)
+	# @!method update_balance(outflow)
 	# @param outflow [Object] the outflow that has been created or updated.
 	# @return [Object] a Supplier with an updated account_balance.
 	# @example Updating a Supplier's account_balance. 

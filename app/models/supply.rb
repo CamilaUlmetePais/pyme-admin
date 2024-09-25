@@ -41,7 +41,7 @@ class Supply < ApplicationRecord
 	# Maps the associated suppliers to see the money expended on a service organized by supplier.  
 	# 
 	# @todo refactor along with supply!
-	# @return [Array] An array of hashes with the format Supply -> [{keys: supplier_id, value: quantity}]
+	# @return [Array] An array of hashes with the format Supply [{keys: supplier_id, value: quantity}]
 	def get_operative_expenses
 		self.suppliers.uniq.map{|supplier| supplier.get_expenses(self.id, self.name)}
 	end
@@ -69,7 +69,7 @@ class Supply < ApplicationRecord
 
 	# Updates stock after an outflow is created or updated. 
 	# 
-	# !@method update_stock(quantity)
+	# @!method update_stock(quantity)
 	# @param quantity [Float] the amount of supply purchased
 	# @return [Object] a supply with updated stock. 
 	# @example Add stock to supplies after a purchase. 
