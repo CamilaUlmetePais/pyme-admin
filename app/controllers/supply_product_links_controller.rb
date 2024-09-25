@@ -1,3 +1,4 @@
+# @!visibility private
 class SupplyProductLinksController < ApplicationController
   before_action :set_supply_product_link, only: [:destroy]
   before_action :authenticate_supervisor
