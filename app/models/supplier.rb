@@ -6,9 +6,9 @@
 # @modelAttribute notes [text] a simple field for the user to write down whatever they might wish to remember about this supplier. What they sell, their business hours, any other useful information.
 # @modelAttribute account_balance [float] where the user stands with the supplier in terms of money owed. If the user owes money to the supplier (for items bought or services rendered that weren't paid in full) this value will be negative. 
 # @modelAttribute notification_threshold [integer] an optional value the user can set to get a notification when the account balance falls below it. 
-# @association has_many [outflows] The supplier's interaction with the user is reflected in outflows, since it represents an expense to the user. 
-# @association has_many [outflow_items - through outflows] The items that were bought from this supplier
-# @association has_many [supplies - through outflow_items] The supplies which this supplier has sold to the user
+# @association has_many [Outflows] The supplier's interaction with the user is reflected in outflows, since it represents an expense to the user. 
+# @association has_many [OutflowItems - through Outflows] The items that were bought from this supplier
+# @association has_many [Supplies - through OutflowItems] The supplies which this supplier has sold to the user
 # @validation name must be present and unique, regardless of capitalization. 
 # @validation account_balance must be present and a number.
 # @validation notification_threshold must be a number, if present. 
