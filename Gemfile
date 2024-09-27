@@ -3,7 +3,7 @@ source "https://rubygems.org"
 ruby "3.3.1"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.1.3", ">= 7.1.3.4"
+gem "rails", "~> 7.1.0"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -62,15 +62,15 @@ gem 'simple_form'
 # User management and security
 gem 'devise', '4.9.1' 
 
-# Documentation 
-gem 'yard', '~> 0.9.37'
-
 group :development, :test do
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  # Debugger - see https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", ">= 1.0.0"
-  gem 'rspec-rails'
-  gem 'shoulda-matchers'
-  # gem 'factory_bot_rails' deprecated!
+  # Testing
+  gem 'rspec-rails', '~> 7.0.0'
+  gem 'shoulda-matchers', '~> 6.0'
+  gem 'factory_bot_rails'
+  # Documentation 
+  gem 'yard', '~> 0.9.37'
 end
 
 group :development do
