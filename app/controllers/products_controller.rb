@@ -1,3 +1,4 @@
+# @!visibility private
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token, only: [:mass_stock_update]

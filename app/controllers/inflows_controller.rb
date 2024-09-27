@@ -1,9 +1,9 @@
+# @!visibility private
 class InflowsController < ApplicationController
   before_action :set_inflow, only: [:show, :edit, :update, :destroy, :add_items, :expand]
   before_action :authenticate_cashier, only: [:edit, :update, :destroy]
 
   def add_items
-    # check that the items aren't empty and .push them onto the original inflow_items_attributes
     items_to_add = inflow_params[:inflow_items_attributes]#.map {|item| !item[].empty? }
     items_to_add.keys.each do |key|
       ready_item = items_to_add[key].push(inflow_id: @inflow.id)
@@ -61,8 +61,10 @@ class InflowsController < ApplicationController
     end
   end
 
+
+  # @!visibility private
   # GET /inflows/1/edit
-  def edit
+  def edit 
     @products = Product.all.order(:name)
   end
 
@@ -84,6 +86,7 @@ class InflowsController < ApplicationController
     @products = Product.all.order(:name)
   end
 
+  # @!visibility private
   def show
   end
 

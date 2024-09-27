@@ -63,7 +63,7 @@ Make sure you have already installed:
 
     `PURCHASE_MESSAGE : "Statement to show in purchase receipts, usually thanking customer for their purchase"`
 
-4. Set up the database.
+4. Set up the database
 
     ` rails db:create`
 
@@ -76,6 +76,33 @@ Make sure you have already installed:
   ` yarn run build:css `
 
 6. Installation is complete! You should be able to run the local server without issue. 
+
+## Project Documentation 
+
+PymeAdmin is currently being documented using YARD. To generate the documentation, follow these steps: 
+
+1. (For Debian/Ubuntu users) make sure you have RDoc installed: 
+
+  ` which RDoc `
+
+If this turns up empty, install RDoc:
+
+  `$ sudo apt-get install rdoc`
+
+2. Run the YARD server
+
+  ` yard server `
+
+3. Now you'll be able to look at the project documentation at http://localhost:8808
+
+### Notes
+
+- Throughout the documentation, the following terms are used:
+
+  - **User/s --**  The owner and any employees of the company using the app.
+  - **Client/s --** The person/people buying goods and services from the company.
+
+- The methods within models and controllers are alphabetized. 
 
 <!-- working on
 

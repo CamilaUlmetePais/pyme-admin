@@ -8,7 +8,7 @@
             [ I18n.t('views.body.payment_method.cash'), 0], 
             [ I18n.t('views.body.payment_method.debit'), 1], 
             [ I18n.t('views.body.payment_method.credit'), 2], 
-            [ I18n.t('views.body.payment_method.pay_pal'), 3]], 
+            [ I18n.t('views.body.payment_method.electronic_wallet'), 3]], 
             selected: 0, label: false %>
       </div>
       <div class="col-3 col-md-2 col-xl-1 d-inline-block">
@@ -21,7 +21,7 @@
   </div>
 </div>
 
-
+<!-- The table displays only on lg and larger viewports; for md and smaller devices, the index is presented as a list of cards -->
 
 <div class="d-none d-lg-block row table-responsive">
   <table class="table table-hover">
@@ -39,7 +39,7 @@
     <tbody>
       <% @inflows.each do |inflow| %>
         <tr>
-          <td><%= number_to_currency_ars(inflow.total) %></td>
+          <td><%= number_to_regional_currency(inflow.total) %></td>
           <td><%= inflow.payment_method.capitalize %></td>
           <td>
             <% inflow.items.each do |item| %>
@@ -72,7 +72,7 @@
       <div class='card-body'>
         <div class='row p-2 m-1 bg-secondary rounded'>
           <div class='col-6 fw-bold'>
-            <%= number_to_currency_ars(inflow.total) %> 
+            <%= number_to_regional_currency(inflow.total) %> 
           </div>
           <div class='col-6'>
             <%= inflow.payment_method.capitalize %>

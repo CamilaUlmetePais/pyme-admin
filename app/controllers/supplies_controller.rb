@@ -1,3 +1,4 @@
+# @!visibility private
 class SuppliesController < ApplicationController
 	before_action :set_supply, only: [:show, :edit, :update, :destroy]
   #skip_before_action :verify_authenticity_token, only: [:mass_stock_update]

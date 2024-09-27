@@ -5,6 +5,8 @@
     <%= link_to I18n.t('helpers.buttons.update_stock'), mass_stock_products_path, class: 'btn btn-outline-primary btn-lg m-1 text-decoration-none' %>
 </div>
 
+<!-- The table displays only on lg and larger viewports; for md and smaller devices, the index is presented as a list of cards -->
+
 <div class="d-none d-lg-block row table-responsive col-12 col-lg-10">
   <table class="table table-hover">
     <thead>
@@ -21,7 +23,7 @@
       <% @products.each do |product| %>
         <tr>
           <td><%= product.name %></td>
-          <td><%= number_to_currency_ars(product.price) %></td>
+          <td><%= number_to_regional_currency(product.price) %></td>
           <td><%= trim_zeroes(product.stock) %> <%= product.unit %></td>
           <td><%= product.notification_threshold %><%= product.unit %></td>
           <td>
@@ -50,7 +52,7 @@
 							<%= I18n.t('activerecord.attributes.product.price') %>: 
 						</div>
             <div class="col-6 col-md-6">
-							<%= number_to_currency_ars(product.price) %>
+							<%= number_to_regional_currency(product.price) %>
 						</div>
           </div>
           <div class='row col-12 mb-2 align-content-center'>

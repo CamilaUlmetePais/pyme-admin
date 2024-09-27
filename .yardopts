@@ -1,0 +1,3 @@
+--type-name-tag 'modelAttribute:Model Attributes' --type-name-tag 'association:Associations' --type-name-tag 'validation:Validations' --type-name-tag 'scope:Scopes' --type-name-tag 'enum:Enums' --type-name-tag 'callback:Callbacks'
+
+

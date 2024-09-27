@@ -29,21 +29,21 @@
               <tr>
                 <td><%= item.supply.name %></td>
                 <td><%= trim_zeroes(item.quantity) %> <%= item.supply.unit %></td>
-                <td><%= number_to_currency_ars(item.supply.price) %></td>
-                <td><%= number_to_currency_ars(item.subtotal) %></td>
+                <td><%= number_to_regional_currency(item.supply.price) %></td>
+                <td><%= number_to_regional_currency(item.subtotal) %></td>
               </tr>
             <% end %>
             <tr>
               <td></td>
               <td></td>
               <td class='fs-5 text-decoration-underline'><strong><%= I18n.t('activerecord.attributes.outflow.total') %>:</strong></td>
-              <td class='fs-5 text-decoration-underline'><strong><%= number_to_currency_ars(@outflow.total) %></strong></td>
+              <td class='fs-5 text-decoration-underline'><strong><%= number_to_regional_currency(@outflow.total) %></strong></td>
             </tr>
             <tr>
               <td></td>
               <td></td>
               <td class='fs-5 text-decoration-underline'><strong><%= I18n.t('activerecord.attributes.outflow.aid') %>:</strong></td>
-              <td class='fs-5 text-decoration-underline'><strong><%= number_to_currency_ars(@outflow.paid) %></strong></td>
+              <td class='fs-5 text-decoration-underline'><strong><%= number_to_regional_currency(@outflow.paid) %></strong></td>
             </tr>
           </tbody>
         </table>
