@@ -11,7 +11,9 @@ RSpec.describe Reminder, type: :model do
 
     context "creating a new reminder" do
       it "must have a due date set in the future" do
-        expect { subject }.to_not raise_error
+        expect { 
+          FactoryBot.create(:reminder, due_date: DateTime.now + 3.days)
+        }.to_not raise_error
       end
       it "should raise an exception if due date is set in the past" do
         expect { 

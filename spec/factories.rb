@@ -27,7 +27,8 @@ FactoryBot.define do
   
   factory :inflow_item do
     quantity { 3.5 }
-    product
+    product 
+    inflow
   end
 
   factory :inflow do
