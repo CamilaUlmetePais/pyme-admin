@@ -6,6 +6,7 @@ class SuppliesController < ApplicationController
 
   def create
     @supply = Supply.new(supply_params)
+    @supply.name = supply_params[:name].capitalize
     respond_to do |format|
       if @supply.save
         format.html { redirect_to supplies_path,
@@ -51,6 +52,7 @@ class SuppliesController < ApplicationController
   end
 
   def update
+    supply_params[:name] = supply_params[:name].capitalize!
     respond_to do |format|
       if @supply.update(supply_params)
         format.html { redirect_to supplies_path,

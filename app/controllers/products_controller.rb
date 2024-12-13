@@ -8,6 +8,7 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
+    @product.name = product_params[:name].capitalize
     respond_to do |format|
       if @product.save
         format.html { redirect_to products_path,
@@ -76,6 +77,7 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
+    product_params[:name] = product_params[:name].capitalize!
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to products_path,

@@ -7,7 +7,7 @@ class SuppliersController < ApplicationController
   # POST /suppliers.json
   def create
     @supplier = Supplier.new(supplier_params)
-
+    @supplier.name = supplier_params[:name].capitalize
     respond_to do |format|
       if @supplier.save
         format.html { redirect_to suppliers_path,
@@ -65,6 +65,7 @@ class SuppliersController < ApplicationController
   # PATCH/PUT /suppliers/1
   # PATCH/PUT /suppliers/1.json
   def update
+    supplier_params[:name] = supplier_params[:name].capitalize!
     respond_to do |format|
       if @supplier.update(supplier_params)
         format.html { redirect_to suppliers_path,

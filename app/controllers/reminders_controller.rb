@@ -5,6 +5,7 @@ class RemindersController < ApplicationController
 
 	def create
 		@reminder = Reminder.new(reminder_params)
+		@reminder.title = reminder_params[:title].capitalize
 		respond_to do |format|
 			if @reminder.save
 				format.html { redirect_to reminders_path,
@@ -49,6 +50,7 @@ class RemindersController < ApplicationController
 	end
 
 	def update
+		reminder_params[:title] = reminder_params[:title].capitalize!
 		respond_to do |format|
 			if @reminder.update(reminder_params)
 				format.html { redirect_to reminders_path,
