@@ -38,8 +38,8 @@ class RemindersController < ApplicationController
 	end
 
 	def index
-  	@notifications = Notification.last_60_days.order(created_at: :desc).page(params[:page])
-  	@reminders = Reminder.last_60_days.order(created_at: :desc).page(params[:page])
+  	@notifications = Notification.order(created_at: :desc).page(params[:page])
+  	@reminders = Reminder.order(created_at: :desc).page(params[:page])
 	end
 
 	def new

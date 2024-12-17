@@ -15,7 +15,6 @@
 # @scope date_range filters outflows between the two dates provided by the user in the search form to return only the outflows created between those two dates. 
 # @enum payment_method Options <tt> O => cash || 1 => debit || 2 => credit || 3 => electronic_wallet</tt>
 class Outflow < ApplicationRecord
-	before_update 								:generate_total # DUPLICATE
 	belongs_to 										:supplier
 	has_many 											:outflow_items, dependent: :destroy
 	accepts_nested_attributes_for :outflow_items, allow_destroy: true, reject_if: :all_blank
@@ -23,7 +22,7 @@ class Outflow < ApplicationRecord
 	validates 										:paid, :supplier_id,:payment_method, presence: true
 	validates 										:paid, numericality: true
 
-	before_update 								:generate_total # DUPLICATE
+	before_update 								:generate_total
   #after_save										:notification_builder, :add_stock
 
 	scope :date_range, -> (start_date, end_date) { where(

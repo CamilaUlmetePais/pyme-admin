@@ -2,10 +2,7 @@
 # 
 # @modelAttribute title [string] A summary of the Notification's contents, mentioning the product/supplier in question. 
 # @modelAttribute text [text] The details of the situation being brought to the user's notice.
-# @todo remove <tt>last_60_days</tt> scope 
 class Notification < ApplicationRecord
-
-	scope :last_60_days, -> { where('created_at >= ?', 60.days.ago) }
 
 	# Creates a 'Stock Alert' Notification when a Product's Stock falls below the Notification Threshold set by the user.
 	# 
