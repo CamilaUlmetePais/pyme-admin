@@ -4,7 +4,7 @@
 # @modelAttribute phone_number [string] the supplier's contact phone number. It's a string in case there are special characters like prefixes like  <tt>+54 (11)</tt>.
 # @modelAttribute email [string] the supplier's email.
 # @modelAttribute notes [text] a simple field for the user to write down whatever they might wish to remember about this supplier. What they sell, their business hours, any other useful information.
-# @modelAttribute account_balance [float] where the user stands with the supplier in terms of money owed. If the user owes money to the supplier (for items bought or services rendered that weren't paid in full) this value will be negative. 
+# @modelAttribute account_balance [float] where the user stands with the supplier in terms of money owed. If the user owes money to the supplier (for items bought or services rendered that weren't paid in full) this value should be negative. If the user doesn't owe any money to the supplier nor do they have any in their favour, this value should be 0. If the supplier owes money to the user, this value should be positive. 
 # @modelAttribute notification_threshold [integer] an optional value the user can set to get a notification when the account balance falls below it. 
 # @association has_many [Outflows] The supplier's interaction with the user is reflected in outflows, since it represents an expense to the user. 
 # @association has_many [OutflowItems - through Outflows] The items that were bought from this supplier
@@ -16,8 +16,8 @@ class Supplier < ApplicationRecord
 	has_many  :outflows
 	has_many  :outflow_items, through: :outflows
 	has_many  :supplies, through: :outflow_items
-	validates :name, :account_balance, presence: true
-  validates :account_balance, numericality: true
+  validates :name, :account_balance, presence: true
+	validates :account_balance, numericality: true
   validates :notification_threshold, numericality: true, allow_blank: true
 	validates :name, uniqueness: { case_sensitive: false }
 

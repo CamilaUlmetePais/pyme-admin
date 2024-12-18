@@ -90,7 +90,7 @@ class SuppliersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def supplier_params
-      params.require(:supplier).permit(:name, :phone_number, :account_balance, :notification_threshold)
+      params.require(:supplier).permit(:name, :phone_number, :account_balance, :email, :notes, :notification_threshold)
     end
 
     def search_params
