@@ -12,6 +12,7 @@ en:
       update_stock: Update stock
       search: Search
       calculate: Calculate
+      mark_done: Mark done
     label:
       inflow:
         payment_method: Forma de pago

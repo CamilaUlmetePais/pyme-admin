@@ -1,6 +1,6 @@
 # @!visibility private
 class RemindersController < ApplicationController
-	before_action :set_reminder, only: [:show, :edit, :update, :destroy]
+	before_action :set_reminder, only: [:show, :edit, :update, :destroy, :change_reminder_status]
 	before_action :authenticate_cashier, only: [:edit, :update, :destroy, :show]
 
 	def create
@@ -40,6 +40,16 @@ class RemindersController < ApplicationController
 	def index
   	@notifications = Notification.order(created_at: :desc).page(params[:page])
   	@reminders = Reminder.order(created_at: :desc).page(params[:page])
+	end
+
+# Custom controller action for updating reminders 'done' attribute from index
+	def change_reminder_status
+		if @reminder.done == true
+			@reminder.update(done: false)
+		else
+			@reminder.update(done: true)
+		end
+		redirect_to reminders_path
 	end
 
 	def new

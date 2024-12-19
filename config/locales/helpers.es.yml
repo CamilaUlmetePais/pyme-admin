@@ -12,6 +12,7 @@ es:
         update_stock: Actualizar stock
         search: Buscar
         calculate: Calcular
+        mark_done: Marcar listo
       label:
         inflow:
           payment_method: Forma de pago

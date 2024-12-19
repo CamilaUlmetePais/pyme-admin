@@ -29,7 +29,13 @@
 							<td><%= reminder.title %></td>
 							<td><%= reminder.text.truncate(50, omission: '... (+)') %></td>
 							<td><%= I18n.l(reminder.due_date, format: :short) %></td>
-							<td><%= checkbox(reminder.done) %></td>
+							<td>
+								<% if reminder.done == true %>
+									<%= button_to(checkbox(reminder.done), change_reminder_status_reminder_path(reminder), class: 'btn btn-success', method: :patch, data: {turbo_method: :patch})%>
+								<% else %>
+									<%= button_to(checkbox(reminder.done), change_reminder_status_reminder_path(reminder), class: 'btn btn-danger', method: :patch, data: {turbo_method: :patch})%>
+								<% end %>
+							</td>
 							<td>
 								<%= link_to(image_tag("icon_show.svg", size:"23x23", alt: I18n.t('helpers.buttons.show'), data: {title: I18n.t('helpers.buttons.show')}), reminder_path(reminder), class: 'btn btn-info') %>
 							</td>

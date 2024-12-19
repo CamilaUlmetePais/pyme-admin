@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root to: 'inflows#index' 
 
-  resources :notifications, :outflows, :reminders, :suppliers, :supply_product_links
+  resources :notifications, :outflows, :suppliers, :supply_product_links
   resources :inflows do
     collection do
       get '/expand/:id', to: 'inflows#expand', as: :expand
@@ -22,6 +22,11 @@ Rails.application.routes.draw do
       post 'mass_stock_update'
     end
   end
+  resources :reminders do
+    member do
+      patch :change_reminder_status
+    end
+  end
   get 'statistics', to: 'pages#statistics', as: :statistics
-  get 'take', to: 'pages#register', as: :register
+  get 'register', to: 'pages#register', as: :register
 end

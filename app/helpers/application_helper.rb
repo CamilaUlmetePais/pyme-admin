@@ -6,9 +6,9 @@ module ApplicationHelper
   # @return [image_tag] On <tt>true</tt>, it shows a checkmark. On <tt>false</tt>, it shows an empty box.
   def checkbox(boolean)
     if boolean
-      image_tag("square_check.svg", size: "30x30")
+      image_tag("check.svg", size: "23x23")
     else
-      image_tag("square_empty.svg", size: "30x30")
+      image_tag("cross.svg", size: "23x23")
     end
   end
 
