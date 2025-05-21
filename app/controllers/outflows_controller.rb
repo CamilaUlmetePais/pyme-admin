@@ -77,6 +77,7 @@ class OutflowsController < ApplicationController
   # PATCH/PUT /outflows/1
   # PATCH/PUT /outflows/1.json
   def update
+    @outflow.total = generate_outflow_total(outflow_params)
     respond_to do |format|
       successful = false
 

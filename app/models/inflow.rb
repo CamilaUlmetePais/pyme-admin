@@ -7,8 +7,6 @@
 # @association alias_attribute [Items] it allows InflowItems to be referred to as simply <tt>Items</tt> for simplicity.
 # @validation payment_method should be present. 
 # @enum payment_method Options: <tt> O => cash || 1 => debit || 2 => credit || 3 => electronic_wallet </tt> 
-# @callback after_save [notification_builder] runs the method after creating or updating an inflow.
-# @callback after_save [subtract_stock] runs the method after creating or updating an inflow.
 class Inflow < ApplicationRecord
 	has_many 											:inflow_items, dependent: :destroy
 	accepts_nested_attributes_for :inflow_items, allow_destroy: true, reject_if: :all_blank

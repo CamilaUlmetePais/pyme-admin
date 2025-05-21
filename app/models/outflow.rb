@@ -11,7 +11,6 @@
 # @validation paid should be present and should be a number
 # @validation supplier_id should be present
 # @validation payment_method should be present
-# @callback before_update [generate_total] Adds the total to the Outflow after updating. 
 # @scope date_range filters outflows between the two dates provided by the user in the search form to return only the outflows created between those two dates. 
 # @enum payment_method Options <tt> O => cash || 1 => debit || 2 => credit || 3 => electronic_wallet</tt>
 class Outflow < ApplicationRecord
@@ -21,9 +20,6 @@ class Outflow < ApplicationRecord
 	alias_attribute 							:items, :outflow_items
 	validates 										:paid, :supplier_id,:payment_method, presence: true
 	validates 										:paid, numericality: true
-
-	#before_update 								:generate_total
-  #after_save										:notification_builder, :add_stock
 
 	scope :date_range, -> (start_date, end_date) { where(
 		'created_at >= ? AND created_at <= ?', start_date, end_date) }

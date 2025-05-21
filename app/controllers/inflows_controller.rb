@@ -93,6 +93,7 @@ class InflowsController < ApplicationController
 
   # PATCH/PUT /inflows/1
   def update
+    @inflow.total = generate_inflow_total(inflow_params)
     respond_to do |format|
       successful = false
       @inflow.transaction do
