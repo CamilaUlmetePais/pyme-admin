@@ -108,7 +108,7 @@ class OutflowsController < ApplicationController
     def generate_outflow_total(params)
       total = 0
       params[:outflow_items_attributes].to_h.values.each do |item|
-        unless item.values.any? {|value| value.empty?}
+        unless item[:supply_id].empty? || item[:quantity].empty?
           supply = Supply.find(item[:supply_id])
           total += item[:quantity].to_f * supply.price
         end

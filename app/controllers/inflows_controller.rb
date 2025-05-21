@@ -27,6 +27,7 @@ class InflowsController < ApplicationController
     respond_to do |format|
       if @inflow.save
         @inflow.notification_builder
+        @inflow.subtract_stock
         format.html { redirect_to inflows_path,
                       notice: {
                         message: I18n.t('activerecord.controllers.actions.created',
@@ -100,6 +101,7 @@ class InflowsController < ApplicationController
       end
       if successful
         @inflow.notification_builder
+        @inflow.subtract_stock
         format.html { redirect_to inflows_path,
                       notice: {
                         message: I18n.t('activerecord.controllers.actions.updated',

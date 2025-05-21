@@ -22,7 +22,7 @@ class Outflow < ApplicationRecord
 	validates 										:paid, :supplier_id,:payment_method, presence: true
 	validates 										:paid, numericality: true
 
-	before_update 								:generate_total
+	#before_update 								:generate_total
   #after_save										:notification_builder, :add_stock
 
 	scope :date_range, -> (start_date, end_date) { where(

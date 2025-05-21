@@ -15,8 +15,6 @@ class Inflow < ApplicationRecord
 	alias_attribute 							:items, :inflow_items
 	validates_presence_of					:payment_method
 
-  after_save										:notification_builder, :subtract_stock
-
 	scope :by_payment_method, -> (value) { where('payment_method = ?', value) }
 
 	enum payment_method: [:cash, :debit, :credit, :electronic_wallet] 
