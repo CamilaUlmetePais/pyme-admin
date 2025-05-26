@@ -68,7 +68,7 @@ group :development, :test do
   # Testing
   gem 'rspec-rails', '~> 7.0.0'
   gem 'shoulda-matchers', '~> 6.0'
-  gem 'factory_bot_rails'
+  # gem 'factory_bot_rails'
   # Documentation 
   gem 'yard', '~> 0.9.37'
 end
